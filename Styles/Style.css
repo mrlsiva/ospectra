@@ -33,6 +33,11 @@
     src: url("../Assets/fonts/Roboto/Roboto-Bold.ttf");
 }
 
+@font-face{
+    font-family: "Poppins", sans-serif;
+    src: url("../Assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
 /* Reset default margins/paddings */
 * {
   margin: 0;
