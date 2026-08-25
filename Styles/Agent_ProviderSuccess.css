@@ -1,0 +1,357 @@
+/* ==========================================================================
+   OSpectra — Provider Success Agent page
+   Layout concept: horizontal journey roadmap (accent: pink)
+   ========================================================================== */
+
+.accent-pink {
+  color: var(--pink);
+}
+
+.accent-navy {
+  color: var(--ink);
+  font-weight: 300;
+}
+
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 28px 0 18px;
+  transition: color .2s ease;
+}
+
+.agent-back-link:hover {
+  color: var(--pink);
+}
+
+/* ================= HERO ================= */
+.ps-hero {
+  background: linear-gradient(180deg, #fff 0%, #fdf3f8 100%);
+  padding-bottom: 60px;
+}
+
+.ps-hero-inner {
+  max-width: 880px;
+}
+
+.ps-hero-inner h1 {
+  font-size: clamp(30px, 4vw, 50px);
+  color: var(--ink);
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 18px;
+}
+
+.ps-hero-inner .lede {
+  font-size: 16px;
+  max-width: 700px;
+  color: #6B6B80;
+  font-weight: 400;
+}
+
+.ps-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* ================= ROADMAP STRIP ================= */
+.ps-roadmap {
+  padding: 30px 0 10px;
+}
+
+.ps-road {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 760px;
+  margin: 40px auto 10px;
+  padding: 0 10px;
+}
+
+.ps-road-line {
+  position: absolute;
+  top: 27px;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--pink) 0 10px, transparent 10px 18px);
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.ps-road-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  width: 33.33%;
+  transition: transform .2s ease;
+}
+
+.ps-road-node:hover {
+  transform: translateY(-4px);
+}
+
+.ps-road-dot {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--pink);
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.45);
+  transition: background .2s ease, color .2s ease;
+}
+
+.ps-road-node:hover .ps-road-dot {
+  background: var(--pink);
+  color: #fff;
+}
+
+.ps-road-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ================= STAGE DETAIL CARDS ================= */
+.ps-stages {
+  padding: 30px 0 60px;
+}
+
+.ps-stages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ps-stage-card {
+  position: relative;
+  background: var(--lavender-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+  scroll-margin-top: 110px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.ps-stage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+
+.ps-stage-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(236, 72, 153, 0.14);
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.ps-stage-card h3 {
+  font-size: 21px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.ps-stage-intro {
+  font-size: 13.5px;
+  color: #4A4A63;
+  font-weight: 500;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.ps-stage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ps-stage-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.ps-stage-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+
+/* ================= WHAT THE TEAM SEES ================= */
+.ps-sees {
+  padding: 20px 0 60px;
+  background: #fff;
+}
+
+.ps-sees-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.ps-sees-tile {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px 18px;
+  box-shadow: var(--shadow-card);
+  transition: transform .25s ease;
+}
+
+.ps-sees-tile:hover {
+  transform: translateY(-5px);
+}
+
+.ps-sees-tile .pill {
+  background: rgba(236, 72, 153, 0.14);
+  color: var(--pink);
+  margin-bottom: 14px;
+}
+
+.ps-sees-tile h3 {
+  font-size: 15.5px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.ps-sees-tile p {
+  font-size: 12.5px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ================= HANDOFF + PRINCIPLE BAND ================= */
+.ps-band {
+  background: var(--navy);
+  padding: 60px 0;
+}
+
+.ps-band-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ps-band-col p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ================= PAGER ================= */
+.agent-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.agent-pager a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .2s ease;
+}
+
+.agent-pager a:hover {
+  color: var(--pink);
+}
+
+.agent-pager-next {
+  margin-left: auto;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .ps-stages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-sees-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ps-band-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ps-hero-inner h1 {
+    font-size: 30px;
+  }
+
+  .ps-road {
+    flex-direction: column;
+    gap: 26px;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .ps-road-line {
+    top: 0;
+    bottom: 0;
+    left: 27px;
+    right: auto;
+    width: 3px;
+    height: auto;
+    background: repeating-linear-gradient(180deg, var(--pink) 0 10px, transparent 10px 18px);
+  }
+
+  .ps-road-node {
+    flex-direction: row;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ps-sees-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-pager {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .agent-pager-next {
+    margin-left: 0;
+  }
+}

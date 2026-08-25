@@ -185,7 +185,7 @@ header{
     }
 
     .nav-menu{
-        height: 40%;
+        height: 40vh;
     }
 
     .nav-menu ul{
@@ -231,7 +231,7 @@ header{
     .nav-menu{
         position:fixed;
         left:0;
-        top:-41%;
+        top:-100vh;
         gap:0;
         justify-content: flex-end;
         flex-direction: column;
@@ -265,7 +265,7 @@ header{
 
 @media screen and (max-width:768px) {
     .nav-menu {
-        height: 30%;
+        height: auto;
     }
 }
 

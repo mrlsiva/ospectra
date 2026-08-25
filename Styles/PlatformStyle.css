@@ -40,11 +40,16 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
 .wrap {
   max-width: 1450px;
   margin: 0 auto;
   padding: 0 32px;
+}
+
+@media (max-width: 1440px) {
+  .wrap {
+    max-width: 1200px;
+  }
 }
 
 h1,
@@ -574,15 +579,15 @@ ul {
    SECTION GENERIC
    ========================================================================== */
 .section {
-  padding: 90px 0;
+  padding: 60px 0;
 }
 
 .section-head {
-  display: grid;
+  display: flex;
   grid-template-columns: 1.2fr 1fr;
-  gap: 50px;
   align-items: start;
   margin-bottom: 56px;
+  flex-direction: column;
 }
 
 .section-head h2 {
@@ -606,7 +611,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  border-top: 1px solid #EFECFB;
+  border: 1px solid #EFECFB;
 }
 
 .trio-card {
@@ -1235,7 +1240,7 @@ span.check.ok:before {
 .feature-card {
   background: var(--lavender-bg);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 32px 0px;
   border: 1px solid var(--line);
 }
 
@@ -1376,7 +1381,7 @@ span.check.ok:before {
   color: #fff;
   border-radius: 40px;
   margin: 0 20px;
-  padding: 80px 0;
+  padding: 80px 36px;
 }
 
 .graph-inner {
@@ -1512,7 +1517,7 @@ span.check.ok:before {
 }
 
 .final-cta-inner {
-  max-width: 640px;
+  max-width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1537,7 +1542,8 @@ span.check.ok:before {
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1024px) {
+
+   @media (max-width: 1024px) {
 
   .hero-grid,
   .agent-grid,
@@ -1564,16 +1570,35 @@ span.check.ok:before {
 }
 
 @media (max-width: 768px) {
+  .section-head {
+    margin-bottom: 24px;
+     gap: 24px;
+  }
+  .trio-card:first-child, .trio-card:nth-child(2) {
+    border: 1px solid #EFECFB;
+}
+  .agent-grid {
+    gap: 24px;
+  }
+  .why-list, .feature-footer {
+    flex-direction: column;
+  }
+  .feature-footer p {
+      padding: 0 16px;
+  }
+  .ui-card, .agent-visual {
+    padding: 26px 12px;
+  }
   .wrap {
     padding: 0 20px;
   }
 
   .hero {
-    padding: 60px 0 40px;
+    padding: 0px 0 40px;
   }
 
   .section {
-    padding: 60px 0;
+    padding:12px 0;
   }
 
   .card-trio {
@@ -1597,7 +1622,7 @@ span.check.ok:before {
   .final-cta {
     border-radius: 24px;
     margin: 0 12px;
-    padding: 60px 0;
+    padding: 60px 12px;
   }
 
   .ticker-inner {

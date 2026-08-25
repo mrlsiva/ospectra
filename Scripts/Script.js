@@ -8,6 +8,7 @@ hamburger.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 
   function updateBottomImgDisplay() {
+    if (!bottomimg) return;
     if (window.innerWidth <= 990) {
       bottomimg.style.display = "flex";
     } else {

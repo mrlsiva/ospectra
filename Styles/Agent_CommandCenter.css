@@ -1,0 +1,597 @@
+/* ==========================================================================
+   OSpectra — Command Center Agent
+   Layout concept: "Live command dashboard" — full page runs dark, top to
+   bottom, like a control-room UI. Accent glow color: --purple-light.
+   Namespace: .cc-*
+   ========================================================================== */
+
+body {
+  background: var(--navy-deep);
+}
+
+/* ==========================================================================
+   BACK LINK — dark-legible variant
+   ========================================================================== */
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  padding-top: 26px;
+  margin-bottom: 6px;
+  transition: color .2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.agent-back-link:hover {
+  color: var(--purple-light);
+}
+
+/* ==========================================================================
+   HERO — dot-grid texture + glow
+   ========================================================================== */
+.cc-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6px 0 80px;
+  background: var(--navy-deep);
+}
+
+.cc-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
+          mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
+  pointer-events: none;
+}
+
+.cc-hero-glow {
+  position: absolute;
+  top: -220px;
+  right: -140px;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(138, 110, 245, 0.45) 0%, rgba(138, 110, 245, 0) 70%);
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cc-hero-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.cc-hero-inner {
+  max-width: 760px;
+  margin-top: 26px;
+}
+
+.cc-hero-inner h1 {
+  font-size: clamp(30px, 3.8vw, 54px);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.cc-hero-inner h1 span {
+  font-weight: 300;
+  color: var(--purple-light);
+}
+
+.cc-hero-inner .lede {
+  font-size: 15px;
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 400;
+}
+
+.cc-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.cc-hero-actions .cc-link {
+  color: #fff;
+}
+
+.cc-hero-actions .cc-link span {
+  color: var(--purple-light);
+}
+
+/* ==========================================================================
+   SHARED SECTION HEAD — dark override
+   ========================================================================== */
+.cc-section-head h2 {
+  color: #fff;
+}
+
+.cc-section-head h2 span {
+  font-weight: 300;
+  color: var(--purple-light);
+}
+
+.cc-note {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.cc-eyebrow {
+  background: rgba(138, 110, 245, 0.16);
+  color: var(--purple-light);
+}
+
+/* ==========================================================================
+   WHAT THE TEAM SEES — dashboard card
+   ========================================================================== */
+.cc-dashboard-card {
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+}
+
+.cc-dashboard-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cc-live {
+  margin-left: auto;
+  color: #4ade80;
+  letter-spacing: 0.06em;
+}
+
+.cc-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cc-panel {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 22px;
+}
+
+.cc-panel-priorities {
+  grid-column: 1 / -1;
+}
+
+.cc-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cc-panel-head h4 {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.cc-panel-tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  background: rgba(138, 110, 245, 0.16);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.cc-panel-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 16px;
+  max-width: 640px;
+}
+
+/* --- Today's priorities: mock rows --- */
+.cc-priority-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cc-priority-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cc-dot-red {
+  background: #ef4a6a;
+  box-shadow: 0 0 8px rgba(239, 74, 106, 0.7);
+}
+
+.cc-dot-amber {
+  background: #fbbf60;
+  box-shadow: 0 0 8px rgba(251, 191, 96, 0.6);
+}
+
+.cc-priority-label {
+  flex: 1;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cc-sev {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.cc-sev-high {
+  color: #ff9baf;
+  background: rgba(239, 74, 106, 0.16);
+}
+
+.cc-sev-med {
+  color: #fbbf60;
+  background: rgba(251, 191, 96, 0.14);
+}
+
+/* --- Connected cause: chain --- */
+.cc-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.cc-chain-step {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 7px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cc-chain-risk {
+  color: #ff9baf;
+  background: rgba(239, 74, 106, 0.14);
+  border-color: rgba(239, 74, 106, 0.3);
+}
+
+.cc-chain-arrow {
+  color: var(--purple-light);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* --- Owner and next action: fields --- */
+.cc-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.cc-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cc-field-row:last-child {
+  border-bottom: none;
+}
+
+.cc-field-row span:first-child {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* --- Growth and capacity: meter --- */
+.cc-capacity-bar {
+  height: 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.cc-capacity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple-light), var(--pink));
+  border-radius: 6px;
+}
+
+.cc-capacity-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================================================
+   WHAT THIS AGENT OWNS — capability tile wall
+   ========================================================================== */
+.cc-tilewall {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.cc-tile {
+  position: relative;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.cc-tile:hover {
+  transform: translateY(-3px);
+  border-color: rgba(138, 110, 245, 0.45);
+  background: rgba(138, 110, 245, 0.08);
+}
+
+.cc-tile-num {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--purple-light);
+  margin-bottom: 12px;
+}
+
+.cc-tile h5 {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.cc-tile p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* ==========================================================================
+   HOW IT WORKS — signal flow
+   ========================================================================== */
+.cc-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 16px;
+}
+
+.cc-flow-line {
+  position: absolute;
+  top: 27px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(138, 110, 245, 0) 0%, var(--purple-light) 50%, rgba(138, 110, 245, 0) 100%);
+  box-shadow: 0 0 14px 2px rgba(138, 110, 245, 0.55);
+  z-index: 0;
+}
+
+.cc-flow-node {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.cc-flow-num {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--purple-light);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(138, 110, 245, 0.55);
+}
+
+.cc-flow-node h3 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cc-flow-node h3 span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--purple-light);
+  margin-bottom: 6px;
+}
+
+.cc-flow-node p {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   CLOSING BAND — connected handoff + built-in principle
+   ========================================================================== */
+.cc-closing {
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  margin: 0 20px;
+  padding: 64px 40px;
+  color: #fff;
+}
+
+.cc-closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.cc-closing-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.cc-closing-label {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 7px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.cc-closing-item p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14.5px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   PAGER — dark variant, prev + next
+   ========================================================================== */
+.agent-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 32px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.agent-pager-prev,
+.agent-pager-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--purple-light);
+}
+
+.agent-pager-prev span,
+.agent-pager-next span {
+  transition: transform .2s ease;
+}
+
+.agent-pager-prev:hover span {
+  transform: translateX(-4px);
+}
+
+.agent-pager-next:hover span {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .cc-dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cc-panel-priorities {
+    grid-column: 1 / -1;
+  }
+
+  .cc-tilewall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cc-flow {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .cc-flow-line {
+    display: none;
+  }
+
+  .cc-closing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .cc-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-dashboard-card {
+    padding: 20px;
+  }
+
+  .cc-tilewall {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-closing {
+    border-radius: 24px;
+    margin: 0 12px;
+    padding: 40px 20px;
+  }
+
+  .agent-pager {
+    padding: 30px 20px 10px;
+    justify-content: flex-start;
+  }
+}

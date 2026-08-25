@@ -1,0 +1,405 @@
+/* ==========================================================================
+   OSpectra — Customer Success Agent page
+   Layout concept: "Relationship health" — warm lavender/pink wash,
+   circular health gauge, vertical dotted check-in timeline (accent: purple)
+   ========================================================================== */
+
+body {
+  background: linear-gradient(180deg, #f8f6ff 0%, #fdf3f9 45%, #f6f2fd 100%);
+}
+
+.accent-purple {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 28px 0 18px;
+  transition: color .2s ease;
+}
+
+.agent-back-link:hover {
+  color: var(--pink);
+}
+
+/* ================= HERO ================= */
+.cs-hero {
+  padding-bottom: 50px;
+}
+
+.cs-hero-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.cs-hero-copy h1 {
+  font-size: clamp(30px, 4vw, 48px);
+  color: var(--ink);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.22;
+  margin-bottom: 20px;
+}
+
+.cs-hero-copy .lede {
+  font-size: 16.5px;
+  max-width: 620px;
+  color: #6B6B80;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.cs-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* ---- relationship health gauge ---- */
+.cs-gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+.cs-gauge {
+  width: 232px;
+  height: 232px;
+  border-radius: 50%;
+  padding: 16px;
+  background: conic-gradient(var(--green) 0deg 306deg, var(--line) 306deg 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+}
+
+.cs-gauge-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fffdfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  padding: 10px;
+}
+
+.cs-gauge-check {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.14);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cs-gauge-label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--ink);
+}
+
+.cs-gauge-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.cs-gauge-caption {
+  display: block;
+  margin-top: 16px;
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* ================= HOW IT WORKS: VERTICAL TIMELINE ================= */
+.cs-timeline-section {
+  padding: 30px 0 60px;
+}
+
+.cs-timeline {
+  position: relative;
+  max-width: 720px;
+  margin: 48px auto 0;
+  padding-left: 66px;
+}
+
+.cs-timeline-line {
+  position: absolute;
+  left: 16px;
+  top: 20px;
+  bottom: 20px;
+  border-left: 3px dashed var(--purple-light);
+}
+
+.cs-timeline-node {
+  position: relative;
+  margin-bottom: 34px;
+}
+
+.cs-timeline-node:last-child {
+  margin-bottom: 0;
+}
+
+.cs-timeline-dot {
+  position: absolute;
+  left: -66px;
+  top: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 10px 20px -8px rgba(91, 63, 224, 0.55);
+  z-index: 2;
+}
+
+.cs-timeline-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 26px 30px;
+  box-shadow: var(--shadow-card);
+}
+
+.cs-timeline-card h3 {
+  font-size: 19px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.cs-timeline-card p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ================= WHAT THIS AGENT OWNS ================= */
+.cs-owns {
+  padding: 20px 0 60px;
+}
+
+.cs-checklist {
+  max-width: 820px;
+  margin: 40px auto 0;
+  background: var(--purple-pale);
+  border-radius: var(--radius-lg);
+  padding: 8px 36px;
+  box-shadow: var(--shadow-card);
+}
+
+.cs-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px 0;
+  border-bottom: 1px dashed rgba(91, 63, 224, 0.18);
+}
+
+.cs-checklist li:last-child {
+  border-bottom: none;
+}
+
+.cs-check-mark {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+  box-shadow: 0 6px 14px -8px rgba(91, 63, 224, 0.5);
+}
+
+.cs-checklist li span:last-child {
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* ================= WHAT THE TEAM SEES ================= */
+.cs-sees {
+  padding: 20px 0 60px;
+}
+
+.cs-sees-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.cs-sees-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 30px 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform .25s ease;
+}
+
+.cs-sees-card:hover {
+  transform: translateY(-5px);
+}
+
+.cs-sees-card .pill {
+  background: rgba(91, 63, 224, 0.12);
+  color: var(--purple);
+  margin-bottom: 14px;
+}
+
+.cs-sees-card h3 {
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.cs-sees-card p {
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ================= HANDOFF + PRINCIPLE BAND ================= */
+.cs-band {
+  background: linear-gradient(120deg, #f3ecff 0%, #fde8f2 100%);
+  padding: 60px 0;
+  margin-top: 20px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.cs-band-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.cs-band-col .ui-eyebrow {
+  color: var(--purple);
+}
+
+.cs-band-col p {
+  color: #4A4560;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ================= PAGER ================= */
+.agent-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.agent-pager a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .2s ease;
+}
+
+.agent-pager a:hover {
+  color: var(--pink);
+}
+
+.agent-pager-next {
+  margin-left: auto;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .cs-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-gauge-wrap {
+    justify-self: start;
+    margin-top: 20px;
+  }
+
+  .cs-sees-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .cs-band-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-hero-copy h1 {
+    font-size: 30px;
+  }
+
+  .cs-gauge {
+    width: 190px;
+    height: 190px;
+  }
+
+  .cs-timeline {
+    padding-left: 54px;
+  }
+
+  .cs-timeline-line {
+    left: 12px;
+  }
+
+  .cs-timeline-dot {
+    left: -54px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .cs-checklist {
+    padding: 6px 22px;
+  }
+
+  .agent-pager {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .agent-pager-next {
+    margin-left: 0;
+  }
+}

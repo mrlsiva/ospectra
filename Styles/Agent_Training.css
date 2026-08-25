@@ -1,0 +1,540 @@
+/* ==========================================================================
+   OSpectra — Training, Video & Change Management Agent
+   Layout concept: course / curriculum / media-studio
+   Accent: pink (--pink)
+   ========================================================================== */
+
+.agent-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 26px;
+    transition: color .2s ease;
+}
+
+.agent-back-link:hover {
+    color: var(--pink);
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.tv-hero {
+    background: linear-gradient(180deg, #fff 0%, #fff7fb 100%);
+    padding-top: 6px;
+}
+
+.tv-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.tv-h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(30px, 3.8vw, 52px);
+    color: var(--pink);
+    margin-top: 14px;
+}
+
+.tv-h1 span {
+    display: block;
+    font-weight: 300;
+    color: #180F5A;
+}
+
+.tv-lede {
+    font-size: 15px;
+    max-width: 500px;
+    color: #6B6B80;
+    font-weight: 400;
+}
+
+.tv-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.tv-hero-actions .btn-primary {
+    background: var(--pink);
+    box-shadow: 0 12px 24px -10px rgba(236, 72, 153, .55);
+}
+
+.tv-hero-actions .btn-link span {
+    color: var(--pink);
+}
+
+/* ---- video thumbnail card ---- */
+.tv-video-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--line);
+    max-width: 460px;
+    margin-left: auto;
+}
+
+.tv-video-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    background: linear-gradient(150deg, #1a1440 0%, #2b1c5e 55%, #4a1f4d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tv-video-thumb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(115deg, rgba(255, 255, 255, .05) 0 2px, transparent 2px 40px);
+    opacity: .5;
+}
+
+.tv-video-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .2);
+    color: #fff;
+    padding: 6px 11px;
+    border-radius: 20px;
+}
+
+.tv-video-duration {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0, 0, 0, .45);
+    padding: 3px 9px;
+    border-radius: 6px;
+    letter-spacing: .03em;
+}
+
+.tv-play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .16);
+    border: 1.5px solid rgba(255, 255, 255, .55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.tv-play-triangle {
+    width: 0;
+    height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 18px solid #fff;
+    margin-left: 5px;
+}
+
+.tv-video-caption {
+    padding: 16px 8px 6px;
+}
+
+.tv-video-caption strong {
+    display: block;
+    font-size: 14.5px;
+    color: #180F5A;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.tv-video-caption small {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   MODULE CARDS (course catalog)
+   ========================================================================== */
+.tv-modules {
+    background: var(--lavender-bg);
+}
+
+.tv-module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tv-module-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 24px 22px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .2s ease;
+}
+
+.tv-module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(236, 72, 153, .3);
+}
+
+.tv-module-num {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--pink);
+    background: rgba(236, 72, 153, .12);
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.tv-module-card p {
+    font-size: 14px;
+    color: #4A4A63;
+    font-weight: 400;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ==========================================================================
+   HOW IT WORKS — learning-path stepper
+   ========================================================================== */
+.tv-stepper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.tv-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 280px;
+    flex: 0 0 auto;
+}
+
+.tv-step-node {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 22px -8px rgba(236, 72, 153, .55);
+    flex-shrink: 0;
+}
+
+.tv-step-copy {
+    margin-top: 18px;
+}
+
+.tv-step-copy h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #180F5A;
+    margin-bottom: 8px;
+}
+
+.tv-step-copy p {
+    font-size: 13.5px;
+    margin: 0;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.tv-step-track {
+    flex: 1 1 auto;
+    height: 4px;
+    background: var(--line);
+    border-radius: 4px;
+    margin-top: 27px;
+    min-width: 40px;
+    overflow: hidden;
+}
+
+.tv-step-track-fill {
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    border-radius: 4px;
+}
+
+.tv-step-track-fill.empty {
+    width: 0%;
+}
+
+/* ==========================================================================
+   WHAT THE TEAM SEES — dashboard cards
+   ========================================================================== */
+.tv-dash-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.tv-dash-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 26px 22px;
+    box-shadow: var(--shadow-card);
+}
+
+.tv-dash-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(236, 72, 153, .12);
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.tv-dash-card h4 {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #180F5A;
+    margin-bottom: 8px;
+}
+
+.tv-dash-card p {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tv-dash-card-studio {
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.tv-dash-card-studio .tv-dash-icon {
+    background: rgba(255, 255, 255, .12);
+}
+
+.tv-dash-card-studio h4 {
+    color: #fff;
+}
+
+.tv-dash-card-studio p {
+    color: rgba(255, 255, 255, .6);
+}
+
+.tv-studio-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.tv-thumb {
+    display: block;
+    aspect-ratio: 16 / 10;
+    border-radius: 6px;
+    opacity: .9;
+}
+
+.tv-thumb-a {
+    background: linear-gradient(135deg, var(--pink), #f472b6);
+}
+
+.tv-thumb-b {
+    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+}
+
+.tv-thumb-c {
+    background: linear-gradient(135deg, var(--teal), #5eead4);
+}
+
+.tv-thumb-d {
+    background: linear-gradient(135deg, var(--amber), #fbbf24);
+}
+
+.tv-thumb-e {
+    background: linear-gradient(135deg, var(--purple-light), var(--pink));
+}
+
+.tv-thumb-f {
+    background: linear-gradient(135deg, #4a1f4d, var(--purple));
+}
+
+/* ==========================================================================
+   CLOSING BAND
+   ========================================================================== */
+.tv-closing {
+    padding-bottom: 80px;
+}
+
+.tv-closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.tv-closing-card {
+    background: var(--lavender-bg);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px;
+}
+
+.tv-closing-card .callout-tag {
+    color: var(--pink);
+}
+
+.tv-closing-card p {
+    margin: 12px 0 0;
+    font-size: 15px;
+    color: #4A4A63;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+.tv-closing-card-dark {
+    background: var(--navy);
+}
+
+.tv-closing-card-dark p {
+    color: rgba(255, 255, 255, .72);
+}
+
+.tv-tag-light {
+    color: var(--purple-light);
+}
+
+/* ==========================================================================
+   PAGER
+   ========================================================================== */
+.agent-pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 32px 60px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.agent-pager a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color .2s ease;
+}
+
+.agent-pager a:hover {
+    color: var(--pink);
+}
+
+.agent-pager span {
+    color: var(--pink);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .tv-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tv-video-card {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .tv-module-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tv-dash-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tv-stepper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tv-step {
+        flex-direction: row;
+        max-width: none;
+        text-align: left;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .tv-step-copy {
+        margin-top: 0;
+    }
+
+    .tv-step-track {
+        width: 4px;
+        height: 40px;
+        margin: 0 0 0 27px;
+    }
+
+    .tv-step-track-fill {
+        width: 100%;
+        height: 50%;
+    }
+
+    .tv-step-track-fill.empty {
+        height: 0%;
+    }
+
+    .tv-closing-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .tv-module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tv-dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .agent-pager {
+        padding: 0 20px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

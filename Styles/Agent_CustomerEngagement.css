@@ -1,0 +1,453 @@
+/* ==========================================================================
+   OSpectra — Customer Engagement Agent
+   Layout concept: "Conversation timeline"
+   Namespace: .ce-*
+   ========================================================================== */
+
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  padding-top: 26px;
+  margin-bottom: 6px;
+  transition: color .2s ease;
+}
+
+.agent-back-link:hover {
+  color: var(--purple);
+}
+
+/* ==========================================================================
+   HERO — guided conversation opener
+   ========================================================================== */
+.ce-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
+  padding: 6px 0 70px;
+}
+
+.ce-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.ce-hero-copy h1 {
+  font-size: clamp(30px, 3.8vw, 54px);
+  color: var(--purple);
+  font-family: "Poppins", sans-serif;
+}
+
+.ce-hero-copy h1 span {
+  font-weight: 300;
+  color: #180F5A;
+}
+
+.ce-hero-copy .lede {
+  font-size: 15px;
+  max-width: 500px;
+  color: #6B6B80;
+  font-weight: 400;
+}
+
+.ce-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+/* --- intake conversation card --- */
+.ce-intake-card {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  color: #fff;
+  position: relative;
+}
+
+.ce-intake-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.ce-intake-topbar .demo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--purple-light);
+}
+
+.ce-intake-topbar span.ce-live {
+  margin-left: auto;
+  color: #4ade80;
+  letter-spacing: 0.06em;
+}
+
+.ce-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ce-bubble {
+  max-width: 84%;
+  padding: 12px 15px;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ce-bubble-agent {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: 4px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ce-bubble-agent::before {
+  content: "OSPECTRA";
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--purple-light);
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.ce-bubble-user {
+  align-self: flex-end;
+  background: var(--gradient-brand);
+  border-bottom-right-radius: 4px;
+  color: #fff;
+}
+
+.ce-bubble-user::before {
+  content: "FAMILY";
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.ce-extract {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.ce-extract-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ce-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  padding: 7px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ce-field-row:last-of-type {
+  border-bottom: none;
+}
+
+.ce-field-row span:first-child {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ce-field-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 12px;
+  color: #fbbf60;
+}
+
+.ce-field-status .dot-amber {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fbbf60;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   HOW IT WORKS — horizontal connected timeline
+   ========================================================================== */
+.ce-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 10px;
+}
+
+.ce-timeline-node {
+  position: relative;
+  padding: 0 26px;
+  text-align: left;
+}
+
+.ce-timeline-node::before {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px);
+  z-index: 0;
+}
+
+.ce-timeline-node:first-child::before {
+  display: none;
+}
+
+.ce-node-num {
+  position: relative;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 22px -8px rgba(91, 63, 224, 0.55);
+}
+
+.ce-timeline-node h3 {
+  font-size: 19px;
+  color: #180F5A;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.ce-timeline-node h3 span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  margin-bottom: 6px;
+}
+
+.ce-timeline-node p {
+  font-size: 14px;
+  max-width: 320px;
+}
+
+/* ==========================================================================
+   WHAT THIS AGENT OWNS — two-column checklist
+   ========================================================================== */
+.ce-owns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 40px;
+}
+
+.ce-owns-grid .checklist {
+  margin: 0;
+}
+
+/* ==========================================================================
+   WHAT THE TEAM SEES — 2x2 dashboard tiles
+   ========================================================================== */
+.ce-dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ce-tile {
+  background: #F7F6FE;
+  border: 1px solid #ECE8FB;
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.ce-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.ce-tile-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ce-tile-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--gradient-brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ce-tile h4 {
+  font-size: 15.5px;
+  color: #180F5A;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ce-tile p {
+  font-size: 13.5px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CLOSING BAND — connected handoff + built-in principle
+   ========================================================================== */
+.ce-closing {
+  background: var(--navy-deep);
+  border-radius: 40px;
+  margin: 0 20px;
+  padding: 64px 40px;
+  color: #fff;
+}
+
+.ce-closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ce-closing-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.ce-closing-label {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 7px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.ce-closing-item p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14.5px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   PAGER
+   ========================================================================== */
+.agent-pager {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px 32px 10px;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+
+.agent-pager-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.agent-pager-next span {
+  transition: transform .2s ease;
+}
+
+.agent-pager-next:hover span {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .ce-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ce-timeline {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ce-timeline-node::before {
+    display: none;
+  }
+
+  .ce-closing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ce-owns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ce-dash-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ce-closing {
+    border-radius: 24px;
+    margin: 0 12px;
+    padding: 40px 20px;
+  }
+
+  .agent-pager {
+    padding: 30px 20px 10px;
+  }
+}

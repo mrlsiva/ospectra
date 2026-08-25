@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Scheduling & Provider Matching Agent — "Split coverage board" layout
+   Accent: pink (--pink)
+   ========================================================================== */
+
+/* ---- Back link ---- */
+.spm-back-section {
+  padding: 22px 0 0;
+}
+
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  transition: color .2s ease;
+}
+
+.agent-back-link:hover {
+  color: var(--pink);
+}
+
+/* ---- Two column shell ---- */
+.spm-main {
+  padding: 28px 0 70px;
+}
+
+.spm-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.spm-sticky-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.spm-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--pink);
+  line-height: 1.2;
+}
+
+.spm-title span {
+  font-weight: 300;
+  color: #180F5A;
+}
+
+.spm-lede {
+  font-size: 15px;
+  color: #6B6B80;
+  font-weight: 400;
+  max-width: 480px;
+}
+
+.spm-note-block {
+  border-left: 3px solid var(--pink);
+  background: #FEF1F7;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+  margin-top: 18px;
+}
+
+.spm-note-block.spm-note-principle {
+  border-left-color: var(--purple);
+  background: var(--lavender-bg);
+}
+
+.spm-note-tag {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 6px;
+}
+
+.spm-note-block.spm-note-principle .spm-note-tag {
+  color: var(--purple);
+}
+
+.spm-note-block p {
+  margin: 0;
+  font-size: 13.5px;
+  color: #4A4A63;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.spm-cta {
+  background: var(--pink);
+  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.5);
+  margin-top: 26px;
+  align-self: flex-start;
+}
+
+.spm-cta:hover {
+  box-shadow: 0 16px 30px -10px rgba(236, 72, 153, 0.6);
+}
+
+/* Sticky behavior only above ~1100px */
+@media (min-width: 1101px) {
+  .spm-sticky-col {
+    position: sticky;
+    top: 28px;
+    align-self: start;
+  }
+}
+
+/* ---- Right scroll column blocks ---- */
+.spm-scroll-col {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+.spm-block > .pill {
+  margin-bottom: 20px;
+}
+
+.spm-block h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---- What this agent owns: icon-row list ---- */
+.spm-icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spm-icon-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 14.5px;
+  color: #4A4A63;
+  font-weight: 400;
+  line-height: 1.65;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.spm-icon-list li:hover {
+  border-color: var(--pink);
+  transform: translateX(3px);
+}
+
+.spm-icon-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--pink);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.spm-icon-list li:nth-child(3n+2) .spm-icon-dot {
+  background: var(--purple);
+}
+
+.spm-icon-list li:nth-child(3n) .spm-icon-dot {
+  background: var(--teal);
+}
+
+/* ---- How it works: horizontal step strip ---- */
+.spm-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+}
+
+.spm-step {
+  flex: 1;
+  min-width: 0;
+}
+
+.spm-step-num {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f472b6;
+  background: rgba(236, 72, 153, 0.16);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.spm-step h4 {
+  color: #fff;
+  font-size: 17px;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.spm-step p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12.5px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.spm-step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ---- What the team sees: kanban board ---- */
+.spm-board-caption {
+  font-size: 14px;
+  color: #4A4A63;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+
+.spm-board-caption strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.spm-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.spm-col {
+  background: #F9F8FE;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spm-col-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  padding: 2px 2px 8px;
+}
+
+.spm-col-count {
+  margin-left: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+
+.spm-col-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.spm-dot-open {
+  background: var(--purple-light);
+}
+
+.spm-dot-risk {
+  background: var(--amber);
+}
+
+.spm-dot-confirmed {
+  background: var(--green);
+}
+
+.spm-mini-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  box-shadow: 0 8px 18px -14px rgba(23, 20, 58, 0.3);
+}
+
+.spm-mini-card strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.spm-mini-card small {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.spm-feature-card {
+  background: #fff;
+  border: 1.5px solid var(--pink);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-top: 4px;
+}
+
+.spm-card-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 8px;
+}
+
+.spm-feature-card p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #4A4A63;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* ---- Pager ---- */
+.agent-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 32px 60px;
+  border-top: 1px solid var(--line);
+  margin-top: 10px;
+}
+
+.agent-pager a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 10px 4px;
+  transition: color .2s ease;
+}
+
+.agent-pager a:hover {
+  color: var(--pink);
+}
+
+.agent-pager-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .spm-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .spm-cta {
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 820px) {
+  .spm-board {
+    grid-template-columns: 1fr;
+  }
+
+  .spm-steps {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .spm-step-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .spm-main {
+    padding: 16px 0 50px;
+  }
+
+  .spm-scroll-col {
+    gap: 34px;
+  }
+
+  .spm-note-block {
+    padding: 12px 14px;
+  }
+
+  .agent-pager {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px 40px;
+  }
+
+  .agent-pager-next {
+    margin-left: 0;
+    text-align: left;
+  }
+}

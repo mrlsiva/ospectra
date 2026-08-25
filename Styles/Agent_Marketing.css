@@ -1,0 +1,630 @@
+/* ==========================================================================
+   OSpectra — Marketing Agent page
+   Layout concept: campaign gallery / masonry — creative-agency visual language
+   ========================================================================== */
+
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  padding-top: 26px;
+  margin-bottom: 6px;
+  transition: color .2s ease;
+}
+
+.agent-back-link:hover {
+  color: var(--purple);
+}
+
+/* ==========================================================================
+   HERO — scattered campaign-asset cluster
+   ========================================================================== */
+.mk-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #fbf7ff 55%, #fdf5fb 100%);
+  padding: 6px 0 76px;
+  overflow: visible;
+}
+
+.mk-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.mk-hero-copy h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  color: var(--purple);
+  font-family: "Poppins", sans-serif;
+}
+
+.mk-hero-copy h1 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mk-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+/* -- scattered creative-asset cluster -- */
+.mk-hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px 0;
+}
+
+.mk-asset-cluster {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.mk-asset-card {
+  position: absolute;
+  width: 168px;
+  height: 208px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.mk-asset-cluster:hover .mk-asset-card {
+  transform: translateY(-6px) rotate(0deg) !important;
+}
+
+.mk-asset-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.mk-asset-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.mk-asset-1 {
+  background: var(--gradient-brand);
+  left: 6px;
+  top: 10px;
+  transform: rotate(-9deg);
+  z-index: 2;
+}
+
+.mk-asset-2 {
+  background: linear-gradient(140deg, var(--pink) 0%, #f472b6 100%);
+  left: 96px;
+  top: 44px;
+  transform: rotate(6deg);
+  z-index: 3;
+}
+
+.mk-asset-3 {
+  background: linear-gradient(150deg, var(--purple-light) 0%, var(--purple) 100%);
+  left: 46px;
+  top: 4px;
+  transform: rotate(-2deg);
+  z-index: 1;
+}
+
+.mk-asset-4 {
+  background: linear-gradient(140deg, var(--teal) 0%, #5eead4 100%);
+  left: 150px;
+  top: 6px;
+  transform: rotate(12deg);
+  z-index: 4;
+}
+
+.mk-hero-caption {
+  display: block;
+  margin-top: 24px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 320px;
+}
+
+/* ==========================================================================
+   GENERIC BLOCK BACKGROUNDS
+   ========================================================================== */
+.mk-block {
+  background: #fff;
+}
+
+.mk-block-alt {
+  background: var(--lavender-bg);
+}
+
+/* ==========================================================================
+   WHAT THIS AGENT OWNS — creative-brief masonry
+   ========================================================================== */
+.mk-masonry {
+  columns: 3;
+  column-gap: 22px;
+}
+
+.mk-mcard {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--purple);
+}
+
+.mk-mcard p {
+  margin: 0;
+  font-size: 14px;
+  color: #4A4A63;
+  line-height: 1.65;
+}
+
+.mk-mcard-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: var(--purple-pale);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.mk-mcard-b {
+  padding-bottom: 44px;
+  border-top-color: var(--pink);
+}
+
+.mk-mcard-b .mk-mcard-tag {
+  color: var(--pink);
+  background: rgba(236, 72, 153, 0.12);
+}
+
+.mk-mcard-c {
+  border-top-color: var(--teal);
+}
+
+.mk-mcard-c .mk-mcard-tag {
+  color: #0d9488;
+  background: rgba(20, 184, 166, 0.12);
+}
+
+.mk-mcard-d {
+  padding-bottom: 50px;
+  border-top-color: var(--purple-light);
+}
+
+.mk-mcard-e {
+  border-top-color: var(--pink);
+}
+
+.mk-mcard-e .mk-mcard-tag {
+  color: var(--pink);
+  background: rgba(236, 72, 153, 0.12);
+}
+
+.mk-mcard-f {
+  padding-bottom: 40px;
+  border-top-color: var(--amber);
+}
+
+.mk-mcard-f .mk-mcard-tag {
+  color: #92620a;
+  background: rgba(217, 119, 6, 0.12);
+}
+
+/* ==========================================================================
+   HOW IT WORKS — budget gauge strip
+   ========================================================================== */
+.mk-gauge-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.mk-gauge-step {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px 26px;
+  box-shadow: var(--shadow-card);
+}
+
+.mk-gauge-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.mk-gauge-step h3 {
+  font-size: 19px;
+  color: #180F5A;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.mk-gauge-step p {
+  font-size: 13.5px;
+  margin-bottom: 20px;
+  min-height: 84px;
+}
+
+.mk-gauge-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 20px;
+  background: var(--purple-pale);
+  overflow: hidden;
+}
+
+.mk-gauge-fill {
+  display: block;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--gradient-brand);
+}
+
+.mk-gauge-fill-1 {
+  width: 30%;
+}
+
+.mk-gauge-fill-2 {
+  width: 65%;
+}
+
+.mk-gauge-fill-3 {
+  width: 95%;
+}
+
+/* ==========================================================================
+   WHAT THE TEAM SEES — four distinct panel types
+   ========================================================================== */
+.mk-panels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.mk-panel {
+  background: #F7F6FE;
+  border: 1px solid #ECE8FB;
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.mk-panel-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+
+.mk-panel p {
+  font-size: 12.5px;
+  margin: 12px 0 0;
+  color: #4A4A63;
+  line-height: 1.6;
+}
+
+/* -- ICP intelligence: persona card -- */
+.mk-persona-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  margin: 0 auto 12px;
+  box-shadow: 0 10px 24px -8px rgba(91, 63, 224, 0.55);
+}
+
+.mk-persona-name {
+  display: block;
+  text-align: center;
+  font-size: 13.5px;
+  color: #180F5A;
+  font-weight: 600;
+}
+
+.mk-panel-persona {
+  text-align: center;
+}
+
+/* -- Campaign studio: calendar / schedule grid -- */
+.mk-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.mk-cal-grid span {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ECE8FB;
+}
+
+.mk-cal-grid span.on {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+/* -- Performance attribution: horizontal bar comparison -- */
+.mk-bar-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mk-bar-row {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.mk-bar-row span {
+  font-size: 10.5px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.mk-bar-row i {
+  display: block;
+  height: 8px;
+  border-radius: 20px;
+  background: var(--gradient-brand);
+  font-style: normal;
+}
+
+/* -- Budget recommendations: gauge / meter -- */
+.mk-meter-track {
+  width: 100%;
+  height: 14px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #ECE8FB;
+  overflow: hidden;
+}
+
+.mk-meter-fill {
+  display: block;
+  height: 100%;
+  width: 68%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--teal) 0%, var(--purple) 70%, var(--pink) 100%);
+}
+
+.mk-meter-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.mk-meter-scale small {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   CLOSING BAND
+   ========================================================================== */
+.mk-closing {
+  background: var(--navy-deep);
+  border-radius: var(--radius-lg);
+  padding: 46px 40px;
+  color: #fff;
+}
+
+.mk-closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.mk-closing-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  margin-bottom: 10px;
+}
+
+.mk-closing-item p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14.5px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* -- last-agent closing note -- */
+.mk-last-note {
+  text-align: center;
+  margin-top: 26px;
+}
+
+.mk-last-note p {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.mk-last-note a {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.mk-last-note a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   PAGER
+   ========================================================================== */
+.agent-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 32px 40px;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.agent-pager-prev,
+.agent-pager-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.agent-pager-prev span,
+.agent-pager-next span {
+  transition: transform .2s ease;
+}
+
+.agent-pager-prev:hover span {
+  transform: translateX(-4px);
+}
+
+.agent-pager-next:hover span {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .mk-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mk-masonry {
+    columns: 2;
+  }
+
+  .mk-gauge-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .mk-panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mk-closing-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mk-masonry {
+    columns: 1;
+  }
+
+  .mk-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .mk-asset-cluster {
+    max-width: 300px;
+    height: 260px;
+  }
+
+  .mk-asset-card {
+    width: 140px;
+    height: 176px;
+  }
+
+  .mk-asset-2 {
+    left: 76px;
+  }
+
+  .mk-asset-4 {
+    left: 118px;
+  }
+
+  .mk-closing {
+    padding: 32px 22px;
+  }
+
+  .agent-pager {
+    padding: 30px 20px 10px;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mk-asset-cluster {
+    max-width: 240px;
+    height: 230px;
+  }
+
+  .mk-asset-card {
+    width: 118px;
+    height: 150px;
+    padding: 12px;
+  }
+
+  .mk-asset-2 {
+    left: 60px;
+    top: 40px;
+  }
+
+  .mk-asset-3 {
+    left: 30px;
+  }
+
+  .mk-asset-4 {
+    left: 110px;
+  }
+}
