@@ -27,8 +27,8 @@
 
 .welcome-popup-closebtn {
     position: absolute;
-    top: -38px;
-    right: 0;
+    top: 16px;
+    right: 16px;
     cursor: pointer;
 }
 
@@ -43,7 +43,8 @@
     }
 
     .welcome-popup-closebtn {
-        top: -32px;
+        top: 12px;
+        right: 12px;
     }
 
     .welcome-popup-closebtn img {
