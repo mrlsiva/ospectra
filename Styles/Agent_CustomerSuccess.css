@@ -141,19 +141,13 @@ body {
   position: relative;
   max-width: 720px;
   margin: 48px auto 0;
-  padding-left: 66px;
-}
-
-.cs-timeline-line {
-  position: absolute;
-  left: 16px;
-  top: 20px;
-  bottom: 20px;
-  border-left: 3px dashed var(--purple-light);
 }
 
 .cs-timeline-node {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 30px;
   margin-bottom: 34px;
 }
 
@@ -161,10 +155,33 @@ body {
   margin-bottom: 0;
 }
 
-.cs-timeline-dot {
+/* Connects this node's dot down to the midpoint of the gap below it */
+.cs-timeline-node:not(:last-child)::after {
+  content: '';
   position: absolute;
-  left: -66px;
-  top: 4px;
+  left: 18px;
+  width: 0;
+  top: 50%;
+  bottom: -17px;
+  border-left: 3px dashed var(--purple-light);
+  z-index: 0;
+}
+
+/* Connects this node's dot up to the midpoint of the gap above it */
+.cs-timeline-node:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  width: 0;
+  top: -17px;
+  bottom: 50%;
+  border-left: 3px dashed var(--purple-light);
+  z-index: 0;
+}
+
+.cs-timeline-dot {
+  position: relative;
+  flex: 0 0 auto;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -181,6 +198,8 @@ body {
 }
 
 .cs-timeline-card {
+  flex: 1 1 auto;
+  min-width: 0;
   background: #fff;
   border-radius: var(--radius-lg);
   padding: 26px 30px;
@@ -376,16 +395,16 @@ body {
     height: 190px;
   }
 
-  .cs-timeline {
-    padding-left: 54px;
+  .cs-timeline-node {
+    gap: 22px;
   }
 
-  .cs-timeline-line {
-    left: 12px;
+  .cs-timeline-node::after,
+  .cs-timeline-node::before {
+    left: 16px;
   }
 
   .cs-timeline-dot {
-    left: -54px;
     width: 32px;
     height: 32px;
   }

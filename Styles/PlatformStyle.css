@@ -132,8 +132,8 @@ ul {
 }
 
 .eyebrow-pink {
-  background: rgba(236, 72, 153, 0.18);
-  color: #f472b6;
+  background: var(--purple-pale);
+  color: var(--purple);
 }
 
 .ui-eyebrow {
