@@ -68,6 +68,7 @@
     <link rel="stylesheet" href="./Styles/Home_Blog.css">
     <link rel="stylesheet" href="./Styles/Footer.css">
     <link rel="stylesheet" href="./Styles/Book_Demo.css">
+    <link rel="stylesheet" href="./Styles/Welcome_Popup.css">
 
     <!-- Ospectra Tracker -->
     <script src="https://tracker-ospectra-ai.onrender.com/static/tracker.js" defer></script>
@@ -525,6 +526,16 @@
         </div>
     </section> -->
 
+    <!-- start welcome popup (first-time visitors only) -->
+    <div id="welcome-popup" class="welcome-popup-block flex_center">
+        <div class="welcome-popup-level">
+            <div class="welcome-popup-closebtn" id="welcomePopupClose">
+                <img src="./Assets/images/Close_btn.webp" alt="Close">
+            </div>
+            <img class="welcome-popup-img" src="./Assets/images/Home-banner-popup.png" alt="Ospectra - AI that keeps care moving">
+        </div>
+    </div>
+
     <!-- start demo popup -->
     <div id="book-demo" class="Book_Demosblock flex_center">
         <div class="Book_Demoslevel flex_center">
@@ -732,6 +743,39 @@
                 }
             }
         });
+    </script>
+
+    <!-- Welcome popup: show once per browser, first-time visitors only -->
+    <script>
+        (function () {
+            var COOKIE_NAME = 'ospectra_welcome_seen';
+
+            function getCookie(name) {
+                var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+                return match ? match[1] : null;
+            }
+
+            function setCookie(name, value, days) {
+                var expires = new Date();
+                expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+                document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var popup = document.getElementById('welcome-popup');
+                var closeBtn = document.getElementById('welcomePopupClose');
+                if (!popup || !closeBtn) return;
+
+                if (!getCookie(COOKIE_NAME)) {
+                    popup.style.display = 'flex';
+                }
+
+                closeBtn.addEventListener('click', function () {
+                    popup.style.display = 'none';
+                    setCookie(COOKIE_NAME, '1', 365);
+                });
+            });
+        })();
     </script>
 
 <div id="site-footer"></div>
