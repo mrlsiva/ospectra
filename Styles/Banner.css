@@ -130,7 +130,7 @@ main{
 
 @media screen and (max-width:600px) {
     .bj-bannermainimage{
-        background-image: url("../Assets/images/HomeBanner_Mobile.webp");
+        background-image: url("../Assets/images/HomeBanner_Mobile.png");
     }
 
     .bj-bannermainlogo{
