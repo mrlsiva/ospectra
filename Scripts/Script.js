@@ -33,6 +33,10 @@ if (hamburger && navMenu) {
 
 
 function openDemo() {
+    var welcomePopup = document.getElementById('welcome-popup');
+    if (welcomePopup) {
+        welcomePopup.style.display = 'none';
+    }
     document.getElementById('book-demo').style.display = 'flex';
 }
 
