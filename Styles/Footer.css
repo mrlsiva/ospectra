@@ -121,7 +121,8 @@
 .bj-footerMenuLinkblock ul li a{
     font-size: 13px;
     line-height: 20px;
-    opacity: 0.5;
+    opacity: 1;
+    color: #FFF;
     text-transform: uppercase;
     font-family: "Roboto-medium";
 }

@@ -1,92 +1,373 @@
-<!DOCTYPE html>
-<html lang="en">
+<title>The AI Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* ============ tokens (PlatformStyle.css family) ============ */
+:root{
+  --navy:#14103a;--navy-deep:#0f0c2c;--purple:#5B3FE0;--purple-light:#8a6ef5;
+  --purple-pale:#efeafd;--lavender-bg:#f4f2fd;--pink:#ec4899;--amber:#d97706;
+  --ink:#17143a;--muted:#6b6a85;--line:#e7e3f6;--radius-lg:22px;--radius-md:14px;--radius-sm:8px;
+  --shadow-card:0 20px 45px -20px rgba(23,20,58,.25);
+  --gradient-brand:linear-gradient(120deg,#5a3fe0 0%,#8b4fe0 45%,#e6479b 100%);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Roboto",-apple-system,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,h5{margin:0 0 16px;font-weight:700;line-height:1.15;letter-spacing:-.01em;font-family:"Poppins",sans-serif}
+p{margin:0 0 16px;color:var(--muted);line-height:1.65}
+a{text-decoration:none;color:inherit}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.section{padding:84px 0}
+.lavender{background:var(--lavender-bg)}
+.grad-text{background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);background:var(--purple-pale);padding:7px 16px;border-radius:20px;margin-bottom:18px}
+.eyebrow span{color:#E52FA0}
+.section-head{max-width:760px;text-align:center;margin:0 auto 46px}
+.section-head h2{font-size:clamp(26px,3.4vw,42px);color:#180F5A}
+.section-head .lede{font-size:15.5px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.04em;padding:15px 26px;border-radius:40px;transition:transform .2s ease,box-shadow .2s ease;cursor:pointer;border:none}
+.btn-primary{background:var(--purple);color:#fff;box-shadow:0 12px 24px -10px rgba(108,76,240,.6)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(108,76,240,.7)}
+.btn-link{color:var(--ink);font-weight:600}
+.btn-link span{color:var(--purple)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+/* ============ nav ============ */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .in{max-width:1200px;margin:0 auto;padding:0 32px;height:70px;display:flex;align-items:center;justify-content:space-between}
+.nav img{height:34px}
+.nav .links{display:flex;align-items:center;gap:30px}
+.nav .links a{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.nav .links a:hover,.nav .links a.on{color:var(--purple)}
+.nav .btn{padding:11px 22px;font-size:12px}
+/* ============ hero ============ */
+.hero{position:relative;padding:86px 0 60px;background:linear-gradient(180deg,#ffffff 0%,#fbfaff 100%);overflow:hidden;text-align:center}
+.hero .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.hero .orb.o1{width:440px;height:440px;top:-180px;left:-120px;background:radial-gradient(circle,#c9bbfb 0%,transparent 70%)}
+.hero .orb.o2{width:400px;height:400px;bottom:-220px;right:-100px;background:radial-gradient(circle,#fbc9e6 0%,transparent 70%);animation-delay:-7s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,26px) scale(1.08)}}
+.hero .in{position:relative;z-index:1;max-width:840px;margin:0 auto;padding:0 32px}
+.hero h1{font-size:clamp(34px,4.6vw,58px);color:#180F5A;margin-bottom:16px}
+.hero .statement{font-size:clamp(17px,2vw,23px);font-weight:500;color:#180F5A;line-height:1.5;margin-bottom:14px;font-family:"Poppins",sans-serif}
+.hero .lede{font-size:15.5px;color:var(--muted);max-width:640px;margin:0 auto 30px}
+.hero .lede b{color:var(--purple);font-weight:600}
+.hero-actions{display:flex;justify-content:center;align-items:center;gap:26px;margin-bottom:38px;flex-wrap:wrap}
+.stat-row3{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.hstat{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 30px 16px;min-width:170px;overflow:hidden;box-shadow:0 16px 32px -22px rgba(23,20,58,.25);transition:transform .25s ease,box-shadow .25s ease}
+.hstat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-brand)}
+.hstat:hover{transform:translateY(-4px);box-shadow:0 22px 36px -20px rgba(23,20,58,.32)}
+.hstat strong{display:block;font-size:24px;color:var(--purple);font-weight:700;margin-bottom:2px;font-family:"Poppins",sans-serif}
+.hstat small{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.hero-note{font-size:12.5px;color:#A39DBC;margin:0}
+/* ============ quote bar ============ */
+.quote-bar{position:relative;background:var(--navy-deep);border-radius:var(--radius-lg);padding:40px 46px 34px;color:#fff;overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,12,44,.6)}
+.quote-bar::before{content:"\201C";position:absolute;top:-30px;right:26px;font-family:Georgia,serif;font-size:170px;color:rgba(255,255,255,.06);line-height:1}
+.quote-bar .q{font-family:"Poppins",sans-serif;font-size:clamp(19px,2.4vw,27px);font-weight:600;line-height:1.4;margin:0 0 12px;max-width:30ch}
+.quote-bar .q em{font-style:normal;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+.quote-bar p{color:rgba(255,255,255,.72);font-size:14.5px;max-width:70ch;margin:0}
+/* ============ engine cards (group-def family) ============ */
+[data-accent="g1"]{--accent:var(--purple);--accent2:#8a6ef5}
+[data-accent="g2"]{--accent:var(--pink);--accent2:#f472b6}
+[data-accent="g3"]{--accent:#4338ca;--accent2:#14b8a6}
+[data-accent="g4"]{--accent:#0f0c2c;--accent2:#5B3FE0}
+.eng-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.eng-row{position:relative;display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px 26px;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.eng-row::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.eng-row:hover{transform:translateY(-6px);box-shadow:0 26px 44px -26px rgba(23,20,58,.3);border-color:transparent}
+.eng-row:hover::before{transform:scaleX(1)}
+.eng-num{flex-shrink:0;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px -8px rgba(91,63,224,.5);font-family:"Poppins",sans-serif}
+.eng-row.amber-card .eng-num{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.eng-body h4{font-size:19px;color:#180F5A;margin-bottom:8px;font-weight:600}
+.eng-body p{font-size:14px;margin:0}
+.amber-pill{display:inline-block;margin-top:10px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#B45309;background:#FEF3C7;border-radius:20px;padding:5px 12px}
+/* ============ autonomy ============ */
+.mode-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:mode;margin-bottom:36px}
+.mode-grid li{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 20px;font-size:14px;color:#4A4A63;line-height:1.6;counter-increment:mode;transition:transform .2s ease,box-shadow .2s ease}
+.mode-grid li::before{content:counter(mode,decimal-leading-zero);display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--purple-pale);color:var(--purple);font-size:10px;font-weight:700;margin-bottom:12px}
+.mode-grid li:hover{transform:translateY(-3px);box-shadow:0 16px 28px -20px rgba(23,20,58,.3)}
+.mode-grid h4{font-size:17px;color:#180F5A;margin-bottom:6px;font-weight:600}
+.mode-grid p{font-size:13.5px;margin:0}
+/* ============ measured ============ */
+.stat-row5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.mstat{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 20px 18px;overflow:hidden;box-shadow:0 16px 32px -22px rgba(23,20,58,.2);transition:transform .25s ease,box-shadow .25s ease}
+.mstat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-brand)}
+.mstat:hover{transform:translateY(-4px);box-shadow:0 22px 36px -20px rgba(23,20,58,.3)}
+.mstat strong{display:block;font-size:22px;color:var(--purple);font-weight:700;font-family:"Poppins",sans-serif;margin-bottom:6px}
+.mstat .d{font-size:12.5px;color:#4A4A63;line-height:1.5}
+.mstat small{display:block;margin-top:10px;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:#A39DBC;font-weight:500}
+/* ============ CTA ============ */
+.cta-band{background:var(--navy-deep);border-radius:var(--radius-lg);padding:52px 54px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;color:#fff;position:relative;overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,12,44,.6)}
+.cta-band::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;filter:blur(80px);background:radial-gradient(circle,rgba(139,79,224,.55),transparent 70%);top:-160px;right:-80px}
+.cta-band h2{font-size:clamp(22px,2.8vw,34px);margin:0;position:relative}
+.cta-band .b{display:flex;gap:14px;flex-wrap:wrap;position:relative}
+/* ============ footer ============ */
+.foot{background:var(--navy-deep);color:rgba(255,255,255,.65);margin-top:84px;padding:64px 0 36px;font-size:13.5px}
+.foot .top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:44px}
+.foot img{height:34px;margin-bottom:14px}
+.foot .tag{font-family:"Poppins",sans-serif;font-weight:600;font-size:20px;color:#fff}
+.foot ul{display:flex;gap:22px;flex-wrap:wrap}
+.foot ul a{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.55}
+.foot ul a:hover{opacity:1;color:#fff}
+.foot .bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.45)}
+/* ============ harness ============ */
+.harness-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.harness-copy h2{font-size:clamp(26px,3.2vw,40px);color:#180F5A}
+.harness-copy .lede{font-size:15.5px;color:var(--muted);margin-bottom:22px}
+.check-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:14.5px;color:#4A4A63;line-height:1.55;font-family:"Roboto",sans-serif}
+.check-list .ck{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--purple-pale);color:var(--purple);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}
+.check-list li.amb .ck{background:#FEF3C7;color:#B45309}
+.harness-card{position:relative;background:var(--navy-deep);border-radius:var(--radius-lg);height:420px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,12,44,.6)}
+.harness-card .glow{position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(139,79,224,.5),transparent 70%);top:-100px;right:-60px}
+.h-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:var(--gradient-brand);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;font-family:"Poppins",sans-serif;font-weight:600;font-size:13px;line-height:1.3;box-shadow:0 0 60px rgba(139,79,224,.55);animation:pulse 3.6s ease-in-out infinite}
+.h-core small{font-weight:400;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-top:4px}
+@keyframes pulse{0%,100%{box-shadow:0 0 40px rgba(139,79,224,.4)}50%{box-shadow:0 0 85px rgba(230,71,155,.6)}}
+.h-ring{position:absolute;top:50%;left:50%;width:290px;height:290px;border:1.5px dashed rgba(255,255,255,.18);border-radius:50%;transform:translate(-50%,-50%);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.h-chip{position:absolute;font-size:10.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:7px 14px;font-family:"Roboto",sans-serif;backdrop-filter:blur(4px);animation:bob 5s ease-in-out infinite}
+.h-chip.amb{background:rgba(245,158,11,.18);border-color:rgba(245,158,11,.55);color:#FCD34D}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion:reduce){.h-core,.h-ring,.h-chip{animation:none}}
+@media(max-width:960px){.harness-grid{grid-template-columns:1fr}}
+/* ============ AOS-lite ============ */
+[data-aos]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+[data-aos].aos-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-aos]{opacity:1;transform:none;transition:none}.hero .orb{animation:none}}
+/* ============ poster slot ============ */
+.arch-slot{margin-top:10px;width:100vw;margin-left:calc(50% - 50vw);display:flex;justify-content:center}
+.arch-slot > .scroll{max-width:100vw}
+.arch-slot .d1wrap{zoom:.58}
+.arch-slot .scroll{overflow-x:auto;padding:6px}
+.d1wrap.sheet{box-shadow:0 30px 70px -24px rgba(23,20,58,.35);border:1px solid #E4DEF8;margin:0 auto}
+@media(max-width:960px){.eng-list{grid-template-columns:1fr}.mode-grid{grid-template-columns:1fr 1fr}.stat-row5{grid-template-columns:1fr 1fr}.nav .links a:not(.btn){display:none}}
+/* ---------- embedded architecture poster ---------- */
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Agentic AI Platform - Reasoning Agents, Gateway & Guardrails | Ospectra</title>
+*{box-sizing:border-box}
 
-    <!-- Meta Tag -->
-    <meta name="title" content="Agentic AI Platform - Reasoning Agents, Gateway & Guardrails | Ospectra">
-    <meta name="description"
-        content="Ospectra's AI platform pairs a reasoning Agent Harness with an omnichannel Gateway, dial-in autonomy controls, and built-in guardrails &mdash; turning specialized AI agents into a governed workforce your board can sign off on.">
-    <meta name="keywords"
-        content="Agentic AI Platform,AI Agent Harness,AI Gateway,Multi-Agent Orchestration,Autonomous AI Agents,AI Workforce Automation,AI Guardrails,Enterprise AI Agents,AI Autonomy Controls,Reasoning AI Agents">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="60 days">
-    <meta name="author" content="GoodUX">
-    <meta name="og:description"
-        content="Ospectra's AI platform pairs a reasoning Agent Harness with an omnichannel Gateway, dial-in autonomy controls, and built-in guardrails &mdash; turning specialized AI agents into a governed workforce your board can sign off on." />
-    <meta property="og:title" content="Agentic AI Platform - Reasoning Agents, Gateway & Guardrails | Ospectra">
-    <meta property="og:url" content="https://ospectra.ai/Plaform/">
-    <meta property="og:image" content="https://ospectra.ai/Assets/images/webthumbnail.webp">
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="450">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Ospectra ::: Agentic AI Platform for Scalable, Self-Healing AI Workflows">
+.scroll{overflow-x:auto;padding:4px 0}
+.canvas{position:relative;margin:0 auto}
+svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.wires path,.wires line{fill:none;stroke:#BDC1C6;stroke-width:1.3}
+.wires .dash{stroke-dasharray:4 4;stroke:#BDC1C6}
+.wires text{font-family:"Inter";font-size:10px;fill:#5F6368;stroke:none}
+.wires text.bgd{stroke:#fff;stroke-width:3.5;paint-order:stroke}
+.wires .gate{fill:#FFB020;stroke:#B45309;stroke-width:1.1}
+.wires .hook{fill:#EDE9FC;stroke:#421AD5;stroke-width:1.1}
+.wires .num{fill:url(#gnum);stroke:none}
+.wires .numt{font-size:10px;font-weight:600;fill:#fff;stroke:none}
 
-    <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../Assets/images/OspectraIcon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../Assets/images/OspectraIcon.svg" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../Assets/images/OspectraIcon.svg" />
-    <link rel="icon" type="image/svg+xml" href="../Assets/images/Favicon.webp">
+.titlebar{position:absolute;left:36px;right:36px;top:14px;display:flex;align-items:baseline;gap:12px;border-bottom:1px solid #E8EAED;padding-bottom:10px}
+.titlebar .a{font-size:15px;font-weight:700;color:#202124;letter-spacing:-.01em}
+.titlebar .b{font-size:11px;color:#5F6368}
+.titlebar .c{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;color:#80868B;text-transform:uppercase}
 
-    <!-- Preload -->
-    <link async rel="preload" as="image" href="../Assets/images/Ospectra_Logo_Color.svg">
-    <link async rel="preload" as="image" href="../Assets/images/Ospectra_Logo_White.svg">
-    <link async rel="preload" as="image" href="../Assets/images/Logo_HalfCircle_White.svg">
-    <link async rel="preload" as="image" href="../Assets/images/Footer_Wave.svg">
-    <link async rel="preload" as="image" href="../Assets/images/Twitter_Icon.svg">
-    <link async rel="preload" as="image" href="../Assets/images/linkedin_Icon.svg">
-    <link async rel="preload" as="image" href="../Assets/images/craftedbyGood.svg">
+.zone{position:absolute;background:#F1F3F4;border-radius:10px;padding:10px 14px 12px}
+.zone.vio{background:#EDE9FC}
+.zh{display:flex;align-items:baseline;gap:9px;margin-bottom:9px}
+.znum{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);color:#fff;font-size:9.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none;align-self:center}
+.zt{font-size:12.5px;font-weight:600;color:#202124;letter-spacing:-.01em}
+.zr{font-size:10.5px;color:#5F6368}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:8px}
+.cards.ch{grid-template-columns:repeat(auto-fill,minmax(116px,1fr))}
+.card{background:#fff;border:1px solid #DADCE0;border-radius:8px;padding:7px 10px;display:flex;gap:9px;align-items:center;min-height:46px}
+.card img{width:22px;height:22px;flex:none;object-fit:contain}
+.card svg{width:20px;height:20px;flex:none;stroke:#421AD5;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card .tx{min-width:0}
+.cn{font-size:11px;font-weight:600;color:#202124;line-height:1.25}
+.cs{font-size:9.5px;color:#5F6368;line-height:1.3;margin-top:1px}
+.card.next{border-style:dashed;background:transparent}
+.card.next .cn{color:#80868B}
+.card.next svg{stroke:#9AA0A6}
+.card.next img{filter:grayscale(1);opacity:.55}
+.gcard{background:#fff;border:1px solid #DADCE0;border-radius:8px;padding:9px 12px}
+.gcard .gt{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;color:#202124;margin-bottom:5px}
+.gcard .gt svg{width:18px;height:18px;stroke:#421AD5;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.gcard .gl{font-size:10px;color:#5F6368;line-height:1.55}
+.gcard .gl b{color:#3C4043;font-weight:600}
+.icamix{display:flex;gap:6px;align-items:center;margin-top:3px}
+.icamix img{width:15px;height:15px}
 
-    <!-- style sheets and font icons -->
-    <link rel="stylesheet" href="../Styles/aos.css">
-    <link rel="stylesheet" href="../Styles/Style.css" />
-    <link rel="stylesheet" href="../Styles/Header.css">
-    <link rel="stylesheet" href="../Styles/Platform_Header.css">
-    <link rel="stylesheet" href="../Styles/Footer.css">
-    <link rel="stylesheet" href="../Styles/Book_Demo.css">
-    <link rel="stylesheet" href="../Styles/PlatformStyle.css">
-    <link rel="stylesheet" href="../Styles/AgentPortfolio.css">
-    <link rel="stylesheet" href="../Styles/Platform_Index.css">
+.rail2{position:absolute;background:#F1F3F4;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column}
+.rail2 .rt{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#5F6368;padding-bottom:8px;border-bottom:1px solid #E0E2E6;flex:none}
+.rail2 .ri{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:700;color:#202124;line-height:1.35;text-align:center;border-bottom:1px solid #E8EAED;padding:10px 0}
+.rail2 .ri:last-of-type{border-bottom:none}
+.rail2 .ri svg{width:15px;height:15px;flex:none;stroke:#421AD5;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.rail2 .ri img{width:15px;height:15px;flex:none}
+.rail2 .foot{margin-top:auto;padding-top:9px;font-size:9px;color:#80868B}
 
-    <!-- Ospectra Tracker -->
-    <script src="https://tracker-ospectra-ai.onrender.com/static/tracker.js" defer></script>
-</head>
+/* diagram 2 shared */
+.bx{position:absolute;background:#fff;border:1px solid #DADCE0;border-radius:10px;padding:11px 13px}
+.bx .t{font-weight:600;font-size:12px;text-align:center;margin-bottom:7px;color:#202124}
+.bx .s{font-size:10.3px;color:#5F6368;line-height:1.5}
+.dashed{border-style:dashed;border-color:#BDC1C6}
+.li{display:flex;align-items:center;gap:7px;font-size:10.3px;color:#3C4043;padding:2px 0;line-height:1.35}
+.li svg{width:12px;height:12px;flex:none;stroke:#421AD5;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.li img{width:13px;height:13px;flex:none}
+.li b{color:#202124;font-weight:600}
+.chiprow{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.wchip{display:flex;align-items:center;gap:6px;border:1px solid #DADCE0;border-radius:8px;padding:5px 10px;font-size:10.5px;font-weight:600;background:#fff;color:#202124}
+.wchip svg{width:13px;height:13px;stroke:#421AD5;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wchip img{height:14px}
+.wchip small{font-weight:400;color:#5F6368}
+.tile{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.tile .lbl{font-size:10.5px;font-weight:600;line-height:1.3}
+.tile .sub{font-size:9.5px;color:#5F6368;line-height:1.3}
+.cap{position:absolute;left:36px;top:14px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;color:#80868B;text-transform:uppercase}
 
-<body class="platformFlow">
-    <!-- start header -->
-    <section>
-        <div class="bj-Ospectraanimation">
-            <div class="bj-Ospectrabanner bj-OspectraPlatformBanner flex_center">
-                <div class="d-flex">
-                    <div class="pb_1">
-                        <div id="site-nav"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* flow layout for diagram 1 */
+.d1wrap{max-width:1456px;margin:0 auto;padding:0 0 6px}
+.titlebar2{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid #E8EAED;padding:14px 36px 10px;margin-bottom:16px}
+.titlebar2 .a{font-size:15px;font-weight:700;color:#202124;letter-spacing:-.01em}
+.titlebar2 .b{font-size:11px;color:#5F6368}
+.titlebar2 .c{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;color:#80868B;text-transform:uppercase}
+.frame{display:grid;grid-template-columns:172px minmax(0,1fr) 172px;gap:16px;align-items:stretch;padding:0 36px}
+.stackcol{display:flex;flex-direction:column;min-width:0}
+.stackcol .zone{position:relative;left:auto;top:auto;width:auto;height:auto}
+.conn{display:flex;align-items:center;gap:10px;padding:3px 0 3px 56px}
+.conn svg.ca{flex:none}
+.conn .cnum{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.conn .clbl{font-size:10px;color:#5F6368}
+.rail2{position:relative;left:auto;top:auto;width:auto;height:auto}
+
+.brandhead{display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0 16px}
+.brandhead .bsub{font-size:12px;font-weight:600;color:#3C4043;letter-spacing:-.005em}
+.brandhead .bkick{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;color:#80868B;text-transform:uppercase}
+.zone.bus{border-radius:999px;padding:10px 24px}
+.zone.bus .cards{display:flex;gap:8px}
+.zone.bus .card{flex:1;min-width:0;border-radius:999px;padding:6px 14px}
+.dashbox{border:1.6px dashed #B7BDC6;border-radius:12px;padding:8px 16px;margin-top:8px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;background:#fff}
+.dstep{font-size:10.5px;font-weight:600;color:#3C4043}
+.darr{color:#9AA0A6;font-size:12px}
+.xband{margin:16px 36px 4px;background:linear-gradient(90deg,#FB2CFE,#892FC1 55%,#421AD5);color:#fff;text-align:center;font-weight:600;font-size:12px;padding:11px 18px;border-radius:999px;letter-spacing:.02em}
+
+/* poster elements */
+.gic{border-radius:11px;background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.gic svg{width:58%;height:58%;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gic.ring{background:#fff;border:2.5px solid transparent;background-image:linear-gradient(#fff,#fff),linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);background-origin:border-box;background-clip:padding-box,border-box}
+.gic.ring svg{stroke:#7A2FC9}
+.pillrow{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.spill{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);color:#fff;border-radius:999px;padding:9px 18px;font-size:11.5px;font-weight:600}
+.spill svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cirrow{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;padding:4px 0 2px}
+.cirw{display:flex;flex-direction:column;align-items:center;gap:7px}
+.cir{width:76px;height:76px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;border:2.5px solid transparent;background-image:linear-gradient(#fff,#fff),linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 1px 3px rgba(16,24,40,.08)}
+.cir img{width:40px;height:40px;object-fit:contain}
+.cirsvg{width:34px;height:34px;stroke:#7A2FC9;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cirn{font-size:11px;font-weight:600;color:#202124}
+.tilerow{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}.tilerow .t2{flex:0 1 118px}
+.t2{background:#fff;border:1px solid #E4E7EC;border-radius:13px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.t2n{font-size:10.5px;font-weight:600;color:#202124;line-height:1.2}
+.lgrow{display:flex;gap:7px;align-items:center;height:30px}
+.lgrow img{width:24px;height:24px;object-fit:contain}
+.lgrow.big img{width:auto;height:20px}
+.zone.bus{background:linear-gradient(90deg,#FB2CFE,#892FC1 55%,#421AD5);border-radius:999px;padding:12px 26px}
+.zone.bus .zt{color:#fff}
+.zone.bus .zr{color:rgba(255,255,255,.85)}
+.znum.bwhite{background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.75)}
+.buspills{display:flex;gap:10px;flex-wrap:wrap}
+.buspill{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.94);border-radius:999px;padding:9px 16px;font-size:11.5px;font-weight:600;color:#202124;white-space:nowrap}
+.buspill img{width:20px;height:20px;object-fit:contain}
+.fr3{display:grid;grid-template-columns:1.2fr 1fr 1.1fr;gap:10px}
+.fcard{background:#fff;border:1px solid #E4E7EC;border-radius:15px;padding:13px 15px;display:flex;gap:13px;align-items:center;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.fct{font-size:12.5px;font-weight:700;color:#202124}
+.fcs{font-size:10px;color:#5F6368;margin-top:2px;line-height:1.4}
+.hexrow{display:flex;gap:8px 30px;flex-wrap:wrap;justify-content:center;padding:4px 0 0}
+.hexcol{display:flex;flex-direction:column;align-items:center;gap:7px}
+.hexw{display:block;width:86px;height:78px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);padding:2.5px}
+.hex{display:flex;width:81px;height:73px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#fff;align-items:center;justify-content:center}
+.hex img{width:36px;height:36px;object-fit:contain}
+.hexsvg{width:30px;height:30px;stroke:#7A2FC9;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lic{width:24px;height:24px;border-radius:8px;background:#fff;border:1px solid #E4E7EC;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.lic img{width:16px;height:16px}
+
+
+.rsvg{width:34px;height:34px;stroke:#7A2FC9;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.rimg{width:34px;height:34px;object-fit:contain;flex:none}
+.rail2 .foot{text-align:center}
+.rail2 .ri svg.rsvg{width:52px;height:52px;stroke:#7A2FC9;stroke-width:1.5}.rail2 .ri img.rimg{width:52px;height:52px}
+
+.sheet{background:#fff;border-radius:28px;box-shadow:0 34px 90px rgba(3,0,30,.6),0 6px 22px rgba(3,0,30,.35);margin:30px auto 14px}
+.d1wrap.sheet{padding:10px 0 22px}
+.zone{position:relative}
+.lap{position:absolute;right:22px;top:12px;width:62px;height:auto}
+
+.divider{border-color:rgba(255,255,255,.10)}
+.cap{color:#9AA0A6}
+/* depth */
+.gic{box-shadow:0 5px 12px rgba(66,26,213,.38),inset 0 1.5px 2px rgba(255,255,255,.55),inset 0 -2.5px 5px rgba(0,0,0,.18)}
+.spill{box-shadow:0 4px 10px rgba(66,26,213,.35),inset 0 1.5px 2px rgba(255,255,255,.4)}
+.cir{box-shadow:0 5px 14px rgba(66,26,213,.18),inset 0 2px 6px rgba(120,60,220,.10)}
+.t2{box-shadow:0 3px 8px rgba(16,24,40,.08)}
+.buspill{box-shadow:0 3px 8px rgba(13,0,70,.30)}
+.hexw{filter:drop-shadow(0 6px 10px rgba(66,26,213,.30))}
+.hex{background:linear-gradient(180deg,#fff 30%,#F1EBFF)}
+.fcard{box-shadow:0 3px 10px rgba(16,24,40,.08)}
+.xband{box-shadow:0 8px 24px rgba(204,46,229,.35)}
+/* dark rails */
+.idr,.obr{background:linear-gradient(180deg,#1A0F66,#0D0046);border-radius:16px}
+.idr .rt,.obr .rt{color:#D8D2F6;border-bottom:1px solid rgba(255,255,255,.16)}
+.idr .foot,.obr .foot{color:#8B87B5;border-top:1px dashed rgba(255,255,255,.18);text-align:center}
+.idr .ri{color:#fff;border-bottom:1px solid rgba(255,255,255,.10)}
+.idr .ri svg.rsvg{width:58px;height:58px;stroke:url(#gs);stroke-width:1.9;filter:drop-shadow(0 4px 9px rgba(251,44,254,.45))}
+.obr .ri{border-bottom:none}
+.ocard{background:#fff;border-radius:13px;margin:5px 0;padding:10px 8px;display:flex;flex-direction:column;gap:7px;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(3,0,30,.35)}
+.ocl{font-size:11.5px;font-weight:700;color:#202124}
+.spk{width:86px;height:24px}
+.orimg{width:40px;height:40px;object-fit:contain}
+/* dark glass model chips */
+.mdl .cir{background-image:linear-gradient(160deg,#241379,#0D0046),linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);box-shadow:0 7px 16px rgba(13,0,70,.5),inset 0 1.5px 2px rgba(255,255,255,.28)}
+.mdl .cirsvg{stroke:#fff}
+.mdl .cir img{filter:brightness(0) invert(1)}
+.rail2 .ri svg.spk{width:104px;height:30px;stroke:none}.rail2 .ri img.orimg{width:58px;height:58px}
+
+.agrow{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.agchip{display:inline-flex;align-items:center;gap:6px;background:#F4F0FF;border:1px solid #E2D8FB;border-radius:999px;padding:3px 10px 3px 4px;font-size:10px;font-weight:700;color:#4A2FB8}
+.agdot{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.agdot svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.t7 .t2{flex:0 1 158px}
+
+.hrow{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:9px;align-items:stretch;margin-bottom:9px}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.t2.grad{background:linear-gradient(135deg,#FB2CFE,#892FC1 55%,#421AD5);border:none;box-shadow:0 5px 12px rgba(66,26,213,.4)}
+.t2.grad .t2n{color:#fff}
+.wic{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.zone .subt{margin:12px 0 7px}
+
+.divider{max-width:1460px;margin:22px auto;border-top:1px solid #E8EAED}
+
+.scroll{overflow-x:auto}
+</style>
+
+<nav class="nav"><div class="in">
+  <a href="https://ospectra.ai/"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTk0Ljg5NiIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDE5NC44OTYgNjAiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSIwLjkwMiIgeTE9IjAuMjI3IiB4Mj0iMC42MTQiIHkyPSIwLjE3MSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmYjJjZmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODkyZmMxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMiIgeDE9IjAuODUiIHkxPSIwLjE1IiB4Mj0iMC41IiB5Mj0iMC4yIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JjM2RmYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM5NTJlYzciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0zIiB4MT0iMC42MTEiIHkxPSIwLjE0NyIgeDI9IjAuMjM1IiB5Mj0iMC40MSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM4OTZlZWIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNTkzYWNiIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNCIgeDE9IjAuNTQ0IiB5MT0iMC42ODgiIHgyPSIwLjM1MiIgeTI9IjAuMjk2IiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzE5MjJhOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwODEwNjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIGlkPSJMb2dvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzE5Ljk0NiAtMjYzLjk3OCkiPgogICAgPGcgaWQ9Ikljb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxOS45NDYgMjYzLjk3OCkiPgogICAgICA8cGF0aCBpZD0iUGF0aF8xNTUwMzUiIGRhdGEtbmFtZT0iUGF0aCAxNTUwMzUiIGQ9Ik0xMTczNi40NTIsODg0MC45NzloMGMtLjExOS0uMS0uMjQ0LS4yMTUtLjM4Ny0uMzQ0YTM0LjI0OSwzNC4yNDksMCwwLDEsMi45NzMtNTMuMjc1LDM0LjEwNSwzNC4xMDUsMCwwLDEsMTIuOTY0LTUuNjY4LDM0LjYzLDM0LjYzLDAsMCwxLDYuOTgxLS43MTNoMGEzNC4zMjMsMzQuMzIzLDAsMCwxLDEyLjA1OCwyLjE4NCwzMy45ODYsMzMuOTg2LDAsMCwxLDEwLjgzMyw2LjU5NGwuMzgyLjM1LTkuNjkxLDEwLjc2M2MtLjE1MS0uMTE2LS4zMDYtLjI0NS0uNDU5LS4zODJsLS4wMjctLjAyMy0uMDItLjAyYy0uMDM1LS4wMzMtLjA2NS0uMDYxLS4wOTQtLjA5bDAsMGEyMC4yMjcsMjAuMjI3LDAsMCwwLTYuOTgyLTQuMTI1LDIwLjQwNywyMC40MDcsMCwwLDAtNi42ODgtMS4xMTdjLS4zNTQsMC0uNzE2LjAxMS0xLjA3NS4wMjhhMjAuNjk0LDIwLjY5NCwwLDAsMC0zLjg4MS41NzcsMjAuNDc4LDIwLjQ3OCwwLDAsMC0zLjcyNSwxLjMxOGMtLjQyLjItLjgzMi40MDYtMS4yMjMuNjIzcy0uOC40NTktMS4yLjcyMWEyMC4zNTcsMjAuMzU3LDAsMCwwLTMuMDksMi40NTljLS4zMy4zMTYtLjY2LjY1OS0uOTgyLDEuMDE3YTIwLjY2NiwyMC42NjYsMCwwLDAtMy41LDUuMzg0LDIwLjIsMjAuMiwwLDAsMC0xLjAxNiwyLjgxMywyMC41NiwyMC41NiwwLDAsMCwxLjY0OSwxNS4xMTJjLjI0My40NTYuNTE5LjkyNS44MTcsMS4zOTJhMjAuMzMzLDIwLjMzMywwLDAsMCw0LjE0Niw0LjY4OGwtOC43NjMsOS43MzJaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTE3MjQuNzU1IC04NzgwLjk3OSkiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50KSIvPgogICAgICA8cGF0aCBpZD0iUGF0aF8xNTUwMzYiIGRhdGEtbmFtZT0iUGF0aCAxNTUwMzYiIGQ9Ik0xMTczNi40NTEsODg0MS4wODFoMGMtLjEzOC0uMTIxLS4yNjUtLjIzMy0uMzg2LS4zNDNhMzQuMzMzLDM0LjMzMywwLDAsMS00LjY1NC01LjEyOCwzMy45ODcsMzMuOTg3LDAsMCwxLTMuNDM2LTUuNzgxLDM0LjIwNywzNC4yMDcsMCwwLDEsMjkuMDYzLTQ4LjY5Miw3Ljg2Miw3Ljg2MiwwLDAsMSwuOTQ0LjU2NSw3LjYsNy42LDAsMCwxLDMuMTQyLDQuOTMzLDcuNTM4LDcuNTM4LDAsMCwxLS4yLDMuNDkyLDcuNzI0LDcuNzI0LDAsMCwxLTEuNjUyLDIuOTUsNy42MDcsNy42MDcsMCwwLDEtNC4zNTIsMi40MWwtLjE4Ny4wMywwLDBhMjAuMzU5LDIwLjM1OSwwLDAsMC0xMC42NDEsNS40MjZjLS4zMjMuMzEyLS42NTMuNjU0LS45OCwxLjAxOGEyMS4xNzYsMjEuMTc2LDAsMCwwLTEuNTY1LDEuOTY3LDIwLjgxMSwyMC44MTEsMCwwLDAtMS45MzYsMy40MTUsMjAuNTk0LDIwLjU5NCwwLDAsMC0xLjI1NSwzLjc0NiwyMC4zOTEsMjAuMzkxLDAsMCwwLDYuODUyLDIwLjI1OWwtOC43NjIsOS43MzJaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTE3MjQuNzU1IC04NzgxLjA4MSkiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTIpIi8+CiAgICAgIDxwYXRoIGlkPSJQYXRoXzE1NTAzNyIgZGF0YS1uYW1lPSJQYXRoIDE1NTAzNyIgZD0iTTExNzM2LjQ1Miw4ODYxLjZoMGMtLjEyOS0uMTEyLS4yNTYtLjIyNS0uMzg3LS4zNDRhMzQuMjEyLDM0LjIxMiwwLDAsMS0yLjUzNC00OC4zNDZsLjA4OC0uMWMuMTc5LS4wMzUuMzU4LS4wNjUuNTM2LS4wODhhNy43MjUsNy43MjUsMCwwLDEsLjk2My0uMDYxLDcuNjM5LDcuNjM5LDAsMCwxLDYuMzMsMTEuOTE0bC0uMDguMTE3LS4wMjcuMDRoMGEyMC4zMTEsMjAuMzExLDAsMCwwLTMuNDg2LDExLjQyMywyMC41NDksMjAuNTQ5LDAsMCwwLDMuMzEyLDExLjE3NSwyMC4zMTIsMjAuMzEyLDAsMCwwLDQuMDQyLDQuNTQxbC04Ljc1Niw5LjcyNVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTcyNC43NTUgLTg4MDEuNTk3KSIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMykiLz4KICAgICAgPHBhdGggaWQ9IlBhdGhfMTU1MDM4IiBkYXRhLW5hbWU9IlBhdGggMTU1MDM4IiBkPSJNMTE3MzYuNDY1LDg5MDAuNzhoMGMtLjEyOS0uMTEyLS4yNTYtLjIyNS0uMzg3LS4zNDNhMzQuNDI3LDM0LjQyNywwLDAsMS00LjgyMi01LjM1NiwzNC4xLDM0LjEsMCwwLDEtNS42NjItMTIuNTk1LDM0LjU1LDM0LjU1LDAsMCwxLS44MTgtNi43OTNjLjA4Mi0uMS4xNjYtLjIuMjQ4LS4yOTFhNy41OSw3LjU5LDAsMCwxLDQuMjE3LTIuMzg1LDcuNjMxLDcuNjMxLDAsMCwxLDMuMDM3LjAyMiw3LjYzMiw3LjYzMiwwLDAsMSw1LjkyMiw2LjAyMWwuMDE4LjA4OC4wMTguMWgwYTIwLjI2NCwyMC4yNjQsMCwwLDAsMy4xLDcuNSwyMC41MzgsMjAuNTM4LDAsMCwwLDIuNTE2LDMuMDQ5Yy40MzguNDM1LjkuODU4LDEuMzc5LDEuMjU3bC04Ljc2Miw5LjczWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExNzI0Ljc2OSAtODg0MC43ODEpIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC00KSIvPgogICAgPC9nPgogICAgPGcgaWQ9IlRleHQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzNy43NzcgMjgyLjg0NSkiPgogICAgICA8cGF0aCBpZD0iQSIgZD0iTTEyMjI2LjYzLDg5MzAuN2E3LjMzNSw3LjMzNSwwLDAsMSwuODY1LTMuNjUsNi4zNzYsNi4zNzYsMCwwLDEsMi40MjQtMi4zNzUsMTEuNjgsMTEuNjgsMCwwLDEsMy42NzktMS4yNjksMzcuNjE1LDM3LjYxNSwwLDAsMSw0LjctLjUzMWwzLjU0Ni0uMDMxLjA3My0uNmE2LjA2MSw2LjA2MSwwLDAsMCwuMDc2LTEuNzc2LDIuMjUxLDIuMjUxLDAsMCwwLS41LTEuMjExLDMuNjc4LDMuNjc4LDAsMCwwLTIuNTg1LS44NDFjLTEuMTA2LS4wMzgtMy4yMS4yNS0zLjcyOCwyLjIxM2gtNi4zYTguNDUsOC40NSwwLDAsMSw2LjQ1Ni02LjYzNSwxNi42LDE2LjYsMCwwLDEsMy44NjktLjM2N2MzLjYyOSwwLDYuMjM4Ljg4OSw3Ljc1MiwyLjY0MywxLjM2MSwxLjU3NCwxLjgxNCwzLjgzLDEuMzQ4LDYuNzA2bC0xLjA3Myw2LjczN2MtLjQ3OCwyLjkxNC0uODY2LDUuMi0xLjE1Niw3LjI1aC02LjE0NGMuMi0xLjIxNC4yNzktMS41MTkuMzkzLTIuNTIxYTguMzkyLDguMzkyLDAsMCwxLTIuMzE2LDEuNjU4LDguMTM5LDguMTM5LDAsMCwxLTQuMDQxLDFDMTIyMjkuNTEyLDg5MzcuMSwxMjIyNi42Myw4OTM0LjU4NywxMjIyNi42Myw4OTMwLjdabTcuNzI4LTIuOTg4YTIuNDM1LDIuNDM1LDAsMCwwLTEuMjQ1LDIuMzUzLDIuMjc3LDIuMjc3LDAsMCwwLC43MjQsMS43MjksMy4yNTIsMy4yNTIsMCwwLDAsMi4yMzkuNzI5LDUuMDUsNS4wNSwwLDAsMCwzLjE4OC0xLjAzMyw0LjQ4Myw0LjQ4MywwLDAsMCwxLjYyMy0yLjkzM3YwbC4zLTEuNjk0aC0yLjcxNUE4LjQxLDguNDEsMCwwLDAsMTIyMzQuMzU3LDg5MjcuNzEzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMDcxLjQyMiAtODkwNS45MykiIGZpbGw9IiMwYjEzNzAiLz4KICAgICAgPHBhdGggaWQ9IlIiIGQ9Ik0xMTg0My4wNTEsODkzMC4wMTJoMGMyLjA0LTEyLjk0LDMuNDMxLTIwLjM2MywzLjgzOS0yMy4xMjFoNi43N2MtLjI5NSwxLjc4NS0uMTc2LDEuMTA1LS4zNTksMi4xOTQsMS4yMjMtMS40LDIuOTM1LTIuMTQ2LDcuNTE4LTIuMTMyLjM4NiwwLC44NTUtLjAxMiwxLjI5NSwwYTExLjY2NSwxMS42NjUsMCwwLDAtMS4yMTcsMS4xODgsMTUuODI2LDE1LjgyNiwwLDAsMC0yLjIzLDMuMDUsMTUuOTkxLDE1Ljk5MSwwLDAsMC0xLjEzOSwyLjU1NSw3LjE4Nyw3LjE4NywwLDAsMC0zLjg5NS40ODJjLTEuNjYyLDEuMDItMS43ODcsMy40ODItMi4xMzMsNS42NjZsLTEuNywxMC4xMTdoLTYuNzQ0WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExNzAyLjI1MSAtODg5OS4yMjIpIiBmaWxsPSIjMGIxMzcwIi8+CiAgICAgIDxwYXRoIGlkPSJUIiBkPSJNMTIxMzUuMzc5LDg5MjcuNTE5Yy0xLjE2NC0xLjM2Ni0xLjU0My0zLjM4LTEuMTIzLTUuOTgybDEuNzEzLTEwLjc1N2gtMi45MjRsLjc1NC00Ljg0NmE0LjgzMSw0LjgzMSwwLDAsMCwzLjA1MS0xLjMsNy44NzYsNy44NzYsMCwwLDAsMS40MDgtMy42MjdoNi4wMzNsLS44ODMsNC45MzJoNS4xNjJsLS45NDcsNC44NDZoLTQuOTQzbC0xLjc0OCwxMC42OGEyLjYzNywyLjYzNywwLDAsMCwuMjc3LDIuMTMzLDIuMTYsMi4xNiwwLDAsMCwxLjczMi41NDcsNi42MjEsNi42MjEsMCwwLDAsMi4zMzgtLjQyNGwuMjgzLS4xMTEtLjg1LDUuMjg3LS4wOTIuMDM3YTkuOCw5LjgsMCwwLDEtMy42NDUuNjI0QzEyMTM4LjQxMiw4OTI5LjU1MiwxMjEzNi41MjksODkyOC44NjcsMTIxMzUuMzc5LDg5MjcuNTE5WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMDA1LjcxMSAtODg5OC4zODIpIiBmaWxsPSIjMGIxMzcwIi8+CiAgICAgIDxwYXRoIGlkPSJDIiBkPSJNMTIwNjMuNjU2LDg5MzUuMDQyYTEwLjE4MywxMC4xODMsMCwwLDEtMy4xNTEtNy44LDE1Ljc3NSwxNS43NzUsMCwwLDEsLjk3NC01LjYyMywxMi4yNTQsMTIuMjU0LDAsMCwxLDIuNjgzLTQuMjUsMTEuNjQ1LDExLjY0NSwwLDAsMSw0LjAyMy0yLjY4NCwxMy4yNjIsMTMuMjYyLDAsMCwxLDQuOTgtLjkzMywxNC4yNzIsMTQuMjcyLDAsMCwxLDMuOTU5LjUyLDkuMzMxLDkuMzMxLDAsMCwxLDMuMjMyLDEuNjI0LDcuODYsNy44NiwwLDAsMSwyLjIyNSwyLjgxNywxMC41ODEsMTAuNTgxLDAsMCwxLC45MzIsNC4wNjdsLjAwNi4xODJoLTYuMjc1bC0uMDE3LS4xNTVhNC4xODgsNC4xODgsMCwwLDAtMS4zMDgtMi45NDUsNC40NjYsNC40NjYsMCwwLDAtMi45MjktLjgyOCw1LDUsMCwwLDAtNC4yNTUsMi4yNzEsMTAuNTI3LDEwLjUyNywwLDAsMC0xLjU1Miw1Ljk4LDYuMTIxLDYuMTIxLDAsMCwwLDEuMjA4LDQuMDg4LDQuNzIxLDQuNzIxLDAsMCwwLDMuNzY4LDEuNDU2LDQuODQ4LDQuODQ4LDAsMCwwLDMuMTc0LTEuMDg0LDQuNjM2LDQuNjM2LDAsMCwwLDEuMDgzLTEuMzMsNi4wOTQsNi4wOTQsMCwwLDAsLjYzNi0xLjg1M2wuMDI3LS4xNDNoNi4wNjdsLS4wMy4yYTEyLjEyNSwxMi4xMjUsMCwwLDEtMS4yNTksMy45MjUsOS41Nyw5LjU3LDAsMCwxLTIuMzcyLDIuOSwxMC4xMSwxMC4xMSwwLDAsMS0zLjM1MiwxLjc5MiwxMy43ODUsMTMuNzg1LDAsMCwxLTQuMTkxLjYxQTEyLjA2NywxMi4wNjcsMCwwLDEsMTIwNjMuNjU2LDg5MzUuMDQyWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExOTU2LjgyMyAtODkwNi43NjYpIiBmaWxsPSIjMGIxMzcwIi8+CiAgICAgIDxwYXRoIGlkPSJFIiBkPSJNMTE5OTEuMDYyLDg5MzUuMTU5YTguODc0LDguODc0LDAsMCwxLTIuMzQ0LTMuMjM3LDExLjIwNiwxMS4yMDYsMCwwLDEtLjgzOC00LjQxNCwxNi4xNDgsMTYuMTQ4LDAsMCwxLC45Ny01LjY0NywxMy4wMTMsMTMuMDEzLDAsMCwxLDIuNjg1LTQuMzg3LDExLjkzNiwxMS45MzYsMCwwLDEsNC4wNTctMi44NCwxMi45LDEyLjksMCwwLDEsNS4wOC0xLjAwOWMzLjU4MSwwLDYuNDM5LDEuMTI3LDguMjY2LDMuMjU1YTguOTYsOC45NiwwLDAsMSwxLjkxNywzLjk1MiwxNC41NjgsMTQuNTY4LDAsMCwxLC4wNzQsNS4zNDl2MGwtLjIsMS4xNDhoLTE2LjI1NnYuNDhhNS41ODUsNS41ODUsMCwwLDAsMS4xMjUsMy43NDQsNC42ODMsNC42ODMsMCwwLDAsMy43MjEsMS40MDYsNS40NTcsNS40NTcsMCwwLDAsMy4wODUtLjgxLDQuMTksNC4xOSwwLDAsMCwxLjYzOC0yLjI1NmwuMDQtLjEyMWg2LjMyOWwtLjA1Mi4yMTZhMTAuMTc4LDEwLjE3OCwwLDAsMS0xLjQ4NywzLjM5NSw5LjMwNSw5LjMwNSwwLDAsMS0yLjQ4NiwyLjQ1LDExLjA3OSwxMS4wNzksMCwwLDEtMy4zLDEuNDc5LDE1LjExNCwxNS4xMTQsMCwwLDEtMy45MzkuNDk0QTEyLjA2NCwxMi4wNjQsMCwwLDEsMTE5OTEuMDYyLDg5MzUuMTU5Wm03LjgyOC0xNi41NDZhNS4wNjQsNS4wNjQsMCwwLDAtMS41OC44NjcsNy4yMzYsNy4yMzYsMCwwLDAtMi4yNTQsMy42MThoOS42NDVhNy4xNTcsNy4xNTcsMCwwLDAtLjEzNC0yLjA5NCwzLjQ0NiwzLjQ0NiwwLDAsMC0uNzktMS41NjksMy4xMTgsMy4xMTgsMCwwLDAtMS4yNjctLjgxMiw1LjY0OSw1LjY0OSwwLDAsMC0xLjg4Mi0uMjgzQTUuNTE5LDUuNTE5LDAsMCwwLDExOTk4Ljg5LDg5MTguNjEzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExOTA4LjY0NCAtODkwNi42NDEpIiBmaWxsPSIjMGIxMzcwIi8+CiAgICAgIDxwYXRoIGlkPSJQIiBkPSJNMTE4NDkuNjQxLDg5MzIuNDc1SDExODQzbDMuNy0yMy41NTdjLjE3MS0xLjA1My4zMzUtMi4wMjcuNDgtMi44ODhsLjAxLS4wNjNjLjMtMS44LjU2NC0zLjM1Ljc1Mi00LjhoNi4zNjRjLS4xMzcuODMyLS4xNTUuOTYxLS4yNjEsMS42N2wwLC4wMjJjLS4wMTkuMTIzLS4wNC4yNjQtLjA2My40MjlsLS4wMTQuMDg3LjAzLS4wMjJhMTAuMTY5LDEwLjE2OSwwLDAsMSwyLjYyMi0xLjU5MiwxMy44MDYsMTMuODA2LDAsMCwxLDQuODM2LS43NjIsOC44OCw4Ljg4LDAsMCwxLDMuNDY4LjY3Miw3Ljg0OCw3Ljg0OCwwLDAsMSwyLjc3MywxLjk2NywxMC44NjUsMTAuODY1LDAsMCwxLDIuNDksNy40NDUsMTcuNjQyLDE3LjY0MiwwLDAsMS0uNzkyLDUuNDQ3LDEzLjUxLDEzLjUxLDAsMCwxLTIuMzA3LDQuNDU3LDEwLjQwNiwxMC40MDYsMCwwLDEtMy41ODgsMi45LDEwLjUxMywxMC41MTMsMCwwLDEtNC42NDEsMS4wMzQsMTAuMzIyLDEwLjMyMiwwLDAsMS0yLjc3NC0uMzY0LDguMTEyLDguMTEyLDAsMCwxLTIuMi0uOTc5bC0uMDkyLS4wNTlhNy43MjMsNy43MjMsMCwwLDEtMi40LTIuMDQ2Wm0xMC4xODYtMjYuNjg5YTUuMzQ5LDUuMzQ5LDAsMCwwLTEuODg3LjM1NCw2LjQwOCw2LjQwOCwwLDAsMC0xLjc0MiwxLDcuODQxLDcuODQxLDAsMCwwLTIuNDk0LDMuNiw4LjY3MSw4LjY3MSwwLDAsMC0uNDc1LDIuNzIsNy40NzMsNy40NzMsMCwwLDAsLjQsMi41MjcsNS4xMSw1LjExLDAsMCwwLDMuMTE1LDMuMyw0LjY2NCw0LjY2NCwwLDAsMCwxLjUzLjI1NmMyLjU4NSwwLDQuNzYtMi4wODQsNS43ODgtNS4wNjZhNy45OTMsNy45OTMsMCwwLDAsLjEtNS4xODdjLS41NTMtMS41OTUtMS4zLTIuNzQ3LTIuNzQ1LTMuMjQzQTQuODU0LDQuODU0LDAsMCwwLDExODU5LjgyNiw4OTA1Ljc4NVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTc5Mi4zODggLTg4OTQuMDE2KSIgZmlsbD0iIzBiMTM3MCIvPgogICAgICA8cGF0aCBpZD0iUyIgZD0iTTExODQ4Ljc1LDg5MzcuMzE0YTguOTQ1LDguOTQ1LDAsMCwxLTMuMTA1LTEuNTU5LDYuNzU3LDYuNzU3LDAsMCwxLTEuOTUxLTIuNDhBNy45NTYsNy45NTYsMCwwLDEsMTE4NDMsODkzMHYtLjE3Nmg2LjIzMWwuMDEyLjE2MmEzLjExNiwzLjExNiwwLDAsMCwuOTEsMi4xODYsMywzLDAsMCwwLDEuMTU5LjY0Myw2LjE1Myw2LjE1MywwLDAsMCwxLjgxNi4yMzksMy45OSwzLjk5LDAsMCwwLDIuNDI1LS42MDgsMi4wNCwyLjA0LDAsMCwwLC43NjItMS43NDgsMS41ODQsMS41ODQsMCwwLDAtLjc2OC0xLjQ5MiwxMC41LDEwLjUsMCwwLDAtMy4yNDEtMS4wODgsMTEuOSwxMS45LDAsMCwxLTUuNjU4LTIuNDA1LDUuMDU3LDUuMDU3LDAsMCwxLTEuMzQzLTEuOTQ0LDYuODkyLDYuODkyLDAsMCwxLS40MjgtMi41NDQsNi44LDYuOCwwLDAsMSwyLjc5NC01LjY4Nyw5LjI4Niw5LjI4NiwwLDAsMSwzLjAxMi0xLjQzMiwxMy42NjQsMTMuNjY0LDAsMCwxLDMuOC0uNDc5LDExLjAzOCwxMS4wMzgsMCwwLDEsNi40NzksMS42ODYsNi45NjEsNi45NjEsMCwwLDEsMi44MTgsNS41NTNsLjAxMi4xODRoLTYuMTA4bC0uMDE1LS4xNmEyLjYsMi42LDAsMCwwLS45NTEtMS44NDQsMy43NTIsMy43NTIsMCwwLDAtMi40MS0uNzQ2LDQuMDMsNC4wMywwLDAsMC0yLjM1OS41OSwxLjg1MSwxLjg1MSwwLDAsMC0uNzg0LDEuNTk0LDEuNTEsMS41MSwwLDAsMCwuODI0LDEuNCwxMC4zMjgsMTAuMzI4LDAsMCwwLDMuMDEzLDEsMjIuODgxLDIyLjg4MSwwLDAsMSwzLjQ3OS45ODIsOC4zNiw4LjM2LDAsMCwxLDIuNDU3LDEuNCw1LjkyOSw1LjkyOSwwLDAsMSwxLjkyOCw0Ljg2Myw3LjQxLDcuNDEsMCwwLDEtLjczLDMuMzIsNi43MzgsNi43MzgsMCwwLDEtMi4wNTIsMi40MjksMTEuOTcxLDExLjk3MSwwLDAsMS03LjE3MiwxLjk3OEExNS4wMjgsMTUuMDI4LDAsMCwxLDExODQ4Ljc1LDg5MzcuMzE0WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExODExLjU2OSAtODkwNi45ODcpIiBmaWxsPSIjMGIxMzcwIi8+CiAgICAgIDxwYXRoIGlkPSJPIiBkPSJNMTUuNzE2LDYuMjg2YTkuNDMsOS40MywwLDEsMCw5LjQzLDkuNDMsOS40NCw5LjQ0LDAsMCwwLTkuNDMtOS40M20wLTYuMjg2QTE1LjcxNiwxNS43MTYsMCwxLDEsMCwxNS43MTYsMTUuNzE2LDE1LjcxNiwwLDAsMSwxNS43MTYsMFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIGZpbGw9IiMwYjEzNzAiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=" alt="Ospectra"></a>
+  <div class="links">
+    <a href="https://ospectra.ai/">Home</a>
+    <a href="https://ospectra.ai/About/">About</a>
+    <a class="on" href="#">Platform</a>
+    <a href="https://ospectra.ai/AI-Labs/">AI Labs - Home Care</a>
+    <a href="https://ospectra.ai/Career/">Career</a>
+    <a href="https://ospectra.ai/Contact/">Contact</a>
+    <a class="btn btn-primary" href="https://ospectra.ai/Contact/">Book a Demo</a>
+  </div>
+</div></nav>
 
 <section class="hero">
   <div class="orb o1"></div><div class="orb o2"></div>
-  <div class="in"  data-aos="fade-up" data-aos-delay="80">
+  <div class="in">
     <span class="eyebrow"><span>&#9679;</span>&nbsp;The AI Intelligence Platform</span>
-    <h1 data-aos="fade-up">An AI workforce you can <span class="grad-text">run your business on.</span></h1>
-    <p class="statement">Most AI tools answer questions. Ospectra agents do the work &mdash; on every channel your customers use, inside controls your board can sign off on.</p>
-    <p class="lede">One platform carries all of it: the <b>Agent Harness</b> that reasons through real work, the <b>Gateway</b> that puts the same agent on every surface, and plug-in packs that connect your systems in weeks, not quarters.</p>
-    <div class="hero-actions"  >
+    <h1 data-aos>An AI workforce you can <span class="grad-text">run your business on.</span></h1>
+    <p class="statement" data-aos data-d="80">Most AI tools answer questions. Ospectra agents do the work &mdash; on every channel your customers use, inside controls your board can sign off on.</p>
+    <p class="lede" data-aos data-d="140">One platform carries all of it: the <b>Agent Harness</b> that reasons through real work, the <b>Gateway</b> that puts the same agent on every surface, and plug-in packs that connect your systems in weeks, not quarters.</p>
+    <div class="hero-actions" data-aos data-d="200">
       <a class="btn btn-primary" href="https://ospectra.ai/Contact/">Book a Demo</a>
       <a class="btn btn-link" href="#architecture">See the architecture <span>&#8595;</span></a>
     </div>
     <div class="stat-row3">
-      <div class="hstat" ><strong>2,000&thinsp;/&thinsp;2,000</strong><small>conversations &middot; zero errors</small></div>
-      <div class="hstat" ><strong>153&thinsp;ms</strong><small>typical response</small></div>
-      <div class="hstat" ><strong>~30&thinsp;s</strong><small>integration to live</small></div>
+      <div class="hstat" data-aos data-d="220"><strong>2,000&thinsp;/&thinsp;2,000</strong><small>conversations &middot; zero errors</small></div>
+      <div class="hstat" data-aos data-d="300"><strong>153&thinsp;ms</strong><small>typical response</small></div>
+      <div class="hstat" data-aos data-d="380"><strong>~30&thinsp;s</strong><small>integration to live</small></div>
     </div>
     <p class="hero-note">Measured on the platform under load &mdash; not asserted.</p>
   </div>
@@ -94,12 +375,12 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head" data-aos="fade-up">
+    <div class="section-head" data-aos>
       <span class="eyebrow"><span>&#9679;</span>&nbsp;Why it looks different</span>
       <h2>Built to think, <span class="grad-text">not to follow a script.</span></h2>
       <p class="lede">Real conversations don&rsquo;t follow a diagram &mdash; so our agents don&rsquo;t either. Every agent runs on a reasoning core that thinks through each situation and decides its own next step, inside limits the platform itself enforces.</p>
     </div>
-    <div class="quote-bar" data-aos="fade-up">
+    <div class="quote-bar" data-aos>
       <p class="q">Fewer boxes. Far fewer dead ends. <em>Agents that finish the job, not the script.</em></p>
       <p>Every layer of the platform is measured before it ships and enforced by the runtime itself &mdash; not by instructions we hope the AI follows. Everything on this page is here because it earned its place.</p>
     </div>
@@ -109,7 +390,7 @@
 <section class="section lavender">
   <div class="wrap">
     <div class="harness-grid">
-      <div class="harness-copy" data-aos="fade-up">
+      <div class="harness-copy" data-aos>
         <span class="eyebrow"><span>&#9679;</span>&nbsp;The Agent Harness</span>
         <h2>One reasoning core. <span class="grad-text">Fully harnessed.</span></h2>
         <p class="lede">The Agent Harness is the mind every Ospectra agent runs inside. It plans the work, briefs itself before every reply, acts through your systems, and recovers when a path dead-ends &mdash; while the harness itself keeps every step inside the lines.</p>
@@ -121,7 +402,7 @@
         </ul>
         <a class="btn btn-link" href="#engines">Explore the engines <span>&#8595;</span></a>
       </div>
-      <div class="harness-card" data-aos="fade-up" data-aos-delay="120">
+      <div class="harness-card" data-aos data-d="120">
         <div class="glow"></div>
         <div class="h-ring"></div>
         <div class="h-core">Agent<br>Harness<small>reasoning loop</small></div>
@@ -138,12 +419,12 @@
 
 <section class="section" id="architecture">
   <div class="wrap" style="max-width:1450px">
-    <div class="section-head" data-aos="fade-up">
+    <div class="section-head" data-aos>
       <span class="eyebrow"><span>&#9679;</span>&nbsp;The architecture</span>
       <h2>One platform. <span class="grad-text">Every layer.</span></h2>
       <p class="lede">From the surfaces your customers talk to, down to the data &mdash; with identity on one side and observability on the other, running through everything. Any cloud, any AI model, one version number.</p>
     </div>
-    <div class="arch-slot" data-aos="fade-up">
+    <div class="arch-slot" data-aos>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="gs" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FB2CFE"/><stop offset=".55" stop-color="#892FC1"/><stop offset="1" stop-color="#421AD5"/></linearGradient>
@@ -276,42 +557,42 @@
 
 <section class="section" id="engines">
   <div class="wrap">
-    <div class="section-head" data-aos="fade-up">
+    <div class="section-head" data-aos>
       <span class="eyebrow"><span>&#9679;</span>&nbsp;Inside the Agent Runtime</span>
       <h2>Twelve engines. <span class="grad-text">One promise: work you can trust.</span></h2>
       <p class="lede">Every agent &mdash; ours or the ones you author &mdash; runs inside the same engines. A capability proven once is proven for all of them.</p>
     </div>
     <div class="eng-list">
-      <div class="eng-row" data-accent="g1" data-aos="fade-up"><span class="eng-num">01</span><div class="eng-body"><h4>Reasoning Engine</h4><p>Thinks through real work end to end &mdash; plans, acts, and recovers from dead ends. Agents that finish jobs, not tickets.</p></div></div>
-      <div class="eng-row" data-accent="g2" data-aos="fade-up" data-aos-delay="60"><span class="eng-num">02</span><div class="eng-body"><h4>Context Engine</h4><p>Every conversation starts fully briefed: who this is, what they told you before, what the moment needs. Your customers never repeat themselves.</p></div></div>
-      <div class="eng-row" data-accent="g3" data-aos="fade-up"><span class="eng-num">03</span><div class="eng-body"><h4>Memory Engine</h4><p>Total recall, on the record. What was said six weeks ago is still there &mdash; in full &mdash; the moment it matters.</p></div></div>
-      <div class="eng-row" data-accent="g4" data-aos="fade-up" data-aos-delay="60"><span class="eng-num">04</span><div class="eng-body"><h4>Guardrails Engine</h4><p>Brand-safe by construction. Protections for data, conduct and manipulation that can be tightened to your policies &mdash; and never loosened below ours.</p></div></div>
-      <div class="eng-row amber-card" data-accent="g1" data-aos="fade-up"><span class="eng-num">05</span><div class="eng-body"><h4>Approval Gates</h4><p>The moments that matter wait for your people &mdash; money, signatures, saying no to a customer. Frozen until a human rules, even when the agent runs overnight.</p><span class="amber-pill">a person decides here</span></div></div>
-      <div class="eng-row" data-accent="g2" data-aos="fade-up" data-aos-delay="60"><span class="eng-num">06</span><div class="eng-body"><h4>The Validator</h4><p>Independent quality control on every piece of work. A second mind &mdash; that never sees the first one&rsquo;s reasoning &mdash; confirms the job is actually done before anyone hears &ldquo;done.&rdquo;</p></div></div>
-      <div class="eng-row" data-accent="g3" data-aos="fade-up"><span class="eng-num">07</span><div class="eng-body"><h4>Evaluation Engine</h4><p>Proof before production. Every change faces a bank of real-world scenarios. Nothing ships on the strength of a good demo.</p></div></div>
-      <div class="eng-row" data-accent="g4" data-aos="fade-up" data-aos-delay="60"><span class="eng-num">08</span><div class="eng-body"><h4>Learning Engine</h4><p>Gets better at your business. A thumbs-up becomes a worked example; a correction becomes a rule &mdash; with your team approving every lesson.</p></div></div>
-      <div class="eng-row" data-accent="g1" data-aos="fade-up"><span class="eng-num">09</span><div class="eng-body"><h4>Usage &amp; Cost Engine</h4><p>A CFO-grade meter. Live spend per agent and per customer, priced as it happens. A retry never bills twice.</p></div></div>
-      <div class="eng-row" data-accent="g2" data-aos="fade-up" data-aos-delay="60"><span class="eng-num">10</span><div class="eng-body"><h4>OpenSandbox</h4><p>Anything an agent executes happens in a sealed room &mdash; an isolated container per conversation, away from your systems.</p></div></div>
-      <div class="eng-row" data-accent="g3" data-aos="fade-up"><span class="eng-num">11</span><div class="eng-body"><h4>MCP Pack Host</h4><p>Your systems, plugged in. CRM, records, scheduling &mdash; delivered as packs that go live in the running platform in about thirty seconds, without downtime.</p></div></div>
-      <div class="eng-row" data-accent="g4" data-aos="fade-up" data-aos-delay="60"><span class="eng-num">12</span><div class="eng-body"><h4>Agent Studio</h4><p>Build agents in a browser &mdash; roles, rules and channels authored by the people who know the work. Every change versioned, every agent with its own changelog.</p></div></div>
+      <div class="eng-row" data-accent="g1" data-aos><span class="eng-num">01</span><div class="eng-body"><h4>Reasoning Engine</h4><p>Thinks through real work end to end &mdash; plans, acts, and recovers from dead ends. Agents that finish jobs, not tickets.</p></div></div>
+      <div class="eng-row" data-accent="g2" data-aos data-d="60"><span class="eng-num">02</span><div class="eng-body"><h4>Context Engine</h4><p>Every conversation starts fully briefed: who this is, what they told you before, what the moment needs. Your customers never repeat themselves.</p></div></div>
+      <div class="eng-row" data-accent="g3" data-aos><span class="eng-num">03</span><div class="eng-body"><h4>Memory Engine</h4><p>Total recall, on the record. What was said six weeks ago is still there &mdash; in full &mdash; the moment it matters.</p></div></div>
+      <div class="eng-row" data-accent="g4" data-aos data-d="60"><span class="eng-num">04</span><div class="eng-body"><h4>Guardrails Engine</h4><p>Brand-safe by construction. Protections for data, conduct and manipulation that can be tightened to your policies &mdash; and never loosened below ours.</p></div></div>
+      <div class="eng-row amber-card" data-accent="g1" data-aos><span class="eng-num">05</span><div class="eng-body"><h4>Approval Gates</h4><p>The moments that matter wait for your people &mdash; money, signatures, saying no to a customer. Frozen until a human rules, even when the agent runs overnight.</p><span class="amber-pill">a person decides here</span></div></div>
+      <div class="eng-row" data-accent="g2" data-aos data-d="60"><span class="eng-num">06</span><div class="eng-body"><h4>The Validator</h4><p>Independent quality control on every piece of work. A second mind &mdash; that never sees the first one&rsquo;s reasoning &mdash; confirms the job is actually done before anyone hears &ldquo;done.&rdquo;</p></div></div>
+      <div class="eng-row" data-accent="g3" data-aos><span class="eng-num">07</span><div class="eng-body"><h4>Evaluation Engine</h4><p>Proof before production. Every change faces a bank of real-world scenarios. Nothing ships on the strength of a good demo.</p></div></div>
+      <div class="eng-row" data-accent="g4" data-aos data-d="60"><span class="eng-num">08</span><div class="eng-body"><h4>Learning Engine</h4><p>Gets better at your business. A thumbs-up becomes a worked example; a correction becomes a rule &mdash; with your team approving every lesson.</p></div></div>
+      <div class="eng-row" data-accent="g1" data-aos><span class="eng-num">09</span><div class="eng-body"><h4>Usage &amp; Cost Engine</h4><p>A CFO-grade meter. Live spend per agent and per customer, priced as it happens. A retry never bills twice.</p></div></div>
+      <div class="eng-row" data-accent="g2" data-aos data-d="60"><span class="eng-num">10</span><div class="eng-body"><h4>OpenSandbox</h4><p>Anything an agent executes happens in a sealed room &mdash; an isolated container per conversation, away from your systems.</p></div></div>
+      <div class="eng-row" data-accent="g3" data-aos><span class="eng-num">11</span><div class="eng-body"><h4>MCP Pack Host</h4><p>Your systems, plugged in. CRM, records, scheduling &mdash; delivered as packs that go live in the running platform in about thirty seconds, without downtime.</p></div></div>
+      <div class="eng-row" data-accent="g4" data-aos data-d="60"><span class="eng-num">12</span><div class="eng-body"><h4>Agent Studio</h4><p>Build agents in a browser &mdash; roles, rules and channels authored by the people who know the work. Every change versioned, every agent with its own changelog.</p></div></div>
     </div>
   </div>
 </section>
 
 <section class="section lavender">
   <div class="wrap">
-    <div class="section-head" data-aos="fade-up">
+    <div class="section-head" data-aos>
       <span class="eyebrow"><span>&#9679;</span>&nbsp;Control</span>
       <h2>Autonomy is a dial, <span class="grad-text">not a leap.</span></h2>
       <p class="lede">Start with answers only. Grow into unattended operation as the evidence earns it. The platform holds whichever setting you choose.</p>
     </div>
     <ul class="mode-grid">
-      <li data-aos="fade-up"><h4>Ask</h4><p>Answers questions. Takes no action at all.</p></li>
-      <li data-aos="fade-up" data-aos-delay="70"><h4>Plan</h4><p>Proposes the steps and stops. Nothing moves until you approve.</p></li>
-      <li data-aos="fade-up" data-aos-delay="140"><h4>Agent</h4><p>Does the work, pausing at every gated action for a human decision.</p><span class="amber-pill">gated actions wait</span></li>
-      <li data-aos="fade-up" data-aos-delay="210"><h4>Autonomous</h4><p>Runs unattended &mdash; and still freezes at the irreversible moments. No setting removes that.</p><span class="amber-pill">gated actions wait</span></li>
+      <li data-aos><h4>Ask</h4><p>Answers questions. Takes no action at all.</p></li>
+      <li data-aos data-d="70"><h4>Plan</h4><p>Proposes the steps and stops. Nothing moves until you approve.</p></li>
+      <li data-aos data-d="140"><h4>Agent</h4><p>Does the work, pausing at every gated action for a human decision.</p><span class="amber-pill">gated actions wait</span></li>
+      <li data-aos data-d="210"><h4>Autonomous</h4><p>Runs unattended &mdash; and still freezes at the irreversible moments. No setting removes that.</p><span class="amber-pill">gated actions wait</span></li>
     </ul>
-    <div class="quote-bar" data-aos="fade-up">
+    <div class="quote-bar" data-aos>
       <p class="q">The runtime keeps the promise, <em>not the prompt.</em></p>
       <p>Anyone can write &ldquo;never do X&rdquo; in an instruction and hope. In a business where an agent talks to real customers, hoping isn&rsquo;t a control &mdash; so the limits live in the platform itself, where no clever conversation can talk its way past them.</p>
     </div>
@@ -320,24 +601,24 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head" data-aos="fade-up">
+    <div class="section-head" data-aos>
       <span class="eyebrow"><span>&#9679;</span>&nbsp;Proof over promises</span>
       <h2>Measured, <span class="grad-text">not asserted.</span></h2>
       <p class="lede">We test the platform the way your customers will use it &mdash; under real load, on real scenarios &mdash; and we publish the results. That discipline is why these numbers mean something.</p>
     </div>
     <div class="stat-row5">
-      <div class="mstat" data-aos="fade-up"><strong>2,000&thinsp;/&thinsp;2,000</strong><div class="d">conversations completed under load &mdash; zero errors</div><small>platform load test &middot; 200 concurrent</small></div>
-      <div class="mstat" data-aos="fade-up" data-aos-delay="60"><strong>153&thinsp;ms</strong><div class="d">typical platform response time</div><small>same test &middot; single worker</small></div>
-      <div class="mstat" data-aos="fade-up" data-aos-delay="120"><strong>62.6% &rarr; 0</strong><div class="d">false alarms in safety checks, after calibration</div><small>guardrail calibration &middot; 2026</small></div>
-      <div class="mstat" data-aos="fade-up" data-aos-delay="180"><strong>+84&thinsp;pts</strong><div class="d">better at tasks that depend on remembering your customer</div><small>memory evaluation</small></div>
-      <div class="mstat" data-aos="fade-up" data-aos-delay="240"><strong>~30&thinsp;s</strong><div class="d">from a finished integration to live in production</div><small>pack hot-load, measured</small></div>
+      <div class="mstat" data-aos><strong>2,000&thinsp;/&thinsp;2,000</strong><div class="d">conversations completed under load &mdash; zero errors</div><small>platform load test &middot; 200 concurrent</small></div>
+      <div class="mstat" data-aos data-d="60"><strong>153&thinsp;ms</strong><div class="d">typical platform response time</div><small>same test &middot; single worker</small></div>
+      <div class="mstat" data-aos data-d="120"><strong>62.6% &rarr; 0</strong><div class="d">false alarms in safety checks, after calibration</div><small>guardrail calibration &middot; 2026</small></div>
+      <div class="mstat" data-aos data-d="180"><strong>+84&thinsp;pts</strong><div class="d">better at tasks that depend on remembering your customer</div><small>memory evaluation</small></div>
+      <div class="mstat" data-aos data-d="240"><strong>~30&thinsp;s</strong><div class="d">from a finished integration to live in production</div><small>pack hot-load, measured</small></div>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="cta-band" data-aos="fade-up">
+    <div class="cta-band" data-aos>
       <h2>See it run on your kind of work.</h2>
       <div class="b">
         <a class="btn btn-white" href="https://ospectra.ai/Contact/">Book a Demo</a>
@@ -347,66 +628,49 @@
   </div>
 </section>
 
-    <!-- start demo popup -->
-    <div id="book-demo" class="Book_Demosblock flex_center">
-        <div class="Book_Demoslevel flex_center">
-            <div class="Book_Demoslogo">
-                <iframe src="https://calendly.com/keshav-ram-kritaka/30min?embed_domain=ospectra.ai&embed_type=Inline"
-                    style="border:0;border-radius:15px;" allow="payment; microphone; camera" allowfullscreen=""
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <a href="javascript:void(0);" onclick="closeDemo()" class="Book_Demosclosebtn">
-                <div class="Book_Demosbtn">
-                    <img src="../Assets/images/Close_btn.webp" alt="Close_btn">
-                </div>
-            </a>
-        </div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjU5Ljg1NyIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI1OS44NTcgODAiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSIwLjkwMiIgeTE9IjAuMjI3IiB4Mj0iMC42MTQiIHkyPSIwLjE3MSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmYjJjZmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODkyZmMxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMiIgeDE9IjAuODUiIHkxPSIwLjE1IiB4Mj0iMC41IiB5Mj0iMC4yIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JjM2RmYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM5NTJlYzciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0zIiB4MT0iMC42MTEiIHkxPSIwLjE0NyIgeDI9IjAuMjM1IiB5Mj0iMC40MSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM4OTZlZWIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNTkzYWNiIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNCIgeDE9IjAuNTQ0IiB5MT0iMC42ODgiIHgyPSIwLjM1MiIgeTI9IjAuMjk2IiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzE5MjJhOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwODEwNjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIGlkPSJMb2dvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzE5Ljk0NiAtMjYzLjk3OCkiPgogICAgPGcgaWQ9Ikljb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxOS45NDYgMjYzLjk3OCkiPgogICAgICA8cGF0aCBpZD0iUGF0aF8xNTUwMzUiIGRhdGEtbmFtZT0iUGF0aCAxNTUwMzUiIGQ9Ik0xMTc0MC4zNTMsODg2MC45NzhoMGMtLjE2LS4xMzgtLjMyNi0uMjg2LS41MTctLjQ1OGE0NS44LDQ1LjgsMCwwLDEtNi4yMDUtNi44MzYsNDUuMjU1LDQ1LjI1NSwwLDAsMS00LjU4MS03LjcxLDQ1Ljc2Myw0NS43NjMsMCwwLDEtNC4yMzItMTYuOTg1LDQ2LjI3Miw0Ni4yNzIsMCwwLDEsLjM3Ni04Ljc1NSw0NS42LDQ1LjYsMCwwLDEsNDUuMi0zOS4yNTVoMGE0NS43NDksNDUuNzQ5LDAsMCwxLDE2LjA3OCwyLjkxMiw0NS4yOCw0NS4yOCwwLDAsMSwxNC40NDIsOC43OTFjLjE2My4xNDguMzMxLjMuNTEuNDY3bC0xMi45MjIsMTQuMzVjLS4yLS4xNTUtLjQwNi0uMzI3LS42MTItLjUxbC0uMDM1LS4wMzEtLjAyNi0uMDI1Yy0uMDQ3LS4wNDUtLjA4Ny0uMDgxLS4xMjYtLjExOWwwLDBhMjYuOTc4LDI2Ljk3OCwwLDAsMC05LjMxLTUuNSwyNy41OTQsMjcuNTk0LDAsMCwwLTUuMTI0LTEuMjI5LDI3LjkwNiwyNy45MDYsMCwwLDAtMy43OTQtLjI2Yy0uNDc0LDAtLjk1NS4wMTQtMS40MzUuMDM3YTI3LjMsMjcuMywwLDAsMC0xMC4xNCwyLjUyN2MtLjU2MS4yNjItMS4xMS41NDEtMS42My44MzFzLTEuMDYzLjYxMS0xLjYuOTYxYTI3LjA0MywyNy4wNDMsMCwwLDAtNC4xMTksMy4yNzhjLS40NDEuNDIyLS44ODEuODc5LTEuMzExLDEuMzU1YTI3LjY2NywyNy42NjcsMCwwLDAtNC42NjYsNy4xNzgsMjYuNywyNi43LDAsMCwwLTEuMzU0LDMuNzUsMjcuMiwyNy4yLDAsMCwwLS45MDUsNS4xLDI3LjUzLDI3LjUzLDAsMCwwLC4wNzEsNS4xNjEsMjcuMDg4LDI3LjA4OCwwLDAsMCwzLjAzMiw5Ljg4NGMuMzI0LjYwOC42OTIsMS4yMzMsMS4wOSwxLjg1NWEyNy4xMiwyNy4xMiwwLDAsMCw1LjUyNyw2LjI1bC0xMS42ODMsMTIuOTc3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExNzI0Ljc1NSAtODc4MC45NzkpIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudCkiLz4KICAgICAgPHBhdGggaWQ9IlBhdGhfMTU1MDM2IiBkYXRhLW5hbWU9IlBhdGggMTU1MDM2IiBkPSJNMTE3NDAuMzUxLDg4NjEuMDYzdjBjLS4xODUtLjE2MS0uMzU0LS4zMTItLjUxNS0uNDU3YTQ1Ljc1NCw0NS43NTQsMCwwLDEtNi4yMDUtNi44MzcsNDUuMiw0NS4yLDAsMCwxLTQuNTgxLTcuNzA4LDQ1Ljc3NCw0NS43NzQsMCwwLDEtNC4yMzItMTYuOTg2LDQ2LjI3OSw0Ni4yNzksMCwwLDEsLjM3Ni04Ljc1NSw0NS41ODMsNDUuNTgzLDAsMCwxLDQyLjYwNS0zOS4xODIsMTAuMzk0LDEwLjM5NCwwLDAsMSwxLjI1OS43NTUsMTAuMTI2LDEwLjEyNiwwLDAsMSw0LjE4OSw2LjU3NiwxMC4wNDYsMTAuMDQ2LDAsMCwxLS4yNjEsNC42NTYsMTAuMywxMC4zLDAsMCwxLTIuMiwzLjkzNCwxMC4xNDgsMTAuMTQ4LDAsMCwxLTUuOCwzLjIxNGMtLjA2NS4wMTItLjEzOC4wMjItLjI1LjA0bDAsMGEyNy4xNDEsMjcuMTQxLDAsMCwwLTE0LjE4OCw3LjIzNWMtLjQzMS40MTUtLjg3MS44NzItMS4zMDgsMS4zNTZhMjcuMzU2LDI3LjM1NiwwLDAsMC02LjM0MSwxMi4xNywyNy4yLDI3LjIsMCwwLDAsOS4xMzUsMjcuMDEybC0xMS42ODEsMTIuOTc3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExNzI0Ljc1NSAtODc4MS4wNjMpIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0yKSIvPgogICAgICA8cGF0aCBpZD0iUGF0aF8xNTUwMzciIGRhdGEtbmFtZT0iUGF0aCAxNTUwMzciIGQ9Ik0xMTc0MC4zNTMsODg3Ny45MDh2MGMtLjE3Mi0uMTUtLjM0Mi0uMy0uNTE3LS40NThhNDUuNzEzLDQ1LjcxMywwLDAsMS02LjIwNS02LjgzOCw0NS4yMyw0NS4yMywwLDAsMS00LjU4MS03LjcwNyw0NS42LDQ1LjYsMCwwLDEsNy40MDgtNDkuOTE2bC4xMTYtLjEyOWMuMjM5LS4wNDYuNDc4LS4wODcuNzE2LS4xMThhMTAuNiwxMC42LDAsMCwxLDEuMjgzLS4wOCwxMC4xODcsMTAuMTg3LDAsMCwxLDguNDM5LDE1Ljg4N2MtLjA0Ni4wNjgtLjA3OC4xMTYtLjEwNi4xNTRsLS4wMzUuMDU1aDBhMjcuMDI5LDI3LjAyOSwwLDAsMC00LjE0OCw5Ljk4NCwyNy40NjcsMjcuNDY3LDAsMCwwLDEuNDg0LDE1LjQ3MywyNy42NCwyNy42NCwwLDAsMCwyLjQyOSw0LjY3NCwyNy4xLDI3LjEsMCwwLDAsNS4zOSw2LjA1NGwtMTEuNjczLDEyLjk2OFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTcyNC43NTUgLTg3OTcuOTA4KSIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMykiLz4KICAgICAgPHBhdGggaWQ9IlBhdGhfMTU1MDM4IiBkYXRhLW5hbWU9IlBhdGggMTU1MDM4IiBkPSJNMTE3NDAuMzYsODkxMC4wODJoMGMtLjE3LS4xNTEtLjM0LS4zLS41MTYtLjQ1N2E0Ni4wMzYsNDYuMDM2LDAsMCwxLTYuNDMtNy4xNDMsNDUuNTE0LDQ1LjUxNCwwLDAsMS03LjU0OC0xNi43OTMsNDYuMDc5LDQ2LjA3OSwwLDAsMS0xLjA5Mi05LjA1NmMuMTEtLjEzNi4yMjItLjI2OC4zMzEtLjM4OWExMC4xMTYsMTAuMTE2LDAsMCwxLDUuNjIyLTMuMTgxLDEwLjM4NiwxMC4zODYsMCwwLDEsMS45NTMtLjE4NywxMC4xNDYsMTAuMTQ2LDAsMCwxLDUuNjksMS43NDUsMTAuMTQ3LDEwLjE0NywwLDAsMSw0LjMsNi41bC4wMjMuMTE4LjAyMi4xMzRoMGEyNy4xMDksMjcuMTA5LDAsMCwwLDcuNDgyLDE0LjA1OGMuNTgyLjU4LDEuMiwxLjE0NSwxLjgzOCwxLjY3NWwtMTEuNjg0LDEyLjk3NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTcyNC43NjYgLTg4MzAuMDg1KSIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNCkiLz4KICAgIDwvZz4KICAgIDxnIGlkPSJUZXh0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNDMuNzIgMjg5LjEzMykiPgogICAgICA8cGF0aCBpZD0iQSIgZD0iTTEyMjI2LjYzLDg5MzYuMzkzYTkuNzgxLDkuNzgxLDAsMCwxLDEuMTU0LTQuODY3LDguNDc2LDguNDc2LDAsMCwxLDMuMjMyLTMuMTY2LDE1LjU3NywxNS41NzcsMCwwLDEsNC45LTEuNjkxLDQ5LjkzNCw0OS45MzQsMCwwLDEsNi4yNjgtLjcwOWw0LjcyNy0uMDQxLjEtLjhhOC4wNjEsOC4wNjEsMCwwLDAsLjEtMi4zNjgsMywzLDAsMCwwLS42NjUtMS42MTQsNC45LDQuOSwwLDAsMC0zLjQ0NS0xLjEyMmMtMS40NzctLjA1LTQuMjguMzM0LTQuOTcxLDIuOTUxaC04LjRjMS4wNjktMy4zMTMsMi41MjEtNS41OTUsNC41MTEtNy4wMTlhMTMuMTQsMTMuMTQsMCwwLDEsNC4xLTEuODI4LDIyLjE4OCwyMi4xODgsMCwwLDEsNS4xNTgtLjQ4OWM0LjgzOSwwLDguMzE3LDEuMTg1LDEwLjMzNiwzLjUyMywxLjgxNiwyLjEsMi40Miw1LjEwNiwxLjgsOC45NDFsLTEuNDMxLDguOTgyYy0uNjM3LDMuODg1LTEuMTU1LDYuOTMzLTEuNTQyLDkuNjY2aC04LjE5MWMuMjY0LTEuNjE3LjM3Mi0yLjAyNC41MjMtMy4zNjFhMTEuMTg1LDExLjE4NSwwLDAsMS0zLjA4OCwyLjIxMSwxMC44NjEsMTAuODYxLDAsMCwxLTUuMzg5LDEuMzM2QzEyMjMwLjQ3Myw4OTQ0LjkyNCwxMjIyNi42Myw4OTQxLjU3MywxMjIyNi42Myw4OTM2LjM5M1ptMTAuMy0zLjk4NGEzLjI0NSwzLjI0NSwwLDAsMC0xLjY1OSwzLjEzNywzLjAyOSwzLjAyOSwwLDAsMCwuOTY0LDIuMzA2LDQuMzM0LDQuMzM0LDAsMCwwLDIuOTg2Ljk3Miw2LjczMSw2LjczMSwwLDAsMCw0LjI0OS0xLjM3Nyw1Ljk4Myw1Ljk4MywwLDAsMCwyLjE2NS0zLjkxdi0uMDA2bC40LTIuMjYxaC0zLjYyQTExLjIyMSwxMS4yMjEsMCwwLDAsMTIyMzYuOTM0LDg5MzIuNDA4WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMDE5LjY4OSAtODkwMy4zNjUpIiBmaWxsPSIjZmZmIi8+CiAgICAgIDxwYXRoIGlkPSJSIiBkPSJNMTE4NDMuMDUxLDg5MzcuNzE4aDBjMi43MjEtMTcuMjU0LDQuNTc0LTI3LjE1LDUuMTE5LTMwLjgyN2g5LjAyNWMtLjM5MywyLjM4LS4yMzQsMS40NzQtLjQ4LDIuOTI1LDEuNjMzLTEuODY2LDMuOTE0LTIuODU5LDEwLjAyMy0yLjg0Mi41MTYsMCwxLjE0MS0uMDE2LDEuNzI5LDBhMTUuNDY5LDE1LjQ2OSwwLDAsMC0xLjYyMywxLjU4NSwyMC45NjYsMjAuOTY2LDAsMCwwLTIuOTczLDQuMDY2LDIxLjMzMywyMS4zMzMsMCwwLDAtMS41MiwzLjQwNSw5LjU2OSw5LjU2OSwwLDAsMC01LjE5MS42NDVjLTIuMjE3LDEuMzU4LTIuMzgzLDQuNjQzLTIuODQ0LDcuNTU0bC0yLjI3MywxMy40ODlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTE2NTUuMzIxIC04ODk2LjY2NikiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggaWQ9IlQiIGQ9Ik0xMjEzNi4xNTYsODkzNi4zNTdjLTEuNTUxLTEuODIxLTIuMDU3LTQuNTA3LTEuNS03Ljk3OGwyLjI4My0xNC4zNDFoLTMuOWwxLTYuNDYxYTYuNDUyLDYuNDUyLDAsMCwwLDQuMDctMS43MzljMS40ODYtMS42NDYsMS44NzUtNC44MzcsMS44NzUtNC44MzdoOC4wNDVsLTEuMTc4LDYuNTc2aDYuODg1bC0xLjI2NCw2LjQ2MWgtNi41OTJsLTIuMzMsMTQuMjM5YTMuNTE3LDMuNTE3LDAsMCwwLC4zNjksMi44NDQsMi44ODMsMi44ODMsMCwwLDAsMi4zMTEuNzI5LDguODQsOC44NCwwLDAsMCwzLjExNy0uNTY0bC4zNzctLjE0OC0xLjEzMSw3LjA0OS0uMTIzLjA1YTEzLjA3NywxMy4wNzcsMCwwLDEtNC44NjEuODMyQzEyMTQwLjIsODkzOS4wNjgsMTIxMzcuNjkxLDg5MzguMTU1LDEyMTM2LjE1Niw4OTM2LjM1N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTk2My4yNyAtODg5Ny41MDgpIiBmaWxsPSIjZmZmIi8+CiAgICAgIDxwYXRoIGlkPSJDIiBkPSJNMTIwNjQuNzA2LDg5NDIuMTM5YTEzLjU4MSwxMy41ODEsMCwwLDEtNC4yLTEwLjQsMjEsMjEsMCwwLDEsMS4zLTcuNSwxNi4zMTMsMTYuMzEzLDAsMCwxLDMuNTc3LTUuNjY2LDE1LjUsMTUuNSwwLDAsMSw1LjM2My0zLjU3OCwxNy42NzMsMTcuNjczLDAsMCwxLDYuNjQxLTEuMjQ0LDE5LjA2NywxOS4wNjcsMCwwLDEsNS4yNzkuNjkyLDEyLjQ0NywxMi40NDcsMCwwLDEsNC4zMSwyLjE2NiwxMC40OTEsMTAuNDkxLDAsMCwxLDIuOTY3LDMuNzU3LDE0LjEyMiwxNC4xMjIsMCwwLDEsMS4yNDIsNS40MjNsLjAwNy4yNDJoLTguMzY2bC0uMDIyLS4yMDdhNS41ODcsNS41ODcsMCwwLDAtMS43NDMtMy45MjcsNS45NTQsNS45NTQsMCwwLDAtMy45MDYtMS4xLDYuNjYyLDYuNjYyLDAsMCwwLTUuNjcyLDMuMDI4LDE0LjAyNSwxNC4wMjUsMCwwLDAtMi4wNjksNy45NzQsOC4xNjksOC4xNjksMCwwLDAsMS42MSw1LjQ1MSw2LjMsNi4zLDAsMCwwLDUuMDIyLDEuOTQxLDYuNDYxLDYuNDYxLDAsMCwwLDQuMjMyLTEuNDQ1LDYuMjE0LDYuMjE0LDAsMCwwLDEuNDQ1LTEuNzczLDguMjE4LDguMjE4LDAsMCwwLC44NDgtMi40NzFsLjAzNS0uMTg5aDguMDlsLS4wNDEuMjY3YTE2LjE0LDE2LjE0LDAsMCwxLTEuNjc4LDUuMjMzLDEyLjcyOCwxMi43MjgsMCwwLDEtMy4xNjIsMy44NjgsMTMuNDQ2LDEzLjQ0NiwwLDAsMS00LjQ3LDIuMzksMTguMzQ1LDE4LjM0NSwwLDAsMS01LjU4OC44MTRDMTIwNzEuMjIsODk0NS44ODEsMTIwNjcuNCw4OTQ0LjU4NSwxMjA2NC43MDYsODk0Mi4xMzlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTE5MjIuMjY0IC04OTA0LjQzNykiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggaWQ9IkUiIGQ9Ik0xMTk5Mi4xMjMsODk0Mi4zMzdhMTEuODQzLDExLjg0MywwLDAsMS0zLjEyNi00LjMxNywxNC45MzUsMTQuOTM1LDAsMCwxLTEuMTE2LTUuODg1LDIxLjUyNSwyMS41MjUsMCwwLDEsMS4yOTMtNy41MywxNy4zNiwxNy4zNiwwLDAsMSwzLjU4LTUuODQ4LDE1Ljg4NiwxNS44ODYsMCwwLDEsNS40MDgtMy43ODcsMTcuMiwxNy4yLDAsMCwxLDYuNzcyLTEuMzQ1YzQuNzc1LDAsOC41ODYsMS41LDExLjAyMSw0LjM0MWExMS45NDUsMTEuOTQ1LDAsMCwxLDIuNTU2LDUuMjY4LDE5LjQyNywxOS40MjcsMCwwLDEsLjEsNy4xMzJ2MGwtLjI2NywxLjUzM2gtMjEuNjc0di42NDFhNy40MzgsNy40MzgsMCwwLDAsMS41LDQuOTksNi4yMzUsNi4yMzUsMCwwLDAsNC45NjEsMS44NzYsNy4yNzQsNy4yNzQsMCwwLDAsNC4xMTItMS4wNzksNS41NjcsNS41NjcsMCwwLDAsMi4xODQtMy4wMDhsLjA1NC0uMTYyaDguNDM4bC0uMDY4LjI4OWExMy41NzEsMTMuNTcxLDAsMCwxLTEuOTgyLDQuNTI1LDEyLjQyNCwxMi40MjQsMCwwLDEtMy4zMTYsMy4yNjgsMTQuNzQzLDE0Ljc0MywwLDAsMS00LjQsMS45NzEsMjAuMTQ0LDIwLjE0NCwwLDAsMS01LjI1My42NThDMTE5OTguNSw4OTQ1Ljg3MSwxMTk5NC43NzMsODk0NC42NSwxMTk5Mi4xMjMsODk0Mi4zMzdabTEwLjQzNy0yMi4wNjJhNi44LDYuOCwwLDAsMC0yLjEwNiwxLjE1Niw5LjY1Miw5LjY1MiwwLDAsMC0zLDQuODI0aDEyLjg1OWE5LjUzLDkuNTMsMCwwLDAtLjE3OS0yLjc5MSw0LjU4OCw0LjU4OCwwLDAsMC0xLjA1NC0yLjA5Miw0LjE1OCw0LjE1OCwwLDAsMC0xLjY4Ny0xLjA4NCw3LjU0LDcuNTQsMCwwLDAtMi41MTEtLjM3N0E3LjM1Nyw3LjM1NywwLDAsMCwxMjAwMi41Niw4OTIwLjI3NVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTg4Mi4yMzQgLTg5MDQuMzEzKSIgZmlsbD0iI2ZmZiIvPgogICAgICA8cGF0aCBpZD0iUCIgZD0iTTExODUxLjg1NCw4OTQyLjk2NkgxMTg0M2w0LjkzLTMxLjQwOGMuMjI5LTEuNC40NDgtMi43LjY0Mi0zLjg1MWwuMDEzLS4wODRjLjQtMi40Ljc1My00LjQ2NywxLTYuNGg4LjQ4NGMtLjE4MSwxLjExLS4yMDYsMS4yODEtLjM0OCwyLjIyOGwwLC4wMjljLS4wMjUuMTY0LS4wNTQuMzUyLS4wODUuNTcxbC0uMDE4LjExNi4wNDEtLjAyOWExMy41MjEsMTMuNTIxLDAsMCwxLDMuNS0yLjEyMywxOC40LDE4LjQsMCwwLDEsNi40NDctMS4wMTYsMTEuODQsMTEuODQsMCwwLDEsNC42MjUuOSwxMC40NTksMTAuNDU5LDAsMCwxLDMuNywyLjYyMmMyLjE3MSwyLjQsMy4zMiw1LjgzMSwzLjMyLDkuOTI2YTIzLjU0MiwyMy41NDIsMCwwLDEtMS4wNTYsNy4yNjQsMTguMDE0LDE4LjAxNCwwLDAsMS0zLjA3Nyw1Ljk0MiwxMy44NTEsMTMuODUxLDAsMCwxLTQuNzgyLDMuODY4LDE0LjAwOSwxNC4wMDksMCwwLDEtNi4xODgsMS4zOCwxMy43NzQsMTMuNzc0LDAsMCwxLTMuNy0uNDg2LDEwLjc4NywxMC43ODcsMCwwLDEtMi45MzctMS4zMDZsLS4xMjMtLjA3OGExMC4yOTQsMTAuMjk0LDAsMCwxLTMuMi0yLjcyOVptMTMuNTgyLTM1LjU4NWE3LjE0LDcuMTQsMCwwLDAtMi41MTcuNDcxLDguNTQyLDguNTQyLDAsMCwwLTIuMzIzLDEuMzMzLDEwLjQ0OCwxMC40NDgsMCwwLDAtMy4zMjQsNC44LDExLjU1LDExLjU1LDAsMCwwLS42MzQsMy42MjcsOS45ODEsOS45ODEsMCwwLDAsLjUzMSwzLjM2OCw2LjgyLDYuODIsMCwwLDAsNC4xNTMsNC40MDUsNi4yNDksNi4yNDksMCwwLDAsMi4wNC4zNGMzLjQ0OCwwLDYuMzQ4LTIuNzc4LDcuNzE4LTYuNzU1YTEwLjY1NywxMC42NTcsMCwwLDAsLjEzMS02LjkxNmMtLjczNy0yLjEyNi0xLjczNi0zLjY2Mi0zLjY2LTQuMzIzQTYuNDcxLDYuNDcxLDAsMCwwLDExODY1LjQzNiw4OTA3LjM4MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTc3NS41MTkgLTg4OTEuNjg4KSIgZmlsbD0iI2ZmZiIvPgogICAgICA8cGF0aCBpZD0iUyIgZD0iTTExODUwLjY2Nyw4OTQ1LjIxMWExMS45MjUsMTEuOTI1LDAsMCwxLTQuMTQyLTIuMDc5LDkuMDIzLDkuMDIzLDAsMCwxLTIuNi0zLjMwNywxMC42MzcsMTAuNjM3LDAsMCwxLS45MjItNC4zNzJ2LS4yMzRoOC4zMDlsLjAxNi4yMTdhNC4xNDgsNC4xNDgsMCwwLDAsMS4yMTQsMi45MTQsNC4wMTksNC4wMTksMCwwLDAsMS41NDQuODU2LDguMjExLDguMjExLDAsMCwwLDIuNDIyLjMxOSw1LjMyNSw1LjMyNSwwLDAsMCwzLjIzMy0uODEyLDIuNzIxLDIuNzIxLDAsMCwwLDEuMDE2LTIuMzMxLDIuMTEyLDIuMTEyLDAsMCwwLTEuMDIzLTEuOTg5LDEzLjk3MSwxMy45NzEsMCwwLDAtNC4zMjEtMS40NWMtMy41OC0uNzU5LTUuOTc5LTEuNzc3LTcuNTQ1LTMuMjA3YTYuNzUzLDYuNzUzLDAsMCwxLTEuNzg5LTIuNTkzLDkuMTkzLDkuMTkzLDAsMCwxLS41Ny0zLjM5Miw5LjA2Myw5LjA2MywwLDAsMSwzLjcyNS03LjU4MiwxMi4zOTIsMTIuMzkyLDAsMCwxLDQuMDE2LTEuOTA5LDE4LjIsMTguMiwwLDAsMSw1LjA2Ni0uNjM4YzMuNjQxLDAsNi41NDYuNzU4LDguNjM4LDIuMjQ3YTkuMjgsOS4yOCwwLDAsMSwzLjc1OCw3LjRsLjAxNi4yNDVoLTguMTQ0bC0uMDItLjIxNGEzLjQ3MSwzLjQ3MSwwLDAsMC0xLjI3LTIuNDU4LDUsNSwwLDAsMC0zLjIxMy0xLDUuMzcsNS4zNywwLDAsMC0zLjE0Ni43ODcsMi40NjksMi40NjksMCwwLDAtMS4wNDUsMi4xMjUsMi4wMTQsMi4wMTQsMCwwLDAsMS4xLDEuODY3LDEzLjc4OSwxMy43ODksMCwwLDAsNC4wMTYsMS4zMzgsMzAuNTcsMzAuNTcsMCwwLDEsNC42MzksMS4zMSwxMS4xODcsMTEuMTg3LDAsMCwxLDMuMjc2LDEuODYyYzEuNzUzLDEuNSwyLjU2OSwzLjU2NCwyLjU2OSw2LjQ4M2E5Ljg4Nyw5Ljg4NywwLDAsMS0uOTczLDQuNDI4LDksOSwwLDAsMS0yLjczNSwzLjIzOGMtMi4zMjMsMS43MjgtNS42MjksMi42MzctOS41NjIsMi42MzdBMjAuMDU1LDIwLjA1NSwwLDAsMSwxMTg1MC42NjcsODk0NS4yMTFaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTE4MDEuMDk0IC04OTA0Ljc3NCkiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggaWQ9Ik8iIGQ9Ik0yMC45NTQsOC4zODJBMTIuNTczLDEyLjU3MywwLDEsMCwzMy41MjcsMjAuOTU0LDEyLjU4NywxMi41ODcsMCwwLDAsMjAuOTU0LDguMzgybTAtOC4zODJBMjAuOTU0LDIwLjk1NCwwLDEsMSwwLDIwLjk1NCwyMC45NTQsMjAuOTU0LDAsMCwxLDIwLjk1NCwwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSIgZmlsbD0iI2ZmZiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==" alt="Ospectra">
+        <div class="tag">The AI workforce for your business.</div>
+      </div>
+      <div style="text-align:right">
+        <div>Ospectra AI Inc &middot; 6200 Stoneridge Mall Road, Unit 3006, Pleasanton, CA 94588</div>
+        <div style="margin-top:8px"><a href="mailto:info@ospectra.ai" style="color:#fff">info@ospectra.ai</a> &nbsp;&middot;&nbsp; <a href="https://www.ospectra.ai" style="color:#fff">www.ospectra.ai</a></div>
+      </div>
     </div>
+    <ul style="margin-bottom:34px">
+      <li><a href="https://ospectra.ai/">Home</a></li>
+      <li><a href="https://ospectra.ai/About/">About</a></li>
+      <li><a href="#">Platform</a></li>
+      <li><a href="https://ospectra.ai/AI-Labs/">AI Labs</a></li>
+      <li><a href="https://ospectra.ai/Blog/">Blog</a></li>
+      <li><a href="https://ospectra.ai/Career/">Career</a></li>
+      <li><a href="https://ospectra.ai/Contact/">Contact</a></li>
+    </ul>
+    <div class="bottom">
+      <div>&copy; <span id="yr"></span> Ospectra &mdash; All Rights Reserved.</div>
+      <div>All third-party marks indicate interoperability, not endorsement.</div>
+    </div>
+  </div>
+</footer>
 
-    <script type="text/javascript" src="../Scripts/aos.js"></script>
-    <script type="text/javascript" src="../Scripts/Script.js"></script>
-    <script>
-        AOS.init();
-
-        // Sticky tab switcher — Agent Portfolio groups
-        (function () {
-            var tabs = document.querySelectorAll('.ap-tab');
-            var panels = document.querySelectorAll('.ap-panel');
-
-            tabs.forEach(function (tab) {
-                tab.addEventListener('click', function () {
-                    var target = tab.getAttribute('data-target');
-
-                    tabs.forEach(function (t) { t.classList.remove('is-active'); });
-                    tab.classList.add('is-active');
-
-                    panels.forEach(function (panel) {
-                        panel.classList.toggle('is-active', panel.id === target);
-                    });
-
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                });
-            });
-        })();
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-091BW2BRTZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-091BW2BRTZ');
-    </script>
-
-<div id="site-footer"></div>
-<script src="../common/load-common.js"></script>
-
-</body>
-
-</html>
-
-
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+// AOS-lite: staggered scroll reveals
+(function(){
+  var els = document.querySelectorAll('[data-aos]');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('aos-in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) {
+        var d = parseInt(en.target.getAttribute('data-d') || '0', 10);
+        setTimeout(function(){ en.target.classList.add('aos-in'); }, d);
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>

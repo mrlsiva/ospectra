@@ -269,7 +269,7 @@ ul {
 
 .lede {
   font-size: 15px;
-  max-width: 480px;
+  /* max-width: 480px; */
   color: #6B6B80;
   font-weight: 400;
 }
