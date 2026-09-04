@@ -61,7 +61,7 @@
 
 .bj-footerbgbox1 .text-right .bj-footerbgboxtxt{
     font-size: 30px;
-    font-family: "Montserrat-Bold";
+    font-family: var(--font-montserrat-bold);
 }
 
 .bj-footerbgbox1 .bj-footerbgboxsecondtxt span{
@@ -92,7 +92,7 @@
     font-size: 24px;
     margin-bottom: 10px;
     text-align: left;
-    font-family: "Montserrat-Bold";
+    font-family: var(--font-montserrat-bold);
 }
 
 .bj-footersecondblock p{
@@ -124,7 +124,7 @@
     opacity: 1;
     color: #FFF;
     text-transform: uppercase;
-    font-family: "Roboto-medium";
+    font-family: var(--font-roboto-medium);
 }
 
 .bj-footerMenuLinkblock ul li a:hover{
@@ -142,7 +142,7 @@
     display: flex;
     align-items: center;
     color: #fff;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     font-size: 14px;
 }
 

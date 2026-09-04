@@ -1,25 +1,21 @@
 /* ==========================================================================
-   Agent — Payroll — "Clean tabular fintech"
-   Minimal, precise, spreadsheet-like layout. Indigo accent used sparingly.
+   Agent — Payroll
+   Shared template (Agent_Template.css) covers owns/how/sees/closing/pager.
+   This file holds the accent token, section rhythm, and the hero's
+   monospace tagline visual.
    ========================================================================== */
 
 :root {
+  --agent-accent: #4338ca;
   --pr-indigo: #4338ca;
   --pr-indigo-soft: rgba(67, 56, 202, 0.08);
-  --pr-mono: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --pr-mono: var(--font-roboto), sans-serif;
 }
 
 /* ---------- back link ---------- */
 .agent-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
-  font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--muted);
   margin-bottom: 40px;
-  transition: color .15s ease;
 }
 
 .agent-back-link:hover {
@@ -61,7 +57,7 @@
 }
 
 /* ==========================================================================
-   HERO — minimal, no illustration
+   HERO (kept unique visual: monospace tagline)
    ========================================================================== */
 .pr-hero {
   padding: 56px 0 0;
@@ -144,266 +140,10 @@
 }
 
 /* ==========================================================================
-   WHAT THIS AGENT OWNS — real HTML table
-   ========================================================================== */
-.pr-table-wrap {
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-}
-
-.pr-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14.5px;
-}
-
-.pr-table thead th {
-  text-align: left;
-  font-family: var(--pr-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: #fafafc;
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--line);
-  white-space: nowrap;
-}
-
-.pr-table tbody td {
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--line);
-  vertical-align: top;
-  color: var(--ink);
-}
-
-.pr-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.pr-table tbody tr {
-  transition: background .12s ease;
-}
-
-.pr-table tbody tr:hover {
-  background: var(--pr-indigo-soft);
-}
-
-.pr-row-idx {
-  font-family: var(--pr-mono);
-  font-variant-numeric: tabular-nums;
-  font-size: 13px;
-  color: var(--pr-indigo);
-  width: 64px;
-  white-space: nowrap;
-}
-
-.pr-table tbody td p {
-  margin: 0;
-  color: var(--ink);
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   HOW IT WORKS — single-row strip with vertical dividers
-   ========================================================================== */
-.pr-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
-
-.pr-strip-step {
-  padding: 26px 28px;
-  border-right: 1px solid var(--line);
-  position: relative;
-}
-
-.pr-strip-step:last-child {
-  border-right: none;
-}
-
-.pr-strip-num {
-  display: block;
-  font-family: var(--pr-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--pr-indigo);
-  background: var(--pr-indigo-soft);
-  border-radius: 3px;
-  width: fit-content;
-  padding: 3px 8px;
-  margin-bottom: 14px;
-}
-
-.pr-strip-step h3 {
-  font-size: 17px;
-  margin-bottom: 8px;
-  color: var(--ink);
-}
-
-.pr-strip-step p {
-  font-size: 13.5px;
-  color: var(--muted);
-  margin-bottom: 0;
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   WHAT THE TEAM SEES — flat batch cards
-   ========================================================================== */
-.pr-batch-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.pr-batch-card {
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--pr-indigo);
-  border-radius: var(--radius-sm);
-  padding: 22px 20px;
-  background: #fff;
-  box-shadow: 0 6px 16px -12px rgba(23, 20, 58, 0.18);
-}
-
-.pr-batch-tag {
-  display: block;
-  font-family: var(--pr-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.pr-batch-card h4 {
-  font-size: 15.5px;
-  margin-bottom: 8px;
-  color: var(--ink);
-}
-
-.pr-batch-card p {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 0;
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   CLOSING — two-column block, light background
-   ========================================================================== */
-.pr-closing {
-  background: var(--lavender-bg);
-  border-top: 1px solid var(--line);
-}
-
-.pr-closing-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 48px 0;
-}
-
-.pr-closing-item {
-  padding-right: 24px;
-}
-
-.pr-closing-label {
-  display: block;
-  font-family: var(--pr-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--pr-indigo);
-  margin-bottom: 12px;
-}
-
-.pr-closing-item p {
-  font-size: 14.5px;
-  color: var(--ink);
-  line-height: 1.7;
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
-   PAGER
-   ========================================================================== */
-.agent-pager {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 32px 0 56px;
-  flex-wrap: wrap;
-  font-size: 13.5px;
-  font-weight: 500;
-}
-
-.agent-pager a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ink);
-  transition: color .15s ease;
-}
-
-.agent-pager a:hover {
-  color: var(--pr-indigo);
-}
-
-.agent-pager span {
-  color: var(--pr-indigo);
-}
-
-/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 900px) {
-  .pr-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .pr-strip-step {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .pr-strip-step:last-child {
-    border-bottom: none;
-  }
-
-  .pr-batch-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pr-closing-inner {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 560px) {
-  .pr-batch-grid {
-    grid-template-columns: 1fr;
-  }
-
   .pr-hero-actions {
     gap: 16px;
-  }
-
-  .pr-table thead th:first-child,
-  .pr-table tbody td:first-child {
-    padding-left: 14px;
-  }
-
-  .pr-table thead th:last-child,
-  .pr-table tbody td:last-child {
-    padding-right: 14px;
   }
 }

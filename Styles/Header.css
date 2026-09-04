@@ -51,7 +51,7 @@ header{
     text-transform: uppercase;
     color: #1922A8;
     cursor: pointer;
-    font-family: "Roboto-medium";
+    font-family: var(--font-roboto-medium);
 }
 
 .nav-menu li:last-child{
@@ -69,7 +69,7 @@ header{
 
 .bj-navbarblock ul li a{
     color: #1922A8;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     text-transform: uppercase;
 }
 

@@ -38,6 +38,17 @@
     src: url("../Assets/fonts/Poppins/Poppins-Bold.ttf");
 }
 
+/* Sitewide font tokens — change the font anywhere on the site by editing these */
+:root {
+    --font-montserrat-regular: "Montserrat-Regular";
+    --font-montserrat-medium: "Montserrat-Medium";
+    --font-montserrat-semibold: "Montserrat-SemiBold";
+    --font-montserrat-bold: "Montserrat-Bold";
+    --font-roboto: "Roboto";
+    --font-roboto-medium: "Roboto-medium";
+    --font-roboto-bold: "Roboto-Bold";
+}
+
 /* Reset default margins/paddings */
 * {
   margin: 0;
@@ -56,7 +67,7 @@ html{
 body {
     width: 100%;
     height: 100%;
-    font-family: "Montserrat-Regular";
+    font-family: var(--font-montserrat-regular);
     overflow-x:hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;

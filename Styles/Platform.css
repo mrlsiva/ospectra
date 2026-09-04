@@ -13,7 +13,7 @@
 
 .bj-platformbglevel h3{
     font-size: 40px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     font-weight: 400;
     color: #421AD5;
     text-align: center;
@@ -45,7 +45,7 @@
 .bj-platformboxlevel{
     width: 70%;
     height: 100%;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     overflow:  scroll;
     scroll-behavior: smooth;
     display: inline-block;
@@ -132,7 +132,7 @@
     padding: 20px 25px;
     display: flex;
     align-items: center;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     border-radius: 10px;
     font-size: 18px;
     line-height: 28px;
@@ -219,7 +219,7 @@
     font-size: 32px;
     line-height: 42px;
     font-weight: 400;
-    font-family: "Roboto-medium";
+    font-family: var(--font-roboto-medium);
 }
 
 .bj-platformboxthree p{

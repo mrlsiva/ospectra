@@ -34,7 +34,7 @@
     line-height: 36px;
     color: #210C7C;
     text-align: center;
-    font-family: "Roboto-medium";
+    font-family: var(--font-roboto-medium);
     font-weight: 500;
 }
 

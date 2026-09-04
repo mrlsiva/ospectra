@@ -1,7 +1,13 @@
 /* ==========================================================================
    OSpectra — Provider Success Agent page
-   Layout concept: horizontal journey roadmap (accent: pink)
+   Shared template (Agent_Template.css) covers sees/closing/pager.
+   This file holds the accent token, hero, and the kept unique visual:
+   the horizontal journey roadmap + stage detail cards.
    ========================================================================== */
+
+:root {
+  --agent-accent: var(--pink);
+}
 
 .accent-pink {
   color: var(--pink);
@@ -10,21 +16,6 @@
 .accent-navy {
   color: var(--ink);
   font-weight: 300;
-}
-
-.agent-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--muted);
-  margin: 28px 0 18px;
-  transition: color .2s ease;
-}
-
-.agent-back-link:hover {
-  color: var(--pink);
 }
 
 /* ================= HERO ================= */
@@ -40,7 +31,7 @@
 .ps-hero-inner h1 {
   font-size: clamp(30px, 4vw, 50px);
   color: var(--ink);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-montserrat-bold), sans-serif;
   margin-bottom: 18px;
 }
 
@@ -59,7 +50,7 @@
   margin-top: 10px;
 }
 
-/* ================= ROADMAP STRIP ================= */
+/* ================= ROADMAP + STAGE CARDS (kept unique visual) ================= */
 .ps-roadmap {
   padding: 30px 0 10px;
 }
@@ -128,7 +119,6 @@
   color: var(--ink);
 }
 
-/* ================= STAGE DETAIL CARDS ================= */
 .ps-stages {
   padding: 30px 0 60px;
 }
@@ -208,108 +198,15 @@
   background: var(--pink);
 }
 
-/* ================= WHAT THE TEAM SEES ================= */
+/* ================= SECTION RHYTHM ================= */
 .ps-sees {
   padding: 20px 0 60px;
   background: #fff;
 }
 
-.ps-sees-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
-}
-
-.ps-sees-tile {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 24px 18px;
-  box-shadow: var(--shadow-card);
-  transition: transform .25s ease;
-}
-
-.ps-sees-tile:hover {
-  transform: translateY(-5px);
-}
-
-.ps-sees-tile .pill {
-  background: rgba(236, 72, 153, 0.14);
-  color: var(--pink);
-  margin-bottom: 14px;
-}
-
-.ps-sees-tile h3 {
-  font-size: 15.5px;
-  color: var(--ink);
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.ps-sees-tile p {
-  font-size: 12.5px;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* ================= HANDOFF + PRINCIPLE BAND ================= */
-.ps-band {
-  background: var(--navy);
-  padding: 60px 0;
-}
-
-.ps-band-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.ps-band-col p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
-  font-weight: 400;
-  margin: 0;
-}
-
-/* ================= PAGER ================= */
-.agent-pager {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 40px 32px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.agent-pager a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: color .2s ease;
-}
-
-.agent-pager a:hover {
-  color: var(--pink);
-}
-
-.agent-pager-next {
-  margin-left: auto;
-}
-
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .ps-stages-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ps-sees-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ps-band-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -340,18 +237,5 @@
     flex-direction: row;
     width: 100%;
     text-align: left;
-  }
-
-  .ps-sees-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .agent-pager {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .agent-pager-next {
-    margin-left: 0;
   }
 }

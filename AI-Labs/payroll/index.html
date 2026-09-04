@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../../Styles/Footer.css">
     <link rel="stylesheet" href="../../Styles/Book_Demo.css">
     <link rel="stylesheet" href="../../Styles/PlatformStyle.css">
+    <link rel="stylesheet" href="../../Styles/Agent_Template.css">
     <link rel="stylesheet" href="../../Styles/Agent_Payroll.css">
     <script src="https://tracker-ospectra-ai.onrender.com/static/tracker.js" defer></script>
 </head>
@@ -50,7 +51,7 @@
         <div class="wrap">
             <a href="../index.html" class="agent-back-link">&larr; Back to Agent Portfolio</a>
 
-            <span class="pr-hero-eyebrow">VERSION 2 / 12 / PAYROLL AGENT</span>
+            <span class="pr-hero-eyebrow">PAYROLL AGENT</span>
             <h1 class="pr-hero-h1">Turn verified work into accurate, payroll-ready time.</h1>
             <p class="pr-hero-tagline">timesheets.verified &rarr; reconciled &rarr; payroll.ready</p>
             <p class="pr-hero-lede">OSpectra receives timesheets directly from Provider Success and reconciles them with verified visits, schedules, EVV evidence, and configured pay rules. Payroll teams receive a clean batch and a focused list of exceptions rather than reconstructing the work from separate systems.</p>
@@ -70,41 +71,31 @@
             <h2 class="pr-section-title">Six line items of payroll accuracy.</h2>
             <p class="pr-section-sub" style="margin-bottom: 32px;">Every responsibility below is reconciled against the evidence Provider Success verifies before it reaches payroll.</p>
 
-            <div class="pr-table-wrap">
-                <table class="pr-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Responsibility</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="pr-row-idx">01</td>
-                            <td><p>Receive provider timesheets and verified visit evidence directly from the Provider Success Agent.</p></td>
-                        </tr>
-                        <tr>
-                            <td class="pr-row-idx">02</td>
-                            <td><p>Compare reported time with schedules, EVV events, visit changes, approved exceptions, and available supporting records.</p></td>
-                        </tr>
-                        <tr>
-                            <td class="pr-row-idx">03</td>
-                            <td><p>Apply configured pay-period, overtime, differential, mileage, and other approved rules without silently changing source time.</p></td>
-                        </tr>
-                        <tr>
-                            <td class="pr-row-idx">04</td>
-                            <td><p>Detect missing punches, overlaps, unapproved adjustments, mismatched hours, and other issues that could affect accurate pay.</p></td>
-                        </tr>
-                        <tr>
-                            <td class="pr-row-idx">05</td>
-                            <td><p>Prepare a payroll-ready batch, provider-level explanations, and the exact exception that requires human review.</p></td>
-                        </tr>
-                        <tr>
-                            <td class="pr-row-idx">06</td>
-                            <td><p>Maintain a traceable record of corrections, approvals, adjustments, and the evidence behind the final payroll result.</p></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="agent-owns-grid" data-aos="fade-up">
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">01</span>
+                    <p>Receive provider timesheets and verified visit evidence directly from the Provider Success Agent.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">02</span>
+                    <p>Compare reported time with schedules, EVV events, visit changes, approved exceptions, and available supporting records.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">03</span>
+                    <p>Apply configured pay-period, overtime, differential, mileage, and other approved rules without silently changing source time.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">04</span>
+                    <p>Detect missing punches, overlaps, unapproved adjustments, mismatched hours, and other issues that could affect accurate pay.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">05</span>
+                    <p>Prepare a payroll-ready batch, provider-level explanations, and the exact exception that requires human review.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">06</span>
+                    <p>Maintain a traceable record of corrections, approvals, adjustments, and the evidence behind the final payroll result.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -116,19 +107,21 @@
             <h2 class="pr-section-title">Receive, reconcile, prepare.</h2>
             <p class="pr-section-sub" style="margin-bottom: 32px;">Three connected steps carry a timesheet from received evidence to an approval-controlled payroll batch.</p>
 
-            <div class="pr-strip">
-                <div class="pr-strip-step">
-                    <span class="pr-strip-num">01</span>
+            <div class="agent-steps">
+                <div class="agent-step">
+                    <span class="agent-step-num">01</span>
                     <h3>Receive</h3>
                     <p>Ingest timesheets and the linked schedule, EVV, visit, and documentation evidence from Provider Success.</p>
                 </div>
-                <div class="pr-strip-step">
-                    <span class="pr-strip-num">02</span>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step">
+                    <span class="agent-step-num">02</span>
                     <h3>Reconcile</h3>
                     <p>Apply approved pay rules and isolate the smallest set of exceptions that need review.</p>
                 </div>
-                <div class="pr-strip-step">
-                    <span class="pr-strip-num">03</span>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step">
+                    <span class="agent-step-num">03</span>
                     <h3>Prepare</h3>
                     <p>Assemble the payroll-ready batch and route material adjustments for human approval.</p>
                 </div>
@@ -143,25 +136,33 @@
             <h2 class="pr-section-title">One batch, fully accounted for.</h2>
             <p class="pr-section-sub" style="margin-bottom: 32px;">Four summary cards give payroll a status-first view of the period before anything is processed.</p>
 
-            <div class="pr-batch-grid">
-                <div class="pr-batch-card">
-                    <span class="pr-batch-tag">BATCH · 01</span>
-                    <h4>Timesheets ready</h4>
+            <div class="agent-panels">
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Timesheets ready</h4>
+                        <span class="agent-panel-tag">Batch 01</span>
+                    </div>
                     <p>Verified time that reconciles with the visit and configured pay rules.</p>
                 </div>
-                <div class="pr-batch-card">
-                    <span class="pr-batch-tag">BATCH · 02</span>
-                    <h4>Needs review</h4>
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Needs review</h4>
+                        <span class="agent-panel-tag">Batch 02</span>
+                    </div>
                     <p>Missing, overlapping, mismatched, or unapproved time with the relevant evidence attached.</p>
                 </div>
-                <div class="pr-batch-card">
-                    <span class="pr-batch-tag">BATCH · 03</span>
-                    <h4>Payroll batch</h4>
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Payroll batch</h4>
+                        <span class="agent-panel-tag">Batch 03</span>
+                    </div>
                     <p>Period totals, adjustments, approvals, and a clear readiness status before processing.</p>
                 </div>
-                <div class="pr-batch-card">
-                    <span class="pr-batch-tag">BATCH · 04</span>
-                    <h4>Provider questions</h4>
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Provider questions</h4>
+                        <span class="agent-panel-tag">Batch 04</span>
+                    </div>
                     <p>Time and pay questions organized with the source records needed for a fast response.</p>
                 </div>
             </div>
@@ -171,14 +172,16 @@
     <!-- ============ CLOSING — connected handoff + built-in principle ============ -->
     <section class="pr-closing">
         <div class="wrap">
-            <div class="pr-closing-inner">
-                <div class="pr-closing-item">
-                    <span class="pr-closing-label">CONNECTED HANDOFF</span>
-                    <p>Provider Success supplies timesheets and verified visit evidence. Payroll returns recurring timekeeping or rule issues to Provider Success and surfaces material labor-cost signals to Command Center and the Data Agent.</p>
-                </div>
-                <div class="pr-closing-item">
-                    <span class="pr-closing-label">BUILT-IN PRINCIPLE</span>
-                    <p>Accurate, explainable, and approval-controlled. The agent never changes time, pay, or an adjustment without preserving the source record and required human authority.</p>
+            <div class="agent-closing" data-aos="zoom-in">
+                <div class="agent-closing-grid">
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">CONNECTED HANDOFF</span>
+                        <p>Provider Success supplies timesheets and verified visit evidence. Payroll returns recurring timekeeping or rule issues to Provider Success and surfaces material labor-cost signals to Command Center and the Data Agent.</p>
+                    </div>
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">BUILT-IN PRINCIPLE</span>
+                        <p>Accurate, explainable, and approval-controlled. The agent never changes time, pay, or an adjustment without preserving the source record and required human authority.</p>
+                    </div>
                 </div>
             </div>
         </div>

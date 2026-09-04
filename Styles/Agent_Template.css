@@ -1,0 +1,337 @@
+/* ==========================================================================
+   OSpectra — Agent detail page shared template
+   Used by every AI-Labs/<agent>/index.html page. Provides the components
+   that make "what this agent owns", "how it works", "what the team sees",
+   the closing band, and the pager look identical across all 14 pages.
+   Each page keeps its own bespoke hero visual and sets --agent-accent.
+   ========================================================================== */
+
+:root {
+  --agent-accent: var(--purple);
+  --agent-accent-soft: color-mix(in srgb, var(--agent-accent) 12%, white);
+}
+
+/* Recolor the shared eyebrow/pill/checklist to the page's accent */
+.eyebrow {
+  color: var(--agent-accent);
+  background: var(--agent-accent-soft);
+}
+
+.eyebrow-dot span {
+  color: var(--agent-accent);
+}
+
+.pill {
+  color: var(--agent-accent);
+  background: var(--agent-accent-soft);
+}
+
+.checklist li::before {
+  color: var(--agent-accent);
+  background: var(--agent-accent-soft);
+}
+
+.callout-tag {
+  color: var(--agent-accent);
+}
+
+/* ---------- back link ---------- */
+.agent-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 28px;
+  transition: color .15s ease;
+}
+
+.agent-back-link:hover {
+  color: var(--agent-accent);
+}
+
+/* ---------- "what this agent owns" — numbered tile grid ---------- */
+.agent-owns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.agent-owns-tile {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 26px 24px;
+}
+
+.agent-owns-idx {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--agent-accent-soft);
+  color: var(--agent-accent);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-montserrat-bold), sans-serif;
+  margin-bottom: 14px;
+}
+
+.agent-owns-tile p {
+  margin: 0;
+  font-size: 14.5px;
+  color: #4A4A63;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .agent-owns-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .agent-owns-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- "how it works" — numbered step row ---------- */
+.agent-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.agent-step {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+}
+
+.agent-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--agent-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-montserrat-bold), sans-serif;
+  margin-bottom: 16px;
+}
+
+.agent-step h3 {
+  font-size: 19px;
+  color: #180F5A;
+  margin: 0 0 8px;
+}
+
+.agent-step p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.agent-step-arrow {
+  align-self: center;
+  padding: 0 18px;
+  font-size: 20px;
+  color: var(--line);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .agent-steps {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .agent-step-arrow {
+    display: none;
+  }
+}
+
+/* ---------- "what the team sees" — panel grid ---------- */
+.agent-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.agent-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px 24px 22px;
+}
+
+.agent-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.agent-panel-head h4 {
+  font-size: 16px;
+  color: #180F5A;
+  margin: 0;
+}
+
+.agent-panel-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--agent-accent);
+  background: var(--agent-accent-soft);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.agent-panel p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.agent-panel-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agent-panel-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  color: #4A4A63;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.agent-panel-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--agent-accent);
+}
+
+.agent-panel-stat-row {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.agent-panel-stat-row .num {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-montserrat-bold), sans-serif;
+  color: var(--agent-accent);
+}
+
+.agent-panel-stat-row .lbl {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 760px) {
+  .agent-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- closing band — connected handoff / built-in principle ---------- */
+.agent-closing {
+  background: var(--lavender-bg);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.agent-closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.agent-closing-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--agent-accent);
+  margin-bottom: 10px;
+}
+
+.agent-closing-item p {
+  margin: 0;
+  font-size: 14.5px;
+  color: #4A4A63;
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .agent-closing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- pager ---------- */
+.agent-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 32px;
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.agent-pager-prev,
+.agent-pager-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--agent-accent);
+}
+
+.agent-pager-prev span,
+.agent-pager-next span {
+  transition: transform .2s ease;
+}
+
+.agent-pager-prev:hover span {
+  transform: translateX(-4px);
+}
+
+.agent-pager-next:hover span {
+  transform: translateX(4px);
+}

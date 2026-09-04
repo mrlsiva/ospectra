@@ -91,7 +91,7 @@
     color: #868d98;
     margin-top: 40px;
     font-weight: 400;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
 }
 
 .bj-OspectraAbout p:last-child{

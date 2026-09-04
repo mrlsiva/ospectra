@@ -1,10 +1,13 @@
 /* ==========================================================================
    OSpectra — PM (Collaboration, Coordination, and Communication) Agent
-   Layout concept: "Messaging / channel UI" — chat bubble hero mockup,
-   contact-card ownership list, message-state (sent/delivered/read) flow
-   strip, and a channels-list sidebar card. Accent color: --pink.
+   Shared template (Agent_Template.css) covers owns/how/sees/closing/pager.
+   This file only holds the accent token and the hero's chat-mockup visual.
    Namespace: .pm-*
    ========================================================================== */
+
+:root {
+  --agent-accent: var(--pink);
+}
 
 body {
   background: var(--white);
@@ -47,7 +50,7 @@ body {
 .pm-hero-copy h1 {
   font-size: clamp(28px, 3.4vw, 48px);
   color: var(--ink);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-montserrat-bold), sans-serif;
 }
 
 .pm-hero-copy h1 span {
@@ -73,7 +76,7 @@ body {
   color: var(--pink);
 }
 
-/* --- Chat mockup card --- */
+/* --- Chat mockup card (kept unique hero visual) --- */
 .pm-chatcard {
   background: #fff;
   border: 1px solid var(--line);
@@ -197,7 +200,6 @@ body {
   background: var(--lavender-bg);
 }
 
-/* --- Check-mark / message-state glyphs (shared: hero + how-it-works) --- */
 .pm-check {
   font-size: 11px;
   letter-spacing: -3px;
@@ -218,7 +220,7 @@ body {
 }
 
 /* ==========================================================================
-   SHARED SECTION HEAD
+   SHARED SECTION HEAD (color tint)
    ========================================================================== */
 .pm-section-head h2 {
   color: var(--ink);
@@ -234,342 +236,6 @@ body {
 }
 
 /* ==========================================================================
-   WHAT THIS AGENT OWNS — contact-card list
-   ========================================================================== */
-.pm-contactlist {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.pm-contact-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 18px 22px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-
-.pm-contact-row:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
-  border-color: rgba(236, 72, 153, 0.3);
-}
-
-.pm-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  flex-shrink: 0;
-  font-family: "Poppins", sans-serif;
-}
-
-.pm-contact-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.pm-contact-text h5 {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 0 0 4px;
-}
-
-.pm-contact-text p {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--muted);
-  margin: 0;
-}
-
-.pm-contact-presence {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
-  flex-shrink: 0;
-}
-
-/* ==========================================================================
-   HOW IT WORKS — message-state strip (sent / delivered / read)
-   ========================================================================== */
-.pm-msgflow {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 16px;
-}
-
-.pm-msgflow-line {
-  position: absolute;
-  top: 27px;
-  left: 12%;
-  right: 12%;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(236, 72, 153, 0) 0%, var(--pink) 50%, rgba(236, 72, 153, 0) 100%);
-  z-index: 0;
-}
-
-.pm-msgflow-node {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 0 12px;
-}
-
-.pm-msgflow-node .pm-check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid var(--pink);
-  margin: 0 auto 10px;
-  box-shadow: 0 8px 20px -8px rgba(236, 72, 153, 0.5);
-  font-size: 18px;
-  letter-spacing: -4px;
-  padding-left: 4px;
-}
-
-.pm-msgflow-node .pm-check-sent {
-  letter-spacing: 0;
-  padding-left: 0;
-}
-
-.pm-msgflow-state {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--pink);
-  margin-bottom: 16px;
-}
-
-.pm-msgflow-node h3 {
-  font-size: 18px;
-  color: var(--ink);
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.pm-msgflow-node h3 span {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.pm-msgflow-node p {
-  font-size: 13.5px;
-  color: var(--muted);
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-/* ==========================================================================
-   WHAT THE TEAM SEES — channels list card
-   ========================================================================== */
-.pm-channelcard {
-  background: var(--navy);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.pm-channel-topbar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.55);
-  padding: 20px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.pm-channellist {
-  display: flex;
-  flex-direction: column;
-}
-
-.pm-channel-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transition: background .2s ease;
-}
-
-.pm-channel-row:last-child {
-  border-bottom: none;
-}
-
-.pm-channel-row:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.pm-channel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 8px currentColor;
-}
-
-.pm-channel-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.pm-channel-text h5 {
-  font-size: 14.5px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0 0 4px;
-}
-
-.pm-channel-text p {
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.55);
-  margin: 0;
-}
-
-.pm-channel-tag {
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--pink);
-  background: rgba(236, 72, 153, 0.16);
-  padding: 5px 12px;
-  border-radius: 20px;
-  flex-shrink: 0;
-}
-
-/* ==========================================================================
-   CLOSING BAND — connected handoff + built-in principle
-   ========================================================================== */
-.pm-closing {
-  background: var(--navy);
-  border-radius: 40px;
-  margin: 0 20px;
-  padding: 64px 40px;
-  color: #fff;
-}
-
-.pm-closing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.pm-closing-item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-}
-
-.pm-closing-label {
-  display: inline-block;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--pink);
-  background: rgba(236, 72, 153, 0.16);
-  padding: 7px 14px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-}
-
-.pm-closing-item p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 14.5px;
-  margin: 0;
-}
-
-/* ==========================================================================
-   BACK LINK
-   ========================================================================== */
-.agent-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
-  font-weight: 500;
-  color: var(--muted);
-  padding-top: 26px;
-  margin-bottom: 6px;
-  transition: color .2s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.agent-back-link:hover {
-  color: var(--pink);
-}
-
-/* ==========================================================================
-   PAGER
-   ========================================================================== */
-.agent-pager {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 32px 10px;
-  border-top: 1px solid var(--line);
-  margin-top: 40px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.agent-pager-prev,
-.agent-pager-next {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--pink);
-}
-
-.agent-pager-prev span,
-.agent-pager-next span {
-  transition: transform .2s ease;
-}
-
-.agent-pager-prev:hover span {
-  transform: translateX(-4px);
-}
-
-.agent-pager-next:hover span {
-  transform: translateX(4px);
-}
-
-/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -580,44 +246,5 @@ body {
 
   .pm-chatcard {
     max-width: 480px;
-  }
-
-  .pm-msgflow {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .pm-msgflow-line {
-    display: none;
-  }
-
-  .pm-closing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .pm-contact-row {
-    flex-wrap: wrap;
-    padding: 16px;
-  }
-
-  .pm-channel-row {
-    padding: 16px;
-  }
-
-  .pm-channel-tag {
-    display: none;
-  }
-
-  .pm-closing {
-    border-radius: 24px;
-    margin: 0 12px;
-    padding: 40px 20px;
-  }
-
-  .agent-pager {
-    padding: 30px 20px 10px;
-    justify-content: flex-start;
   }
 }

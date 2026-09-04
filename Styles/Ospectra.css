@@ -50,7 +50,7 @@
     font-weight: 400;
     font-size: 40px;
     line-height: 50px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     margin-bottom: 30px;
 }
 
@@ -66,7 +66,7 @@
     color: #868d98;
     margin-bottom: 20px;
     font-weight: 400;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
 }
 
 .bj-foursectionOspetraboxblock{
@@ -96,7 +96,7 @@
 
 .bj-foursectionOspetrabox1 h5{
     font-size: 30px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     letter-spacing: 0px;
     color: #421AD5;
     font-weight: 400;
@@ -104,7 +104,7 @@
 }
 
 .bj-foursectionOspetrabox1 h5 span{
-    font-family: "Roboto-Bold";
+    font-family: var(--font-roboto-bold);
 }
 
 .bj-foursectionOspetrabox1 .about-list{

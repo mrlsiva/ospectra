@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../../Styles/Footer.css">
     <link rel="stylesheet" href="../../Styles/Book_Demo.css">
     <link rel="stylesheet" href="../../Styles/PlatformStyle.css">
+    <link rel="stylesheet" href="../../Styles/Agent_Template.css">
     <link rel="stylesheet" href="../../Styles/Agent_CommandCenter.css">
     <script src="https://tracker-ospectra-ai.onrender.com/static/tracker.js" defer></script>
 </head>
@@ -45,7 +46,7 @@
         </div>
     </section>
 
-    <!-- ============ HERO — live command dashboard opener ============ -->
+    <!-- ============ HERO — live command dashboard opener (kept unique visual) ============ -->
     <section class="section cc-hero">
         <div class="cc-hero-grid-bg" aria-hidden="true"></div>
         <div class="cc-hero-glow" aria-hidden="true"></div>
@@ -53,29 +54,16 @@
             <a href="../index.html" class="agent-back-link">&larr; Back to Agent Portfolio</a>
 
             <div class="cc-hero-inner" data-aos="fade-up">
-                <span class="eyebrow eyebrow-dot"><span>&#9679; </span>VERSION 2 / 14 / COMMAND CENTER AGENT</span>
+                <span class="eyebrow eyebrow-dot"><span>&#9679; </span>COMMAND CENTER AGENT</span>
                 <h1>Run the agency from <span>one connected daily view.</span></h1>
                 <p class="lede">OSpectra's Command Center Agent organizes signals from across the portfolio around the decisions that matter today. It also connects current operations with growth and capacity planning so owners can see what the agency can support next.</p>
                 <div class="cc-hero-actions">
                     <a href="javascript:void(0);" onclick="openDemo()" class="btn btn-primary">BOOK A DEMO <span class="btn-circle">&rarr;</span></a>
-                    <a href="#cc-dashboard" class="btn-link cc-link">See the live dashboard <span>&darr;</span></a>
+                    <a href="#owns" class="btn-link cc-link">See how it works <span>&darr;</span></a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ============ WHAT THE TEAM SEES — live dashboard panel ============ -->
-    <section class="section" id="cc-dashboard">
-        <div class="wrap">
-            <div class="section-head cc-section-head">
-                <div data-aos="fade-up">
-                    <span class="eyebrow cc-eyebrow">WHAT THE TEAM SEES</span>
-                    <h2>One live dashboard, <span>not four separate reports.</span></h2>
-                </div>
-                <p class="section-note cc-note" data-aos="fade-up" data-aos-delay="100">Today's priorities open the day. Connected cause, ownership, and growth headroom sit alongside them in the same operating view.</p>
-            </div>
-
-            <div class="cc-dashboard-card" data-aos="fade-up">
+            <div class="cc-dashboard-card" data-aos="fade-up" data-aos-delay="120">
                 <div class="cc-dashboard-topbar">
                     <span class="demo-dot"></span> COMMAND CENTER <span class="cc-live">&#9679; LIVE</span>
                 </div>
@@ -148,84 +136,118 @@
         </div>
     </section>
 
-    <!-- ============ WHAT THIS AGENT OWNS — tile wall ============ -->
-    <section class="section cc-owns">
+    <!-- ============ WHAT THIS AGENT OWNS ============ -->
+    <section class="section" id="owns">
         <div class="wrap">
-            <div class="section-head cc-section-head">
+            <div class="section-head">
                 <div data-aos="fade-up">
-                    <span class="eyebrow cc-eyebrow">WHAT THIS AGENT OWNS</span>
+                    <span class="eyebrow">WHAT THIS AGENT OWNS</span>
                     <h2>The connective layer <span>across the whole agency.</span></h2>
                 </div>
-                <p class="section-note cc-note" data-aos="fade-up" data-aos-delay="100">Command Center does not replace the specialized agents — it combines, ranks, and explains what they already know.</p>
+                <p class="section-note" data-aos="fade-up" data-aos-delay="100">Command Center does not replace the specialized agents — it combines, ranks, and explains what they already know.</p>
             </div>
 
-            <div class="cc-tilewall" data-aos="fade-up">
-                <div class="cc-tile">
-                    <span class="cc-tile-num">01</span>
-                    <h5>Unified operational view</h5>
-                    <p>Combines client demand, workforce capacity, coverage, provider readiness, visit delivery, authorization, and revenue into one view.</p>
+            <div class="agent-owns-grid" data-aos="fade-up">
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">01</span>
+                    <p><strong>Unified operational view.</strong> Combines client demand, workforce capacity, coverage, provider readiness, visit delivery, authorization, and revenue into one view.</p>
                 </div>
-                <div class="cc-tile">
-                    <span class="cc-tile-num">02</span>
-                    <h5>Signal prioritization</h5>
-                    <p>Ranks issues by urgency, client impact, service risk, compliance exposure, financial impact, and time remaining to act.</p>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">02</span>
+                    <p><strong>Signal prioritization.</strong> Ranks issues by urgency, client impact, service risk, compliance exposure, financial impact, and time remaining to act.</p>
                 </div>
-                <div class="cc-tile">
-                    <span class="cc-tile-num">03</span>
-                    <h5>Root-cause chains</h5>
-                    <p>Explains the upstream cause and downstream consequence of each issue so teams solve the chain, not just the symptom.</p>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">03</span>
+                    <p><strong>Root-cause chains.</strong> Explains the upstream cause and downstream consequence of each issue so teams solve the chain, not just the symptom.</p>
                 </div>
-                <div class="cc-tile">
-                    <span class="cc-tile-num">04</span>
-                    <h5>Cross-functional actions</h5>
-                    <p>Recommends actions across teams and assigns clear ownership without absorbing each agent's specialized workflow.</p>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">04</span>
+                    <p><strong>Cross-functional actions.</strong> Recommends actions across teams and assigns clear ownership without absorbing each agent's specialized workflow.</p>
                 </div>
-                <div class="cc-tile">
-                    <span class="cc-tile-num">05</span>
-                    <h5>Multi-dimensional views</h5>
-                    <p>Lets owners view performance by location, program, payer, role, client, or provider from one source of context.</p>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">05</span>
+                    <p><strong>Multi-dimensional views.</strong> Lets owners view performance by location, program, payer, role, client, or provider from one source of context.</p>
                 </div>
-                <div class="cc-tile">
-                    <span class="cc-tile-num">06</span>
-                    <h5>Growth &amp; capacity scenarios</h5>
-                    <p>Translates demand, workforce, service, and financial signals into scenarios with the Data Analyst and Scientist Agent.</p>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">06</span>
+                    <p><strong>Growth &amp; capacity scenarios.</strong> Translates demand, workforce, service, and financial signals into scenarios with the Data Analyst and Scientist Agent.</p>
                 </div>
-                <div class="cc-tile">
-                    <span class="cc-tile-num">07</span>
-                    <h5>Feedback &amp; policy learning</h5>
-                    <p>Tracks approvals, overrides, outcomes, and patterns so leadership can improve the rule behind recurring issues.</p>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">07</span>
+                    <p><strong>Feedback &amp; policy learning.</strong> Tracks approvals, overrides, outcomes, and patterns so leadership can improve the rule behind recurring issues.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ HOW IT WORKS — signal flow ============ -->
+    <!-- ============ HOW IT WORKS ============ -->
     <section class="section" id="cc-how-it-works">
         <div class="wrap">
-            <div class="section-head cc-section-head">
+            <div class="section-head">
                 <div data-aos="fade-up">
-                    <span class="eyebrow cc-eyebrow">HOW IT WORKS</span>
+                    <span class="eyebrow">HOW IT WORKS</span>
                     <h2>Signals in, <span>a decision out.</span></h2>
                 </div>
-                <p class="section-note cc-note" data-aos="fade-up" data-aos-delay="100">Three connected steps carry raw operational signal into a ranked, owned, and traceable decision.</p>
+                <p class="section-note" data-aos="fade-up" data-aos-delay="100">Three connected steps carry raw operational signal into a ranked, owned, and traceable decision.</p>
             </div>
 
-            <div class="cc-flow">
-                <div class="cc-flow-line" aria-hidden="true"></div>
-                <div class="cc-flow-node" data-aos="fade-up" data-aos-delay="0">
-                    <div class="cc-flow-num">1</div>
-                    <h3><span>STEP ONE</span>Sense</h3>
+            <div class="agent-steps">
+                <div class="agent-step" data-aos="fade-up" data-aos-delay="0">
+                    <span class="agent-step-num">1</span>
+                    <h3>Sense</h3>
                     <p>Combine permitted operational signals from the specialized agents into one current agency picture.</p>
                 </div>
-                <div class="cc-flow-node" data-aos="fade-up" data-aos-delay="100">
-                    <div class="cc-flow-num">2</div>
-                    <h3><span>STEP TWO</span>Prioritize</h3>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step" data-aos="fade-up" data-aos-delay="100">
+                    <span class="agent-step-num">2</span>
+                    <h3>Prioritize</h3>
                     <p>Rank the decisions that matter by care impact, urgency, compliance, financial exposure, and time to act.</p>
                 </div>
-                <div class="cc-flow-node" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cc-flow-num">3</div>
-                    <h3><span>STEP THREE</span>Coordinate and learn</h3>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step" data-aos="fade-up" data-aos-delay="200">
+                    <span class="agent-step-num">3</span>
+                    <h3>Coordinate and learn</h3>
                     <p>Assign ownership, track outcomes, and improve the policy or workflow that produced the issue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHAT THE TEAM SEES ============ -->
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head">
+                <div data-aos="fade-up">
+                    <span class="eyebrow">WHAT THE TEAM SEES</span>
+                    <h2>One live dashboard, <span>not four separate reports.</span></h2>
+                </div>
+            </div>
+
+            <div class="agent-panels">
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Today's priorities</h4>
+                        <span class="agent-panel-tag">Ranked</span>
+                    </div>
+                    <p>A ranked list of the decisions most likely to affect care delivery, compliance, or cash.</p>
+                </div>
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Connected cause</h4>
+                    </div>
+                    <p>The full chain behind an issue — for example, new demand, a staffing shortage, an uncovered visit, and downstream revenue risk.</p>
+                </div>
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Owner and next action</h4>
+                    </div>
+                    <p>Who needs to decide, what the agent recommends, what evidence supports it, and when action is due.</p>
+                </div>
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
+                        <h4>Growth and capacity</h4>
+                    </div>
+                    <p>Current headroom, forecast constraints, and the operational changes required to support the owner's growth plan.</p>
                 </div>
             </div>
         </div>
@@ -234,14 +256,14 @@
     <!-- ============ CLOSING BAND — connected handoff + built-in principle ============ -->
     <section class="section">
         <div class="wrap">
-            <div class="cc-closing" data-aos="zoom-in">
-                <div class="cc-closing-grid">
-                    <div class="cc-closing-item">
-                        <span class="cc-closing-label">CONNECTED HANDOFF</span>
+            <div class="agent-closing" data-aos="zoom-in">
+                <div class="agent-closing-grid">
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">CONNECTED HANDOFF</span>
                         <p>Command Center connects the specialized agents without absorbing them. The independent Data Analyst and Scientist Agent supplies explainable analysis; Command Center places that guidance beside operational priorities and ownership.</p>
                     </div>
-                    <div class="cc-closing-item">
-                        <span class="cc-closing-label">BUILT-IN PRINCIPLE</span>
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">BUILT-IN PRINCIPLE</span>
                         <p>One shared care graph, role-based access, evidence attached to every recommendation, and human approval for consequential action.</p>
                     </div>
                 </div>

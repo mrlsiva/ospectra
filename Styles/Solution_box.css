@@ -10,7 +10,7 @@
     text-align: center;
     color: #421AD5;
     margin-bottom: 80px;
-    font-family: "Roboto-Bold";
+    font-family: var(--font-roboto-bold);
 }
 
 .bjOspectraSolutionboxwhiteblock{
@@ -52,7 +52,7 @@
 .bjOspectraSolutionboxwhite h6{
     font-size: 24px;
     line-height: 32px;
-    font-family: "Roboto-Bold";
+    font-family: var(--font-roboto-bold);
     letter-spacing: 0px;
     color: #421AD5;
     margin-bottom: 20px;
@@ -62,7 +62,7 @@
 .bjOspectraSolutionboxwhite p{
     font-size: 18px;
     line-height: 28px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     color:#868d98;
     font-weight: 400;
     text-align: left;

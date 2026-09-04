@@ -66,7 +66,7 @@
     font-size: 12px;
     text-align: center;
     margin-bottom: 22px;
-    font-family: "Montserrat-Bold";
+    font-family: var(--font-montserrat-bold);
 }
 
 .bj-secondAgenetic h3{
@@ -74,19 +74,19 @@
     line-height: 46px;
     color: #421AD5;
     font-weight: 500;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     margin-bottom: 30px;
 }
 
 .bj-secondAgenetic h3 span{
-    font-family: "Roboto-Bold";
+    font-family: var(--font-roboto-bold);
 }
 
 .bj-secondAgenetic p{
     font-size: 18px;
     line-height: 28px;
     color: #868d98;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     font-weight: 400;
     margin-bottom: 25px;
 }
@@ -94,7 +94,7 @@
 .about-list {
     padding-left: 2rem;
     color: #868d98;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     font-weight: 400;
 }
 

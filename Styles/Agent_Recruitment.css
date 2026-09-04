@@ -1,28 +1,18 @@
 /* ==========================================================================
    OSpectra — Recruitment Agent page
-   Layout concept: narrowing funnel / pipeline (accent: pink)
+   Shared template (Agent_Template.css) covers owns/how/sees/closing/pager.
+   This file only holds the accent token and the hero's funnel visual.
    ========================================================================== */
+
+:root {
+  --agent-accent: var(--pink);
+}
 
 .accent-pink {
   color: var(--pink);
 }
 
-.agent-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--muted);
-  margin: 28px 0 18px;
-  transition: color .2s ease;
-}
-
-.agent-back-link:hover {
-  color: var(--pink);
-}
-
-/* ================= HERO ================= */
+/* ================= HERO (kept unique visual: funnel) ================= */
 .rec-hero {
   background: var(--lavender-bg);
   padding-bottom: 70px;
@@ -62,7 +52,6 @@
   font-weight: 500;
 }
 
-/* --- Funnel graphic (pure CSS, clip-path trapezoids) --- */
 .rec-funnel {
   display: flex;
   flex-direction: column;
@@ -78,7 +67,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-montserrat-bold), sans-serif;
   font-weight: 600;
   box-shadow: var(--shadow-card);
 }
@@ -128,7 +117,7 @@
   text-align: center;
 }
 
-/* ================= SECTION HEAD ================= */
+/* ================= SECTION RHYTHM ================= */
 .rec-how,
 .rec-owns,
 .rec-sees {
@@ -139,251 +128,15 @@
   background: var(--lavender-bg);
 }
 
-.section-head {
-  max-width: 720px;
-  margin: 0 auto 46px;
-  text-align: center;
-}
-
-.section-head h2 {
-  font-size: 32px;
-  color: var(--ink);
-}
-
-/* ================= HOW IT WORKS (funnel detail) ================= */
-.rec-how-track {
-  display: flex;
-  align-items: stretch;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.rec-how-card {
-  flex: 1 1 260px;
-  max-width: 320px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 30px 26px;
-  box-shadow: var(--shadow-card);
-  text-align: center;
-}
-
-.rec-how-shape {
-  width: 64px;
-  height: 46px;
-  margin: 0 auto 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 13px;
-}
-
-.shape-wide {
-  width: 88px;
-  background: linear-gradient(120deg, #5a3fe0 0%, #8b4fe0 100%);
-  clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
-}
-
-.shape-mid {
-  width: 70px;
-  background: linear-gradient(120deg, #8b4fe0 0%, #c14fc6 100%);
-  clip-path: polygon(0 0, 100% 0, 78% 100%, 22% 100%);
-}
-
-.shape-narrow {
-  width: 52px;
-  background: linear-gradient(120deg, #c14fc6 0%, #ec4899 100%);
-  clip-path: polygon(0 0, 100% 0, 74% 100%, 26% 100%);
-}
-
-.rec-how-card h3 {
-  font-size: 18px;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-
-.rec-how-card p {
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.rec-how-arrow {
-  align-self: center;
-  font-size: 20px;
-  color: var(--pink);
-  opacity: .6;
-}
-
-/* ================= WHAT THIS AGENT OWNS (numbered table) ================= */
-.rec-owns-table {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-
-.rec-owns-table tr {
-  border-bottom: 1px solid var(--line);
-}
-
-.rec-owns-table tr:last-child {
-  border-bottom: none;
-}
-
-.rec-owns-idx {
-  width: 76px;
-  padding: 22px 0 22px 28px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--pink);
-  vertical-align: top;
-}
-
-.rec-owns-text {
-  padding: 22px 28px 22px 0;
-  color: var(--ink);
-  font-size: 15px;
-  line-height: 1.6;
-  vertical-align: top;
-}
-
-/* ================= WHAT THE TEAM SEES (scroll-snap cards) ================= */
-.rec-sees-scroll {
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scrollbar-width: thin;
-}
-
-.rec-sees-track {
-  display: flex;
-  gap: 22px;
-  scroll-snap-type: x proximity;
-  padding-bottom: 12px;
-}
-
-.rec-sees-card {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 300px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 28px 26px;
-  box-shadow: var(--shadow-card);
-}
-
-.rec-sees-card .pill {
-  background: rgba(236, 72, 153, 0.14);
-  color: var(--pink);
-  margin-bottom: 16px;
-}
-
-.rec-sees-card h3 {
-  font-size: 18px;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-
-.rec-sees-card p {
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-/* ================= HANDOFF + PRINCIPLE BAND ================= */
-.rec-band {
-  background: var(--navy);
-  padding: 64px 0;
-}
-
-.rec-band-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 46px;
-}
-
-.rec-band-col p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 16px;
-  margin: 10px 0 0;
-}
-
-/* ================= PAGER ================= */
-.agent-pager {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 40px 32px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.agent-pager a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: color .2s ease;
-}
-
-.agent-pager a:hover {
-  color: var(--pink);
-}
-
-.agent-pager-next {
-  margin-left: auto;
-}
-
 /* ================= RESPONSIVE ================= */
 @media (max-width: 960px) {
   .rec-hero-grid {
     grid-template-columns: 1fr;
-  }
-
-  .rec-band-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rec-how-track {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .rec-how-arrow {
-    transform: rotate(90deg);
   }
 }
 
 @media (max-width: 600px) {
   .rec-hero-copy h1 {
     font-size: 32px;
-  }
-
-  .rec-owns-idx {
-    padding-left: 18px;
-    width: 56px;
-  }
-
-  .rec-owns-text {
-    padding-right: 18px;
-  }
-
-  .agent-pager {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .agent-pager-next {
-    margin-left: 0;
   }
 }

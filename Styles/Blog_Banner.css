@@ -50,7 +50,7 @@
 .bj-Blogbannerlevel p{
     text-align: center;
     color: #868d98;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     font-size: 18px;
     opacity: 0.7;
 }

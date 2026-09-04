@@ -1,74 +1,34 @@
 /* ==========================================================================
-   Scheduling & Provider Matching Agent — "Split coverage board" layout
+   Scheduling & Provider Matching Agent
+   Shared template (Agent_Template.css) covers owns/how/closing/pager.
+   This file holds the accent token, hero, and the kept unique visual:
+   the coverage board (open / at risk / confirmed).
    Accent: pink (--pink)
    ========================================================================== */
 
-/* ---- Back link ---- */
-.spm-back-section {
-  padding: 22px 0 0;
+:root {
+  --agent-accent: var(--pink);
 }
 
-.agent-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12.5px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-  transition: color .2s ease;
-}
-
-.agent-back-link:hover {
+.accent-pink {
   color: var(--pink);
 }
 
-/* ---- Two column shell ---- */
-.spm-main {
-  padding: 28px 0 70px;
-}
-
-.spm-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.25fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.spm-sticky-col {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+/* ================= HERO ================= */
+.spm-hero {
   background: linear-gradient(180deg, #ffffff 0%, #fef9fc 100%);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 34px 30px 32px;
-  box-shadow: 0 24px 50px -34px rgba(23, 20, 58, 0.2);
-  overflow: hidden;
 }
 
-.spm-sticky-col::before {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  right: -110px;
-  bottom: -120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, transparent 72%);
-  pointer-events: none;
-}
-
-.spm-sticky-col > * {
-  position: relative;
-  z-index: 1;
+.spm-hero-inner {
+  max-width: 820px;
 }
 
 .spm-title {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-montserrat-bold), sans-serif;
   font-size: clamp(28px, 3vw, 40px);
   color: var(--pink);
   line-height: 1.2;
+  margin-top: 14px;
 }
 
 .spm-title span {
@@ -76,259 +36,15 @@
   color: #180F5A;
 }
 
-.spm-lede {
-  font-size: 15px;
-  color: #6B6B80;
-  font-weight: 400;
-  max-width: 480px;
-}
-
-.spm-note-block {
-  border-left: 3px solid var(--pink);
-  background: #FEF1F7;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 14px 18px;
-  margin-top: 18px;
-}
-
-.spm-note-block.spm-note-principle {
-  border-left-color: var(--purple);
-  background: var(--lavender-bg);
-}
-
-.spm-note-tag {
-  display: block;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--pink);
-  margin-bottom: 6px;
-}
-
-.spm-note-block.spm-note-principle .spm-note-tag {
-  color: var(--purple);
-}
-
-.spm-note-block p {
-  margin: 0;
-  font-size: 13.5px;
-  color: #4A4A63;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-/* ---- Connected handoff: mini flow diagram ---- */
-.spm-flow-card {
-  border-left: 3px solid var(--pink);
-  background: #FEF1F7;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 16px 18px 18px;
-  margin-top: 18px;
-}
-
-.spm-flow-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.spm-flow-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.spm-flow-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.spm-flow-chip {
-  display: inline-flex;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--pink);
-  background: #fff;
-  border: 1px solid rgba(236, 72, 153, 0.3);
-  padding: 5px 12px;
-  border-radius: 20px;
-}
-
-.spm-flow-node {
-  align-self: stretch;
-  text-align: center;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--pink);
-  padding: 9px 14px;
-  border-radius: 10px;
-  box-shadow: 0 12px 22px -10px rgba(236, 72, 153, 0.55);
-}
-
-.spm-flow-arrow {
-  display: block;
-  text-align: center;
-  color: var(--pink);
-  opacity: 0.5;
-  font-size: 13px;
-  margin: 6px 0;
-}
-
-.spm-flow-note {
-  margin: 14px 0 0;
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-.spm-cta {
-  background: var(--pink);
-  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.5);
-  margin-top: 26px;
-  align-self: flex-start;
-}
-
-.spm-cta:hover {
-  box-shadow: 0 16px 30px -10px rgba(236, 72, 153, 0.6);
-}
-
-/* Sticky behavior only above ~1100px */
-@media (min-width: 1101px) {
-  .spm-sticky-col {
-    position: sticky;
-    top: 28px;
-    align-self: start;
-  }
-}
-
-/* ---- Right scroll column blocks ---- */
-.spm-scroll-col {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.spm-block > .pill {
-  margin-bottom: 20px;
-}
-
-.spm-block h4 {
-  font-family: "Poppins", sans-serif;
-}
-
-/* ---- What this agent owns: icon-row list ---- */
-.spm-icon-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.spm-icon-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 14.5px;
-  color: #4A4A63;
-  font-weight: 400;
-  line-height: 1.65;
-  padding: 12px 14px;
-  border-radius: var(--radius-sm);
-  background: #fff;
-  border: 1px solid var(--line);
-  transition: border-color .2s ease, transform .2s ease;
-}
-
-.spm-icon-list li:hover {
-  border-color: var(--pink);
-  transform: translateX(3px);
-}
-
-.spm-icon-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 3px;
-  background: var(--pink);
-  margin-top: 6px;
-  flex-shrink: 0;
-}
-
-.spm-icon-list li:nth-child(3n+2) .spm-icon-dot {
-  background: var(--purple);
-}
-
-.spm-icon-list li:nth-child(3n) .spm-icon-dot {
-  background: var(--teal);
-}
-
-/* ---- How it works: horizontal step strip ---- */
-.spm-steps {
-  display: flex;
-  align-items: stretch;
-  gap: 14px;
-  background: var(--navy);
-  border-radius: var(--radius-lg);
-  padding: 26px 22px;
-}
-
-.spm-step {
-  flex: 1;
-  min-width: 0;
-}
-
-.spm-step-num {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #f472b6;
-  background: rgba(236, 72, 153, 0.16);
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
-
-.spm-step h4 {
-  color: #fff;
-  font-size: 17px;
-  margin: 0 0 8px;
-  font-weight: 600;
-}
-
-.spm-step p {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 12.5px;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.spm-step-arrow {
+.spm-hero-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 18px;
-  flex-shrink: 0;
+  gap: 22px;
+  margin-top: 22px;
+  flex-wrap: wrap;
 }
 
-/* ---- What the team sees: kanban board ---- */
-.spm-board-caption {
-  font-size: 14px;
-  color: #4A4A63;
-  font-weight: 400;
-  margin-bottom: 22px;
-}
-
-.spm-board-caption strong {
-  color: var(--ink);
-  font-weight: 700;
-}
-
+/* ================= WHAT THE TEAM SEES — coverage board (kept unique visual) ================= */
 .spm-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -435,97 +151,11 @@
   line-height: 1.55;
 }
 
-/* ---- Pager ---- */
-.agent-pager {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding: 10px 32px 60px;
-  border-top: 1px solid var(--line);
-  margin-top: 10px;
-}
-
-.agent-pager a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  padding: 10px 4px;
-  transition: color .2s ease;
-}
-
-.agent-pager a:hover {
-  color: var(--pink);
-}
-
-.agent-pager-next {
-  margin-left: auto;
-  text-align: right;
-}
-
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1100px) {
-  .spm-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .spm-sticky-col {
-    padding: 28px 24px 26px;
-  }
-
-  .spm-cta {
-    margin-bottom: 6px;
-  }
-}
-
 @media (max-width: 820px) {
   .spm-board {
     grid-template-columns: 1fr;
-  }
-
-  .spm-steps {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .spm-step-arrow {
-    transform: rotate(90deg);
-  }
-}
-
-@media (max-width: 600px) {
-  .spm-main {
-    padding: 16px 0 50px;
-  }
-
-  .spm-scroll-col {
-    gap: 34px;
-  }
-
-  .spm-sticky-col {
-    padding: 22px 18px 22px;
-  }
-
-  .spm-note-block,
-  .spm-flow-card {
-    padding: 12px 14px;
-  }
-
-  .agent-pager {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px 40px;
-  }
-
-  .agent-pager-next {
-    margin-left: 0;
-    text-align: left;
   }
 }

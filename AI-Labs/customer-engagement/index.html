@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../../Styles/Footer.css">
     <link rel="stylesheet" href="../../Styles/Book_Demo.css">
     <link rel="stylesheet" href="../../Styles/PlatformStyle.css">
+    <link rel="stylesheet" href="../../Styles/Agent_Template.css">
     <link rel="stylesheet" href="../../Styles/Agent_CustomerEngagement.css">
     <script src="https://tracker-ospectra-ai.onrender.com/static/tracker.js" defer></script>
 </head>
@@ -52,7 +53,7 @@
 
             <div class="ce-hero-grid">
                 <div class="ce-hero-copy" data-aos="fade-up">
-                    <span class="eyebrow eyebrow-dot"><span>&#9679; </span>VERSION 2 / 03 / CUSTOMER ENGAGEMENT AGENT</span>
+                    <span class="eyebrow eyebrow-dot"><span>&#9679; </span>CUSTOMER ENGAGEMENT AGENT</span>
                     <h1>Turn every inquiry into <span>a clear path to care.</span></h1>
                     <p class="lede">OSpectra guides the first conversation with families and referral partners, captures what the client needs, and turns fragmented intake information into a complete, actionable service request. The team enters the conversation with context instead of starting from scratch.</p>
                     <div class="ce-hero-actions">
@@ -98,20 +99,22 @@
                 <p class="section-note" data-aos="fade-up" data-aos-delay="100">Three connected steps carry a conversation from the first question to a service request the rest of the agency can act on.</p>
             </div>
 
-            <div class="ce-timeline">
-                <div class="ce-timeline-node" data-aos="fade-up" data-aos-delay="0">
-                    <div class="ce-node-num">1</div>
-                    <h3><span>STEP ONE</span>Capture</h3>
+            <div class="agent-steps">
+                <div class="agent-step" data-aos="fade-up" data-aos-delay="0">
+                    <span class="agent-step-num">1</span>
+                    <h3>Capture</h3>
                     <p>Guide the first conversation and collect the care, schedule, contact, referral, and payer context.</p>
                 </div>
-                <div class="ce-timeline-node" data-aos="fade-up" data-aos-delay="100">
-                    <div class="ce-node-num">2</div>
-                    <h3><span>STEP TWO</span>Clarify</h3>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step" data-aos="fade-up" data-aos-delay="100">
+                    <span class="agent-step-num">2</span>
+                    <h3>Clarify</h3>
                     <p>Identify the exact missing answer or conflict and prepare the most useful follow-up.</p>
                 </div>
-                <div class="ce-timeline-node" data-aos="fade-up" data-aos-delay="200">
-                    <div class="ce-node-num">3</div>
-                    <h3><span>STEP THREE</span>Route</h3>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step" data-aos="fade-up" data-aos-delay="200">
+                    <span class="agent-step-num">3</span>
+                    <h3>Route</h3>
                     <p>Create a complete service request and send it to the appropriate downstream workflow.</p>
                 </div>
             </div>
@@ -128,18 +131,35 @@
                 </div>
             </div>
 
-            <div class="ce-owns-grid" data-aos="fade-up">
-                <ul class="checklist">
-                    <li>Use adaptive, care-specific questions to capture service needs, location, preferred schedule, start date, client preferences, and relevant care considerations.</li>
-                    <li>Collect payer, referral, contact, and eligibility information while clearly identifying anything still missing or unconfirmed.</li>
-                    <li>Maintain referral-partner relationships, outreach history, incoming opportunities, commitments, and status updates through conversion or closure.</li>
-                    <li>Summarize the request in a structured client-and-service profile that can move directly into staffing and scheduling workflows.</li>
-                </ul>
-                <ul class="checklist">
-                    <li>Prioritize follow-up based on urgency, readiness, and the likelihood that the agency can safely serve the request.</li>
-                    <li>Draft confirmations, next-step messages, and internal handoff notes while keeping sensitive or consequential communication human-approved.</li>
-                    <li>Preserve the full intake and referral history so later decisions can be traced back to what each party actually provided.</li>
-                </ul>
+            <div class="agent-owns-grid" data-aos="fade-up">
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">01</span>
+                    <p>Use adaptive, care-specific questions to capture service needs, location, preferred schedule, start date, client preferences, and relevant care considerations.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">02</span>
+                    <p>Collect payer, referral, contact, and eligibility information while clearly identifying anything still missing or unconfirmed.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">03</span>
+                    <p>Maintain referral-partner relationships, outreach history, incoming opportunities, commitments, and status updates through conversion or closure.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">04</span>
+                    <p>Summarize the request in a structured client-and-service profile that can move directly into staffing and scheduling workflows.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">05</span>
+                    <p>Prioritize follow-up based on urgency, readiness, and the likelihood that the agency can safely serve the request.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">06</span>
+                    <p>Draft confirmations, next-step messages, and internal handoff notes while keeping sensitive or consequential communication human-approved.</p>
+                </div>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">07</span>
+                    <p>Preserve the full intake and referral history so later decisions can be traced back to what each party actually provided.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -154,31 +174,27 @@
                 </div>
             </div>
 
-            <div class="ce-dash-grid">
-                <div class="ce-tile" data-aos="fade-up" data-aos-delay="0">
-                    <div class="ce-tile-head">
-                        <span class="ce-tile-icon">1</span>
+            <div class="agent-panels">
+                <div class="agent-panel" data-aos="fade-up" data-aos-delay="0">
+                    <div class="agent-panel-head">
                         <h4>New inquiries</h4>
                     </div>
                     <p>A prioritized queue organized by urgency, source, program, location, and requested start date.</p>
                 </div>
-                <div class="ce-tile" data-aos="fade-up" data-aos-delay="80">
-                    <div class="ce-tile-head">
-                        <span class="ce-tile-icon">2</span>
+                <div class="agent-panel" data-aos="fade-up" data-aos-delay="80">
+                    <div class="agent-panel-head">
                         <h4>Needs clarification</h4>
                     </div>
                     <p>Specific missing answers or contradictions, with a suggested follow-up question ready to send.</p>
                 </div>
-                <div class="ce-tile" data-aos="fade-up" data-aos-delay="160">
-                    <div class="ce-tile-head">
-                        <span class="ce-tile-icon">3</span>
+                <div class="agent-panel" data-aos="fade-up" data-aos-delay="160">
+                    <div class="agent-panel-head">
                         <h4>Ready for service planning</h4>
                     </div>
                     <p>Complete intake profiles that can be handed to Scheduling &amp; Provider Matching.</p>
                 </div>
-                <div class="ce-tile" data-aos="fade-up" data-aos-delay="240">
-                    <div class="ce-tile-head">
-                        <span class="ce-tile-icon">4</span>
+                <div class="agent-panel" data-aos="fade-up" data-aos-delay="240">
+                    <div class="agent-panel-head">
                         <h4>Referral partner pipeline</h4>
                     </div>
                     <p>A shared view of sources, relationships, opportunities, commitments, and next actions.</p>
@@ -190,14 +206,14 @@
     <!-- ============ CLOSING BAND — connected handoff + built-in principle ============ -->
     <section class="section">
         <div class="wrap">
-            <div class="ce-closing" data-aos="zoom-in">
-                <div class="ce-closing-grid">
-                    <div class="ce-closing-item">
-                        <span class="ce-closing-label">CONNECTED HANDOFF</span>
+            <div class="agent-closing" data-aos="zoom-in">
+                <div class="agent-closing-grid">
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">CONNECTED HANDOFF</span>
                         <p>Customer Engagement sends a structured care request to Scheduling &amp; Provider Matching and creates demand signals for Recruitment when the required capacity does not yet exist.</p>
                     </div>
-                    <div class="ce-closing-item">
-                        <span class="ce-closing-label">BUILT-IN PRINCIPLE</span>
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">BUILT-IN PRINCIPLE</span>
                         <p>Ask only what matters, explain what is missing, and keep the human relationship at the center of the intake experience.</p>
                     </div>
                 </div>

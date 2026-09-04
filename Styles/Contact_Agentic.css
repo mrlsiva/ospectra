@@ -62,7 +62,7 @@
     color: #fff;
     font-size: 18px;
     line-height: 30px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     font-weight: 400;
 }
 
@@ -148,7 +148,7 @@ lottie-player{
     /* width: 100%; */
     font-size: 40px;
     line-height: 50px;
-    font-family: "Montserrat-Regular";
+    font-family: var(--font-montserrat-regular);
     color: #421AD5;
     text-align: center;
 }
@@ -196,7 +196,7 @@ lottie-player{
     color: #868d98;
     line-height: 26px;
     border-radius: 8px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     margin: 0;
 }
 
@@ -222,7 +222,7 @@ lottie-player{
     border-radius: 0px 25px 25px 25px;
     padding: 14px 30px;
     font-size: 14px;
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
     display: block;
     /* width: 120px; */
     text-align: center;
@@ -242,7 +242,7 @@ lottie-player{
     color: #421AD5;
     /* padding-left: 20px; */
     /* display: none; */
-    font-family: "Roboto";
+    font-family: var(--font-roboto);
 }
 
 @media screen and (max-width:1660px) {

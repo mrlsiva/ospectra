@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../../Styles/Footer.css">
     <link rel="stylesheet" href="../../Styles/Book_Demo.css">
     <link rel="stylesheet" href="../../Styles/PlatformStyle.css">
+    <link rel="stylesheet" href="../../Styles/Agent_Template.css">
     <link rel="stylesheet" href="../../Styles/Agent_DataAnalyst.css">
     <script src="https://tracker-ospectra-ai.onrender.com/static/tracker.js" defer></script>
 </head>
@@ -52,7 +53,7 @@
 
             <div class="da-hero-grid">
                 <div>
-                    <span class="da-eyebrow-teal">VERSION 2 / 13 / DATA ANALYST AND SCIENTIST AGENT</span>
+                    <span class="da-eyebrow-teal">DATA ANALYST AND SCIENTIST AGENT</span>
                     <h1>Turn every selected KPI into explainable business guidance.</h1>
                     <p class="lede">OSpectra lets the business owner or operations manager choose the metrics that matter, then combines permitted information from the other agents into dashboards, alerts, forecasts, and practical what-if analysis. It advises leadership without changing the business on its own.</p>
                     <div class="da-hero-cta">
@@ -110,29 +111,29 @@
                 <h2>Six responsibilities, tracked like a dashboard.</h2>
             </div>
 
-            <div class="da-kpi-grid">
-                <div class="da-kpi-tile">
-                    <span class="da-kpi-index">01</span>
+            <div class="agent-owns-grid">
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">01</span>
                     <p>Define dashboards and reports around any KPI or metric the business owner selects, using connected data from the other agents.</p>
                 </div>
-                <div class="da-kpi-tile">
-                    <span class="da-kpi-index">02</span>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">02</span>
                     <p>Answer conversational questions and produce charts, scheduled reports, and concise decision briefs for operators and owners.</p>
                 </div>
-                <div class="da-kpi-tile">
-                    <span class="da-kpi-index">03</span>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">03</span>
                     <p>Proactively identify trends, anomalies, risks, opportunities, and relationships across operational, growth, workforce, service, and financial data.</p>
                 </div>
-                <div class="da-kpi-tile">
-                    <span class="da-kpi-index">04</span>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">04</span>
                     <p>Build predictive models and what-if scenarios, including the revenue, hiring, capacity, or operational changes required to reach a stated outcome.</p>
                 </div>
-                <div class="da-kpi-tile">
-                    <span class="da-kpi-index">05</span>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">05</span>
                     <p>Issue timely warnings and suggest alternative approaches when actual performance moves away from the owner's goal or assumption.</p>
                 </div>
-                <div class="da-kpi-tile">
-                    <span class="da-kpi-index">06</span>
+                <div class="agent-owns-tile">
+                    <span class="agent-owns-idx">06</span>
                     <p>Show the source data, calculation method, assumptions, and confidence behind every metric, forecast, and recommendation.</p>
                 </div>
             </div>
@@ -147,25 +148,23 @@
                 <h2>A three-stage analysis pipeline.</h2>
             </div>
 
-            <div class="da-pipeline-card">
-                <div class="da-pipeline-row">
-                    <div class="da-pipeline-step">
-                        <span class="step-num">1</span>
-                        <h4>Select</h4>
-                        <p>The owner or operations manager chooses the KPI, question, target, or scenario to understand.</p>
-                    </div>
-                    <div class="da-pipeline-arrow">&rarr;</div>
-                    <div class="da-pipeline-step">
-                        <span class="step-num">2</span>
-                        <h4>Understand</h4>
-                        <p>The agent combines relevant agent data, explains the drivers, and monitors for material change.</p>
-                    </div>
-                    <div class="da-pipeline-arrow">&rarr;</div>
-                    <div class="da-pipeline-step">
-                        <span class="step-num">3</span>
-                        <h4>Advise</h4>
-                        <p>Present forecasts, options, tradeoffs, and practical recommendations without taking control of the decision.</p>
-                    </div>
+            <div class="agent-steps">
+                <div class="agent-step">
+                    <span class="agent-step-num">1</span>
+                    <h3>Select</h3>
+                    <p>The owner or operations manager chooses the KPI, question, target, or scenario to understand.</p>
+                </div>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step">
+                    <span class="agent-step-num">2</span>
+                    <h3>Understand</h3>
+                    <p>The agent combines relevant agent data, explains the drivers, and monitors for material change.</p>
+                </div>
+                <span class="agent-step-arrow">&rarr;</span>
+                <div class="agent-step">
+                    <span class="agent-step-num">3</span>
+                    <h3>Advise</h3>
+                    <p>Present forecasts, options, tradeoffs, and practical recommendations without taking control of the decision.</p>
                 </div>
             </div>
         </div>
@@ -179,78 +178,57 @@
                 <h2>A scenario lab, not just a report.</h2>
             </div>
 
-            <div class="da-panel-grid">
-                <!-- Panel 1: KPI dashboard -->
-                <div class="da-panel da-panel-kpi">
-                    <div class="da-panel-head">
+            <div class="agent-panels">
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
                         <h4>KPI dashboard</h4>
-                        <span class="da-panel-tag">Live</span>
+                        <span class="agent-panel-tag">Live</span>
                     </div>
-                    <p class="da-panel-desc">Owner-selected measures with current values, drivers, targets, and source lineage.</p>
-                    <div class="da-stat-row">
-                        <div class="da-stat">
-                            <div class="num">$482K</div>
-                            <div class="lbl">Revenue</div>
+                    <p>Owner-selected measures with current values, drivers, targets, and source lineage.</p>
+                    <div class="agent-panel-stat-row">
+                        <div>
+                            <span class="num">$482K</span>
+                            <span class="lbl">Revenue</span>
                         </div>
-                        <div class="da-stat">
-                            <div class="num">86%</div>
-                            <div class="lbl">Utilization</div>
+                        <div>
+                            <span class="num">86%</span>
+                            <span class="lbl">Utilization</span>
                         </div>
-                        <div class="da-stat">
-                            <div class="num">4.7</div>
-                            <div class="lbl">CSAT</div>
+                        <div>
+                            <span class="num">4.7</span>
+                            <span class="lbl">CSAT</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Panel 2: Trend alerts -->
-                <div class="da-panel da-panel-alerts">
-                    <div class="da-panel-head">
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
                         <h4>Trend alerts</h4>
-                        <span class="da-panel-tag">3 open</span>
+                        <span class="agent-panel-tag">3 open</span>
                     </div>
-                    <p class="da-panel-desc">Material anomalies, risks, or opportunities with the likely cause and urgency.</p>
-                    <div class="da-alert-row urgent">
-                        <span class="da-alert-dot"></span>
-                        Capacity risk in North region — urgent
-                    </div>
-                    <div class="da-alert-row watch">
-                        <span class="da-alert-dot"></span>
-                        Referral pace slowing — watch
-                    </div>
-                    <div class="da-alert-row ok">
-                        <span class="da-alert-dot"></span>
-                        Collections trending ahead of plan
-                    </div>
+                    <p>Material anomalies, risks, or opportunities with the likely cause and urgency.</p>
+                    <ul class="agent-panel-list">
+                        <li>Capacity risk in North region — urgent</li>
+                        <li>Referral pace slowing — watch</li>
+                        <li>Collections trending ahead of plan</li>
+                    </ul>
                 </div>
 
-                <!-- Panel 3: Scenario lab -->
-                <div class="da-panel da-panel-scenario">
-                    <div class="da-panel-head">
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
                         <h4>Scenario lab</h4>
-                        <span class="da-panel-tag">What-if</span>
+                        <span class="agent-panel-tag">What-if</span>
                     </div>
-                    <p class="da-panel-desc">Explainable forecasts such as the revenue increase needed to support a specific hiring plan.</p>
-                    <div class="da-slider">
-                        <div class="da-slider-labels">
-                            <span>Hiring plan: +4 FTE</span>
-                            <span>Revenue needed: +11%</span>
-                        </div>
-                        <div class="da-slider-track">
-                            <div class="da-slider-fill" style="width:64%;"></div>
-                            <div class="da-slider-handle" style="left:64%;"></div>
-                        </div>
-                    </div>
+                    <p>Explainable forecasts such as the revenue increase needed to support a specific hiring plan.</p>
                 </div>
 
-                <!-- Panel 4: Decision brief -->
-                <div class="da-panel da-panel-brief">
-                    <div class="da-panel-head">
+                <div class="agent-panel">
+                    <div class="agent-panel-head">
                         <h4>Decision brief</h4>
-                        <span class="da-panel-tag">Summary</span>
+                        <span class="agent-panel-tag">Summary</span>
                     </div>
-                    <p class="da-panel-desc">Options, assumptions, confidence, tradeoffs, and a recommendation for the owner.</p>
-                    <ul class="da-brief-list">
+                    <p>Options, assumptions, confidence, tradeoffs, and a recommendation for the owner.</p>
+                    <ul class="agent-panel-list">
                         <li>Option A: delay hire, protect margin near-term</li>
                         <li>Option B: hire now, absorb ramp cost for 6 weeks</li>
                         <li>Confidence: high, based on 8-month trend</li>
@@ -261,18 +239,18 @@
     </section>
 
     <!-- ============================ CLOSING BAND ============================ -->
-    <section class="da-closing">
+    <section class="section">
         <div class="wrap">
-            <div class="da-closing-grid">
-                <div class="da-closing-card">
-                    <span class="tag">Connected handoff</span>
-                    <h4>Independent, but linked to Command Center.</h4>
-                    <p>The Data Agent remains independent while linking to Command Center. It receives permitted information from the portfolio and supplies leadership with evidence-backed analysis, warnings, and scenarios.</p>
-                </div>
-                <div class="da-closing-card">
-                    <span class="tag">Built-in principle</span>
-                    <h4>Always explainable and advisory only.</h4>
-                    <p>The agent cannot change KPIs, budgets, staffing plans, assumptions, or operational rules on the owner's behalf.</p>
+            <div class="agent-closing" data-aos="zoom-in">
+                <div class="agent-closing-grid">
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">Connected handoff</span>
+                        <p><strong>Independent, but linked to Command Center.</strong> The Data Agent remains independent while linking to Command Center. It receives permitted information from the portfolio and supplies leadership with evidence-backed analysis, warnings, and scenarios.</p>
+                    </div>
+                    <div class="agent-closing-item">
+                        <span class="agent-closing-label">Built-in principle</span>
+                        <p><strong>Always explainable and advisory only.</strong> The agent cannot change KPIs, budgets, staffing plans, assumptions, or operational rules on the owner's behalf.</p>
+                    </div>
                 </div>
             </div>
         </div>
