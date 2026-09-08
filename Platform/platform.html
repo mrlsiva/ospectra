@@ -68,11 +68,19 @@ ul{margin:0;padding:0;list-style:none}
 .quote-bar .q{font-family:"Montserrat",sans-serif;font-size:clamp(19px,2.4vw,27px);font-weight:600;line-height:1.4;margin:0 0 12px;max-width:30ch}
 .quote-bar .q em{font-style:normal;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
 .quote-bar p{color:rgba(255,255,255,.72);font-size:14.5px;max-width:70ch;margin:0}
-/* ============ engine cards (group-def family) ============ */
-[data-accent="g1"]{--accent:var(--purple);--accent2:#8a6ef5}
-[data-accent="g2"]{--accent:var(--pink);--accent2:#f472b6}
-[data-accent="g3"]{--accent:#4338ca;--accent2:#14b8a6}
-[data-accent="g4"]{--accent:#0f0c2c;--accent2:#5B3FE0}
+/* ============ engine cards (continuous brand-gradient flow, 01→12) ============ */
+.eng-row:nth-child(1){--accent:#5A3FE0;--accent2:#6442E0}
+.eng-row:nth-child(2){--accent:#6442E0;--accent2:#6E46E0}
+.eng-row:nth-child(3){--accent:#6E46E0;--accent2:#7849E0}
+.eng-row:nth-child(4){--accent:#7849E0;--accent2:#824CE0}
+.eng-row:nth-child(5){--accent:#824CE0;--accent2:#8C4FDF}
+.eng-row:nth-child(6){--accent:#8C4FDF;--accent2:#9B4ED4}
+.eng-row:nth-child(7){--accent:#9B4ED4;--accent2:#AA4CC9}
+.eng-row:nth-child(8){--accent:#AA4CC9;--accent2:#B94BBD}
+.eng-row:nth-child(9){--accent:#B94BBD;--accent2:#C84AB2}
+.eng-row:nth-child(10){--accent:#C84AB2;--accent2:#D748A6}
+.eng-row:nth-child(11){--accent:#D748A6;--accent2:#E6479B}
+.eng-row:nth-child(12){--accent:#E6479B;--accent2:#EC4899}
 .eng-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .eng-row{position:relative;display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px 26px;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
 .eng-row::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
@@ -563,18 +571,18 @@ svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
       <p class="lede">Every agent &mdash; ours or the ones you author &mdash; runs inside the same engines. A capability proven once is proven for all of them.</p>
     </div>
     <div class="eng-list">
-      <div class="eng-row" data-accent="g1" data-aos><span class="eng-num">01</span><div class="eng-body"><h4>Reasoning Engine</h4><p>Thinks through real work end to end &mdash; plans, acts, and recovers from dead ends. Agents that finish jobs, not tickets.</p></div></div>
-      <div class="eng-row" data-accent="g2" data-aos data-d="60"><span class="eng-num">02</span><div class="eng-body"><h4>Context Engine</h4><p>Every conversation starts fully briefed: who this is, what they told you before, what the moment needs. Your customers never repeat themselves.</p></div></div>
-      <div class="eng-row" data-accent="g3" data-aos><span class="eng-num">03</span><div class="eng-body"><h4>Memory Engine</h4><p>Total recall, on the record. What was said six weeks ago is still there &mdash; in full &mdash; the moment it matters.</p></div></div>
-      <div class="eng-row" data-accent="g4" data-aos data-d="60"><span class="eng-num">04</span><div class="eng-body"><h4>Guardrails Engine</h4><p>Brand-safe by construction. Protections for data, conduct and manipulation that can be tightened to your policies &mdash; and never loosened below ours.</p></div></div>
-      <div class="eng-row amber-card" data-accent="g1" data-aos><span class="eng-num">05</span><div class="eng-body"><h4>Approval Gates</h4><p>The moments that matter wait for your people &mdash; money, signatures, saying no to a customer. Frozen until a human rules, even when the agent runs overnight.</p><span class="amber-pill">a person decides here</span></div></div>
-      <div class="eng-row" data-accent="g2" data-aos data-d="60"><span class="eng-num">06</span><div class="eng-body"><h4>The Validator</h4><p>Independent quality control on every piece of work. A second mind &mdash; that never sees the first one&rsquo;s reasoning &mdash; confirms the job is actually done before anyone hears &ldquo;done.&rdquo;</p></div></div>
-      <div class="eng-row" data-accent="g3" data-aos><span class="eng-num">07</span><div class="eng-body"><h4>Evaluation Engine</h4><p>Proof before production. Every change faces a bank of real-world scenarios. Nothing ships on the strength of a good demo.</p></div></div>
-      <div class="eng-row" data-accent="g4" data-aos data-d="60"><span class="eng-num">08</span><div class="eng-body"><h4>Learning Engine</h4><p>Gets better at your business. A thumbs-up becomes a worked example; a correction becomes a rule &mdash; with your team approving every lesson.</p></div></div>
-      <div class="eng-row" data-accent="g1" data-aos><span class="eng-num">09</span><div class="eng-body"><h4>Usage &amp; Cost Engine</h4><p>A CFO-grade meter. Live spend per agent and per customer, priced as it happens. A retry never bills twice.</p></div></div>
-      <div class="eng-row" data-accent="g2" data-aos data-d="60"><span class="eng-num">10</span><div class="eng-body"><h4>OpenSandbox</h4><p>Anything an agent executes happens in a sealed room &mdash; an isolated container per conversation, away from your systems.</p></div></div>
-      <div class="eng-row" data-accent="g3" data-aos><span class="eng-num">11</span><div class="eng-body"><h4>MCP Pack Host</h4><p>Your systems, plugged in. CRM, records, scheduling &mdash; delivered as packs that go live in the running platform in about thirty seconds, without downtime.</p></div></div>
-      <div class="eng-row" data-accent="g4" data-aos data-d="60"><span class="eng-num">12</span><div class="eng-body"><h4>Agent Studio</h4><p>Build agents in a browser &mdash; roles, rules and channels authored by the people who know the work. Every change versioned, every agent with its own changelog.</p></div></div>
+      <div class="eng-row" data-aos><span class="eng-num">01</span><div class="eng-body"><h4>Reasoning Engine</h4><p>Thinks through real work end to end &mdash; plans, acts, and recovers from dead ends. Agents that finish jobs, not tickets.</p></div></div>
+      <div class="eng-row" data-aos data-d="60"><span class="eng-num">02</span><div class="eng-body"><h4>Context Engine</h4><p>Every conversation starts fully briefed: who this is, what they told you before, what the moment needs. Your customers never repeat themselves.</p></div></div>
+      <div class="eng-row" data-aos><span class="eng-num">03</span><div class="eng-body"><h4>Memory Engine</h4><p>Total recall, on the record. What was said six weeks ago is still there &mdash; in full &mdash; the moment it matters.</p></div></div>
+      <div class="eng-row" data-aos data-d="60"><span class="eng-num">04</span><div class="eng-body"><h4>Guardrails Engine</h4><p>Brand-safe by construction. Protections for data, conduct and manipulation that can be tightened to your policies &mdash; and never loosened below ours.</p></div></div>
+      <div class="eng-row amber-card" data-aos><span class="eng-num">05</span><div class="eng-body"><h4>Approval Gates</h4><p>The moments that matter wait for your people &mdash; money, signatures, saying no to a customer. Frozen until a human rules, even when the agent runs overnight.</p><span class="amber-pill">a person decides here</span></div></div>
+      <div class="eng-row" data-aos data-d="60"><span class="eng-num">06</span><div class="eng-body"><h4>The Validator</h4><p>Independent quality control on every piece of work. A second mind &mdash; that never sees the first one&rsquo;s reasoning &mdash; confirms the job is actually done before anyone hears &ldquo;done.&rdquo;</p></div></div>
+      <div class="eng-row" data-aos><span class="eng-num">07</span><div class="eng-body"><h4>Evaluation Engine</h4><p>Proof before production. Every change faces a bank of real-world scenarios. Nothing ships on the strength of a good demo.</p></div></div>
+      <div class="eng-row" data-aos data-d="60"><span class="eng-num">08</span><div class="eng-body"><h4>Learning Engine</h4><p>Gets better at your business. A thumbs-up becomes a worked example; a correction becomes a rule &mdash; with your team approving every lesson.</p></div></div>
+      <div class="eng-row" data-aos><span class="eng-num">09</span><div class="eng-body"><h4>Usage &amp; Cost Engine</h4><p>A CFO-grade meter. Live spend per agent and per customer, priced as it happens. A retry never bills twice.</p></div></div>
+      <div class="eng-row" data-aos data-d="60"><span class="eng-num">10</span><div class="eng-body"><h4>OpenSandbox</h4><p>Anything an agent executes happens in a sealed room &mdash; an isolated container per conversation, away from your systems.</p></div></div>
+      <div class="eng-row" data-aos><span class="eng-num">11</span><div class="eng-body"><h4>MCP Pack Host</h4><p>Your systems, plugged in. CRM, records, scheduling &mdash; delivered as packs that go live in the running platform in about thirty seconds, without downtime.</p></div></div>
+      <div class="eng-row" data-aos data-d="60"><span class="eng-num">12</span><div class="eng-body"><h4>Agent Studio</h4><p>Build agents in a browser &mdash; roles, rules and channels authored by the people who know the work. Every change versioned, every agent with its own changelog.</p></div></div>
     </div>
   </div>
 </section>

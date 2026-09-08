@@ -2,7 +2,7 @@
    OSpectra — Command Center Agent
    Shared template (Agent_Template.css) covers owns/how/sees/closing/pager,
    all in the site's standard light theme. This file holds the accent token
-   and the kept unique visual: the dark hero + live dashboard card.
+   and the kept unique visual: the live dashboard card.
    Namespace: .cc-*
    ========================================================================== */
 
@@ -11,35 +11,13 @@
 }
 
 /* ==========================================================================
-   BACK LINK — dark-legible variant (for the dark hero)
-   ========================================================================== */
-.agent-back-link {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.agent-back-link:hover {
-  color: var(--purple-light);
-}
-
-/* ==========================================================================
-   HERO (kept unique visual: dot-grid + glow + live dashboard card)
+   HERO (kept unique visual: glow + live dashboard card)
    ========================================================================== */
 .cc-hero {
   position: relative;
   overflow: hidden;
   padding: 6px 0 64px;
-  background: var(--navy-deep);
-}
-
-.cc-hero-grid-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-  background-size: 26px 26px;
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
-          mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
-  pointer-events: none;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f3ff 100%);
 }
 
 .cc-hero-glow {
@@ -48,8 +26,7 @@
   right: -140px;
   width: 620px;
   height: 620px;
-  background: radial-gradient(circle, rgba(138, 110, 245, 0.45) 0%, rgba(138, 110, 245, 0) 70%);
-  filter: blur(10px);
+  background: radial-gradient(circle, rgba(138, 110, 245, 0.18) 0%, rgba(138, 110, 245, 0) 70%);
   z-index: 0;
   pointer-events: none;
 }
@@ -66,19 +43,19 @@
 
 .cc-hero-inner h1 {
   font-size: clamp(30px, 3.8vw, 54px);
-  color: #fff;
+  color: var(--ink);
   font-family: var(--font-montserrat-bold), sans-serif;
 }
 
 .cc-hero-inner h1 span {
   font-weight: 300;
-  color: var(--purple-light);
+  color: var(--purple);
 }
 
 .cc-hero-inner .lede {
   font-size: 15px;
   max-width: 620px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   font-weight: 400;
 }
 
@@ -88,14 +65,6 @@
   gap: 22px;
   margin-top: 8px;
   flex-wrap: wrap;
-}
-
-.cc-hero-actions .cc-link {
-  color: #fff;
-}
-
-.cc-hero-actions .cc-link span {
-  color: var(--purple-light);
 }
 
 .cc-dashboard-card {

@@ -7,7 +7,7 @@
     const pageRoutes = {
         home: 'index.html',
         about: 'About/',
-        platform: 'Plaform/',
+        platform: 'Platform/',
         solutions: 'AI-Labs/',
         homecare: 'Home-Care/',
         career: 'Career/',
@@ -18,7 +18,7 @@
         const pathname = window.location.pathname.toLowerCase();
         if (pathname.endsWith('/index.html') || pathname === '/' || pathname === '') return 'home';
         if (pathname.includes('/about/')) return 'about';
-        if (pathname.includes('/plaform/') || pathname.includes('/platform_new/')) return 'platform';
+        if (pathname.includes('/platform/') || pathname.includes('/platform_new/')) return 'platform';
         if (pathname.includes('/solutions/') || pathname.includes('/ai-labs/')) return 'solutions';
         if (pathname.includes('/home-care/')) return 'homecare';
         if (pathname.includes('/career/')) return 'career';
@@ -87,8 +87,8 @@
 
     async function loadCommonMarkup() {
         try {
-            const navResponse = await fetch(baseUrl + 'nav.html');
-            const footerResponse = await fetch(baseUrl + 'footer.html');
+            const navResponse = await fetch(baseUrl + 'nav.html', { cache: 'no-store' });
+            const footerResponse = await fetch(baseUrl + 'footer.html', { cache: 'no-store' });
             if (!navResponse.ok || !footerResponse.ok) {
                 throw new Error('nav/footer request failed: ' + navResponse.status + '/' + footerResponse.status);
             }
