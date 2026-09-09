@@ -154,7 +154,12 @@ ul{margin:0;padding:0;list-style:none}
 
 *{box-sizing:border-box}
 
-.scroll{overflow-x:auto;padding:4px 0}
+.scroll{overflow-x:auto;padding:4px 0;cursor:grab;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#C4BEE8 transparent}
+.scroll.dragging{cursor:grabbing;user-select:none}
+.scroll::-webkit-scrollbar{height:8px}
+.scroll::-webkit-scrollbar-track{background:transparent}
+.scroll::-webkit-scrollbar-thumb{background:#C4BEE8;border-radius:8px}
+.scroll::-webkit-scrollbar-thumb:hover{background:#A99EDD}
 .canvas{position:relative;margin:0 auto}
 svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .wires path,.wires line{fill:none;stroke:#BDC1C6;stroke-width:1.3}
@@ -681,4 +686,44 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   }, {threshold: 0.12});
   els.forEach(function(e){ io.observe(e); });
 })();
+
+// Mouse drag-to-scroll + wheel-to-horizontal-scroll for .scroll panels
+document.querySelectorAll(".scroll").forEach(function(el){
+  var isDown = false, startX = 0, startScrollLeft = 0, moved = false;
+
+  el.addEventListener("mousedown", function(e){
+    if (el.scrollWidth <= el.clientWidth) return;
+    isDown = true;
+    moved = false;
+    startX = e.pageX;
+    startScrollLeft = el.scrollLeft;
+    el.classList.add("dragging");
+  });
+
+  window.addEventListener("mousemove", function(e){
+    if (!isDown) return;
+    var dx = e.pageX - startX;
+    if (Math.abs(dx) > 3) moved = true;
+    el.scrollLeft = startScrollLeft - dx;
+  });
+
+  window.addEventListener("mouseup", function(){
+    isDown = false;
+    el.classList.remove("dragging");
+  });
+
+  el.addEventListener("click", function(e){
+    if (moved) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+
+  el.addEventListener("wheel", function(e){
+    if (el.scrollWidth <= el.clientWidth) return;
+    if (e.shiftKey) return;
+    var atStart = el.scrollLeft <= 0;
+    var atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 1;
+    if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
+    el.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
+});
 </script>

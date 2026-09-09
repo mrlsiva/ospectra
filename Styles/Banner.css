@@ -35,6 +35,19 @@ main{
     margin-left: 80px;
 }
 
+.bj-banner-announce{
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    padding: 7px 16px;
+    margin-bottom: 16px;
+    font-family: var(--font-montserrat-regular);
+}
+
 .bj-bannerlefttext h3{
     font-size: 36px;
     line-height: 45px;

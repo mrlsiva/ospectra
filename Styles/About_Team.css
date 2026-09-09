@@ -1,0 +1,138 @@
+.bj-AboutTeamblock{
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.bj-AboutTeamlevel{
+    width: 100%;
+}
+
+.bj-AboutTeamhead{
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.bj-AboutTeamhead h3{
+    font-size: 40px;
+    line-height: 50px;
+    color: #210C7C;
+    font-family: var(--font-montserrat-semibold);
+}
+
+.bj-AboutTeamhead h3 span{
+    color: #421AD5;
+    font-family: var(--font-montserrat-bold);
+}
+
+.bj-AboutTeamhead p{
+    max-width: 850px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #5B5876;
+    font-family: var(--font-roboto);
+    margin-top: 15px;
+}
+
+.bj-AboutTeamgrid{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.bj-AboutTeamcard{
+    width: calc(33.333% - 20px);
+    background: rgba(246, 244, 254, 0.9);
+    border-radius: 10px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bj-AboutTeamcard:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 15px 40px rgba(66, 26, 213, 0.15);
+}
+
+.bj-AboutTeamavatar{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FB2CFE, #892FC1 55%, #421AD5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto 20px;
+    box-shadow: 0px 10px 25px rgba(66, 26, 213, 0.35);
+}
+
+.bj-AboutTeamavatar span{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: var(--font-montserrat-bold);
+}
+
+.bj-AboutTeamavatar::after{
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #FB2CFE;
+    border: 2px solid rgba(246, 244, 254, 0.9);
+}
+
+.bj-AboutTeamcard h4{
+    font-size: 20px;
+    color: #210C7C;
+    font-family: var(--font-montserrat-semibold);
+    margin-bottom: 6px;
+}
+
+.bj-AboutTeamrole{
+    display: inline-block;
+    font-size: 14px;
+    color: #421AD5;
+    font-family: var(--font-roboto-bold);
+    margin-bottom: 15px;
+}
+
+.bj-AboutTeamcard p{
+    font-size: 14px;
+    line-height: 24px;
+    color: #5B5876;
+    font-family: var(--font-roboto);
+}
+
+@media screen and (max-width:1200px) {
+    .bj-AboutTeamhead h3{
+        font-size: 34px;
+        line-height: 44px;
+    }
+}
+
+@media screen and (max-width:990px) {
+    .bj-AboutTeamcard{
+        width: calc(50% - 15px);
+    }
+}
+
+@media screen and (max-width:600px) {
+    .bj-AboutTeamblock{
+        padding-bottom: 50px;
+    }
+
+    .bj-AboutTeamhead h3{
+        font-size: 28px;
+        line-height: 38px;
+    }
+
+    .bj-AboutTeamcard{
+        width: 100%;
+    }
+}
