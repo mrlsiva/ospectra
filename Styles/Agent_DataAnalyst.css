@@ -6,12 +6,30 @@
    ========================================================================== */
 
 :root {
-  --agent-accent: var(--teal);
+  --agent-accent: #5B3FE0;
+  --da-accent-light: #8a6ef5;
+  --agent-gradient: linear-gradient(135deg, #0f0c2c, #5B3FE0);
+}
+
+.da-hero-cta .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(91, 63, 224, 0.5);
+}
+
+.da-hero-cta .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.da-hero-cta .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ---------- back link ---------- */
 .agent-back-link:hover {
-  color: var(--teal);
+  color: var(--agent-accent);
 }
 
 /* ---------- section shell ---------- */
@@ -27,7 +45,10 @@
 .da-section-head h2 {
   font-family: var(--font-montserrat-bold), sans-serif;
   font-size: clamp(26px, 3vw, 36px);
-  color: var(--ink);
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .da-eyebrow-teal {
@@ -38,8 +59,8 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0d8a7a;
-  background: rgba(20, 184, 166, 0.14);
+  color: var(--agent-accent);
+  background: rgba(91, 63, 224, 0.1);
   padding: 7px 16px;
   border-radius: 20px;
   margin-bottom: 18px;
@@ -49,11 +70,26 @@
    HERO (kept unique visual: chart card)
    ========================================================================== */
 .da-hero {
-  background: linear-gradient(180deg, #ffffff 0%, #f2fbfa 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f6f3ff 100%);
   padding: 30px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.da-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(91, 63, 224, 0.18) 0%, rgba(91, 63, 224, 0) 70%);
+  pointer-events: none;
 }
 
 .da-hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 56px;
@@ -62,12 +98,12 @@
 
 .da-hero h1 {
   font-family: var(--font-montserrat-bold), sans-serif;
-  font-size: clamp(32px, 4.4vw, 50px);
+  font-size: clamp(30px, 4vw, 50px);
   color: var(--ink);
 }
 
 .da-hero .lede {
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.7;
   color: var(--muted);
   max-width: 560px;

@@ -309,6 +309,7 @@ header{
         position:fixed;
         left:0;
         top:-100vh;
+        top:-100dvh;
         gap:0;
         justify-content: flex-end;
         flex-direction: column;

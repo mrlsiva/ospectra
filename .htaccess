@@ -1,0 +1,23 @@
+# ==========================================================================
+# OSpectra — canonical URL guard
+# Prevents non-canonical / misspelled paths (e.g. /Plaform/ instead of
+# /Platform/) from silently resolving to a real page. Each directive is
+# guarded so it's a no-op if the relevant Apache module isn't loaded.
+# ==========================================================================
+
+# mod_speling can "helpfully" auto-correct a near-miss path (wrong case,
+# one typo'd character) to an existing file/directory instead of 404ing.
+# That's the most common cause of a typo'd URL like /Plaform/ still
+# loading the /Platform/ page.
+<IfModule mod_speling.c>
+    CheckSpelling Off
+</IfModule>
+
+# MultiViews content negotiation can also resolve a request to an
+# unintended file variant. Turn it off site-wide.
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+# Don't expose directory listings for folders without an index file.
+Options -Indexes

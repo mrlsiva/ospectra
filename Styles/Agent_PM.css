@@ -7,6 +7,14 @@
 
 :root {
   --agent-accent: var(--pink);
+  --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 body {
@@ -48,7 +56,7 @@ body {
 }
 
 .pm-hero-copy h1 {
-  font-size: clamp(28px, 3.4vw, 48px);
+  font-size: clamp(30px, 4vw, 50px);
   color: var(--ink);
   font-family: var(--font-montserrat-bold), sans-serif;
 }
@@ -70,6 +78,22 @@ body {
   gap: 22px;
   margin-top: 8px;
   flex-wrap: wrap;
+}
+
+.pm-hero-actions .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.55);
+}
+
+.pm-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.pm-hero-actions .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .pm-hero-actions .pm-link span {
@@ -222,13 +246,9 @@ body {
 /* ==========================================================================
    SHARED SECTION HEAD (color tint)
    ========================================================================== */
-.pm-section-head h2 {
-  color: var(--ink);
-}
-
 .pm-section-head h2 span {
   font-weight: 300;
-  color: var(--pink);
+  color: #180F5A;
 }
 
 .pm-note {

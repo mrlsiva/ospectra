@@ -8,6 +8,30 @@
 
 :root {
   --agent-accent: var(--purple);
+  --agent-gradient: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ce-hero-actions .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(91, 63, 224, 0.5);
+}
+
+.ce-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.ce-hero-actions .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ==========================================================================
@@ -27,7 +51,7 @@
 }
 
 .ce-hero-copy h1 {
-  font-size: clamp(30px, 3.8vw, 54px);
+  font-size: clamp(30px, 4vw, 50px);
   color: var(--purple);
   font-family: var(--font-montserrat-bold), sans-serif;
 }

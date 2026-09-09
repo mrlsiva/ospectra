@@ -8,6 +8,14 @@
 
 :root {
   --agent-accent: var(--pink);
+  --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .accent-pink {
@@ -25,7 +33,7 @@
 
 .spm-title {
   font-family: var(--font-montserrat-bold), sans-serif;
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(30px, 4vw, 50px);
   color: var(--pink);
   line-height: 1.2;
   margin-top: 14px;
@@ -42,6 +50,22 @@
   gap: 22px;
   margin-top: 22px;
   flex-wrap: wrap;
+}
+
+.spm-hero-actions .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.55);
+}
+
+.spm-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.spm-hero-actions .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ================= WHAT THE TEAM SEES — coverage board (kept unique visual) ================= */

@@ -16,7 +16,7 @@
 
     function getCurrentPageKey() {
         const pathname = window.location.pathname.toLowerCase();
-        if (pathname.endsWith('/index.html') || pathname === '/' || pathname === '') return 'home';
+        if (pathname === '/' || pathname === '') return 'home';
         if (pathname.includes('/about/')) return 'about';
         if (pathname.includes('/platform/') || pathname.includes('/platform_new/')) return 'platform';
         if (pathname.includes('/solutions/') || pathname.includes('/ai-labs/')) return 'solutions';

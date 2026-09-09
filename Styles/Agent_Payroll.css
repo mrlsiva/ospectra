@@ -10,10 +10,31 @@
   --pr-indigo: #4338ca;
   --pr-indigo-soft: rgba(67, 56, 202, 0.08);
   --pr-mono: var(--font-roboto), sans-serif;
+  --pr-gradient: linear-gradient(135deg, #4338ca, #14b8a6);
+  --agent-gradient: var(--pr-gradient);
+}
+
+/* ---- group-3 gradient theme (matches the AI-Labs portfolio group tab) ---- */
+.eyebrow {
+  background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(20, 184, 166, 0.12));
+}
+
+.section-head h2 {
+  background: var(--pr-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.agent-owns-idx,
+.agent-step-num {
+  background: var(--pr-gradient);
+  color: #fff;
 }
 
 /* ---------- back link ---------- */
 .agent-back-link {
+  display: block;
   letter-spacing: 0.02em;
   margin-bottom: 40px;
 }
@@ -60,6 +81,7 @@
    HERO (kept unique visual: monospace tagline)
    ========================================================================== */
 .pr-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #eefbf8 100%);
   padding: 56px 0 0;
 }
 
@@ -68,7 +90,8 @@
 }
 
 .pr-hero-h1 {
-  font-size: clamp(30px, 4.4vw, 50px);
+  font-family: var(--font-montserrat-bold), sans-serif;
+  font-size: clamp(30px, 4vw, 50px);
   line-height: 1.12;
   max-width: 880px;
   color: var(--ink);
@@ -85,7 +108,7 @@
 
 .pr-hero-lede {
   max-width: 720px;
-  font-size: 16.5px;
+  font-size: 15px;
   line-height: 1.75;
   color: var(--muted);
   margin-bottom: 32px;
@@ -100,12 +123,23 @@
 }
 
 .pr-hero-actions .btn-primary {
-  background: var(--pr-indigo);
+  background: var(--pr-gradient);
   box-shadow: 0 12px 24px -10px rgba(67, 56, 202, 0.5);
 }
 
 .pr-hero-actions .btn-primary:hover {
   box-shadow: 0 16px 30px -10px rgba(67, 56, 202, 0.6);
+}
+
+.pr-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.pr-hero-actions .btn-primary .btn-arrow {
+  background: var(--pr-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .pr-link {

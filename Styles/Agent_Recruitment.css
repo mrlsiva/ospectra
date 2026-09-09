@@ -6,6 +6,14 @@
 
 :root {
   --agent-accent: var(--pink);
+  --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .accent-pink {
@@ -26,14 +34,15 @@
 }
 
 .rec-hero-copy h1 {
-  font-size: 44px;
+  font-family: var(--font-montserrat-bold), sans-serif;
+  font-size: clamp(30px, 4vw, 50px);
   color: var(--ink);
   max-width: 560px;
 }
 
 .rec-hero-copy p {
   max-width: 520px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .rec-hero-actions {
@@ -42,6 +51,22 @@
   gap: 26px;
   margin-top: 12px;
   flex-wrap: wrap;
+}
+
+.rec-hero-actions .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.55);
+}
+
+.rec-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.rec-hero-actions .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .rec-hero-actions .btn-link {
@@ -135,8 +160,3 @@
   }
 }
 
-@media (max-width: 600px) {
-  .rec-hero-copy h1 {
-    font-size: 32px;
-  }
-}

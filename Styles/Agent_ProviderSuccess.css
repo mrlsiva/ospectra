@@ -7,6 +7,14 @@
 
 :root {
   --agent-accent: var(--pink);
+  --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .accent-pink {
@@ -36,7 +44,7 @@
 }
 
 .ps-hero-inner .lede {
-  font-size: 16px;
+  font-size: 15px;
   max-width: 700px;
   color: #6B6B80;
   font-weight: 400;
@@ -48,6 +56,22 @@
   gap: 26px;
   flex-wrap: wrap;
   margin-top: 10px;
+}
+
+.ps-hero-actions .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(236, 72, 153, 0.55);
+}
+
+.ps-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.ps-hero-actions .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ================= ROADMAP + STAGE CARDS (kept unique visual) ================= */

@@ -7,6 +7,30 @@
 
 :root {
   --agent-accent: var(--purple);
+  --agent-gradient: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cs-hero-actions .btn-primary {
+  background: var(--agent-gradient);
+  box-shadow: 0 12px 24px -10px rgba(91, 63, 224, 0.5);
+}
+
+.cs-hero-actions .btn-primary .btn-circle {
+  background: #fff;
+}
+
+.cs-hero-actions .btn-primary .btn-arrow {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ================= HERO (kept unique visual: health gauge) ================= */
@@ -22,7 +46,7 @@
 }
 
 .cs-hero-copy h1 {
-  font-size: clamp(30px, 4vw, 48px);
+  font-size: clamp(30px, 4vw, 50px);
   color: var(--ink);
   font-family: var(--font-montserrat-bold), sans-serif;
   line-height: 1.22;
@@ -30,7 +54,7 @@
 }
 
 .cs-hero-copy .lede {
-  font-size: 16.5px;
+  font-size: 15px;
   max-width: 620px;
   color: #6B6B80;
   font-weight: 400;

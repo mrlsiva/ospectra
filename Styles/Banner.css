@@ -23,7 +23,7 @@ main{
     height: 100%;
     position: absolute;
     top: 0;
-    background-image: url("../Assets/images/HomeBanner_Overlay.svg");
+    /* background-image: url("../Assets/images/HomeBanner_Overlay.svg"); */
     background-repeat: no-repeat;
     background-size: cover;
 }

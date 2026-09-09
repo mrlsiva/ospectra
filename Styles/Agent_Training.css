@@ -7,6 +7,14 @@
 
 :root {
   --agent-accent: var(--pink);
+  --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.section-head h2 {
+  background: var(--agent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ==========================================================================
@@ -26,7 +34,7 @@
 
 .tv-h1 {
     font-family: var(--font-montserrat-bold), sans-serif;
-    font-size: clamp(30px, 3.8vw, 52px);
+    font-size: clamp(30px, 4vw, 50px);
     color: var(--pink);
     margin-top: 14px;
 }
@@ -53,8 +61,19 @@
 }
 
 .tv-hero-actions .btn-primary {
-    background: var(--pink);
+    background: var(--agent-gradient);
     box-shadow: 0 12px 24px -10px rgba(236, 72, 153, .55);
+}
+
+.tv-hero-actions .btn-primary .btn-circle {
+    background: #fff;
+}
+
+.tv-hero-actions .btn-primary .btn-arrow {
+    background: var(--agent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .tv-hero-actions .btn-link span {
