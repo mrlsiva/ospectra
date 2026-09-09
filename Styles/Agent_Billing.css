@@ -14,6 +14,10 @@
   --agent-gradient: var(--bl-gradient);
 }
 
+.btn-link {
+  background: color-mix(in srgb, var(--agent-accent) 18%, white);
+}
+
 /* ---- group-3 gradient theme (matches the AI-Labs portfolio group tab) ---- */
 .eyebrow {
   background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(20, 184, 166, 0.12));

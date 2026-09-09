@@ -10,6 +10,10 @@
   --agent-gradient: linear-gradient(135deg, #5B3FE0, #8a6ef5);
 }
 
+.btn-link {
+  background: color-mix(in srgb, var(--agent-accent) 18%, white);
+}
+
 .section-head h2 {
   background: var(--agent-gradient);
   -webkit-background-clip: text;

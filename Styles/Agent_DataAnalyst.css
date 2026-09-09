@@ -11,6 +11,10 @@
   --agent-gradient: linear-gradient(135deg, #0f0c2c, #5B3FE0);
 }
 
+.btn-link {
+  background: color-mix(in srgb, var(--agent-accent) 18%, white);
+}
+
 .da-hero-cta .btn-primary {
   background: var(--agent-gradient);
   box-shadow: 0 12px 24px -10px rgba(91, 63, 224, 0.5);

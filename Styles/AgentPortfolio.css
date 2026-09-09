@@ -318,10 +318,6 @@
 }
 
 /* ---------- Sticky tab bar ---------- */
-.ap-briefs {
-  padding-bottom: 90px;
-}
-
 .ap-tabbar-sticky {
   position: sticky;
   top: 0;

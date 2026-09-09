@@ -9,6 +9,15 @@
   --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
 }
 
+.btn-link {
+  background: color-mix(in srgb, var(--agent-accent) 18%, white);
+}
+
+/* "Previous" points to Customer Success (group 1) — theme the link to its own group */
+.agent-pager-prev {
+  color: var(--purple);
+}
+
 .section-head h2 {
   background: var(--agent-gradient);
   -webkit-background-clip: text;
@@ -22,7 +31,7 @@
 
 /* ================= HERO (kept unique visual: funnel) ================= */
 .rec-hero {
-  background: var(--lavender-bg);
+  background: linear-gradient(180deg, #ffffff 0%, #fef9fc 100%);
   padding-bottom: 70px;
 }
 

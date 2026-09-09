@@ -215,6 +215,15 @@ ul {
 }
 
 .btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 15px 26px;
+  border-radius: 40px;
+  background: var(--purple-pale);
   color: var(--ink);
 }
 
