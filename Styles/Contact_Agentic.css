@@ -444,16 +444,31 @@ lottie-player{
     .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblockoneimg .bj-secondblockone{
         width: 230px;
         top: 35px;
-    }   
+    }
 
     .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblocksecondimg .bj-secondblocksecond{
-        height: 250px;
+        height: 280px;
         left: unset;
         top: 15%;
     }
 
     .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblocksecondimg .bj-secondblocksecond .bj-Contactblueboxblock .bj-Contactbluebox{
         width: 55%;
+    }
+
+    .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblocksecondimg .bj-secondblocksecond .bj-Contactblueboxblock .bj-Contactbluebox span,
+    .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblocksecondimg .bj-secondblocksecond .bj-Contactblueboxblock .bj-Contactbluebox p{
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblocksecondimg .bj-secondblocksecond .bj-Contactblueboxblock .bj-Contactbluebox p{
+        padding-top: 6px;
+        padding-bottom: 10px;
+    }
+
+    .bj-ContactAgenticblock .bj-secondAgeneticlevel .bj-secondAgeneticleft .bj-secondblocksecondimg .bj-secondblocksecond .bj-Contactblueboxblock .bj-Contactbluebox .bj-Contactsecondbox{
+        padding-top: 10px;
     }
 
     .bj-ContactAgenticblock .bj-secondblockthreeimg .bj-secondblockthree {
