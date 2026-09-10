@@ -18,6 +18,14 @@
   background: color-mix(in srgb, var(--agent-accent) 18%, white);
 }
 
+/* "Next" points to Data Analyst and Scientist (group 4) — theme the link to its own group */
+.agent-pager-next {
+  background: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ---- group-3 gradient theme (matches the AI-Labs portfolio group tab) ---- */
 .eyebrow {
   background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(20, 184, 166, 0.12));

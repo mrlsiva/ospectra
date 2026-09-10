@@ -15,6 +15,17 @@
   background: color-mix(in srgb, var(--agent-accent) 18%, white);
 }
 
+/* Pager links (Previous: Data Analyst, group 4; Next: back to the portfolio) — the
+   group's real gradient (navy→purple) is too dark to read at pager-link size, so
+   use the lighter purple pairing instead */
+.agent-pager-prev,
+.agent-pager-next {
+  background: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .section-head h2 {
   background: var(--agent-gradient);
   -webkit-background-clip: text;

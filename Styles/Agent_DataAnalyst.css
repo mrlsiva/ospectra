@@ -15,6 +15,23 @@
   background: color-mix(in srgb, var(--agent-accent) 18%, white);
 }
 
+/* "Previous" points to Payroll (group 3) — theme the link to its own group */
+.agent-pager-prev {
+  background: linear-gradient(135deg, #4338ca, #14b8a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* "Next" points to Command Center (group 4) — the group's real gradient (navy→purple)
+   is too dark to read at pager-link size, so use the lighter purple pairing instead */
+.agent-pager-next {
+  background: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .da-hero-cta .btn-primary {
   background: var(--agent-gradient);
   box-shadow: 0 12px 24px -10px rgba(91, 63, 224, 0.5);

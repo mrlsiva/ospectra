@@ -10,6 +10,14 @@
   --agent-gradient: linear-gradient(135deg, #ec4899, #f472b6);
 }
 
+/* "Next" points to Compliance and Audit (group 3) — theme the link to its own group */
+.agent-pager-next {
+  background: linear-gradient(135deg, #4338ca, #14b8a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .btn-link {
   background: color-mix(in srgb, var(--agent-accent) 18%, white);
 }

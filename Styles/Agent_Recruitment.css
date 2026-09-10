@@ -15,7 +15,10 @@
 
 /* "Previous" points to Customer Success (group 1) — theme the link to its own group */
 .agent-pager-prev {
-  color: var(--purple);
+  background: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .section-head h2 {

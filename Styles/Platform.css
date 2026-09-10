@@ -28,6 +28,15 @@
     font-weight: bold;
 }
 
+.bj-platformsubtitle{
+    font-size: 16px;
+    font-family: var(--font-roboto);
+    color: #6B6B80;
+    text-align: center;
+    max-width: 600px;
+    margin: 12px auto 0;
+}
+
 .bj-platformboxblock{
     width: 100%;
     height: 500px;
@@ -46,7 +55,7 @@
     width: 70%;
     height: 100%;
     font-family: var(--font-roboto);
-    overflow:  scroll;
+    overflow: hidden;
     scroll-behavior: smooth;
     display: inline-block;
 }

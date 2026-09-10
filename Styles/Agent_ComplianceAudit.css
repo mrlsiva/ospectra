@@ -19,6 +19,14 @@
   background: color-mix(in srgb, var(--agent-accent) 18%, white);
 }
 
+/* "Previous" points to PM Collaboration (group 2) — theme the link to its own group */
+.agent-pager-prev {
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ---- group-3 gradient theme (matches the AI-Labs portfolio group tab) ---- */
 .eyebrow {
   background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(20, 184, 166, 0.12));
