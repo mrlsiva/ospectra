@@ -6,39 +6,107 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://ospectra.ai/</loc>
-  <lastmod>2025-08-13T02:22:13+00:00</lastmod>
+  <lastmod>2026-09-23</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://ospectra.ai/index.html</loc>
-  <lastmod>2025-08-13T02:22:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://ospectra.ai/About/</loc>
-  <lastmod>2025-08-13T02:22:14+00:00</lastmod>
+  <lastmod>2026-09-23</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ospectra.ai/Platform/</loc>
-  <lastmod>2025-08-13T02:22:14+00:00</lastmod>
+  <lastmod>2026-09-23</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ospectra.ai/Solutions/</loc>
-  <lastmod>2025-08-13T02:22:14+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://ospectra.ai/AI-Labs/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/billing/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/command-center/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/compliance-audit/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/customer-engagement/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/customer-success/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/data-analyst-scientist/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/marketing/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/payroll/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/pm-collaboration/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/provider-success/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/recruitment/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/scheduling-provider-matching/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/sdr/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/AI-Labs/training-video-change-management/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://ospectra.ai/Blog/</loc>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
   <loc>https://ospectra.ai/Career/</loc>
-  <lastmod>2025-08-13T02:22:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2026-09-23</lastmod>
+  <priority>0.70</priority>
 </url>
 <url>
   <loc>https://ospectra.ai/Contact/</loc>
-  <lastmod>2025-08-13T02:22:15+00:00</lastmod>
+  <lastmod>2026-09-23</lastmod>
   <priority>0.80</priority>
 </url>
-
-
 </urlset>
