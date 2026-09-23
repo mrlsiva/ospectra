@@ -143,17 +143,20 @@ main{
 
 @media screen and (max-width:600px) {
     .bj-bannermainimage{
+            background-size: 100% 100% !important;
+
         background-image: url("../Assets/images/HomeBanner_Mobile.png");
     }
 
     .bj-bannermainlogo{
-        background-image: url("../Assets/images/HomeBanner_Overlay_Mobile.svg");
+            background-size: 100% 100% !important;
+        /* background-image: url("../Assets/images/HomeBanner_Overlay_Mobile.svg"); */
     }
 
     .bj-bannerlefttext{
         width: 90%;
         margin-left: 40px;
-        bottom: 60px;
+        bottom: 28px;
     }
 
     .bj-bannerlefttext h3{

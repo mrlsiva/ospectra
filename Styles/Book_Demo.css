@@ -32,7 +32,136 @@
     position: absolute;
     top: 30px;
     right: 30px;
-}   
+}
+
+.bd-panel {
+    background: #fff;
+    border-radius: 20px;
+    padding: 48px 44px;
+    max-width: 920px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.bd-head {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.bd-head h3 {
+    font-size: 28px;
+    color: #180F5A;
+    font-family: var(--font-montserrat-bold), sans-serif;
+    margin: 0 0 8px;
+}
+
+.bd-head p {
+    color: #6B6B80;
+    font-size: 15px;
+    margin: 0;
+}
+
+.bd-options {
+    display: flex;
+    gap: 24px;
+}
+
+.bd-option {
+    flex: 1;
+    background: #F6F4FD;
+    border: 1px solid #E7E3F6;
+    border-radius: 16px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.bd-option:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px -20px rgba(23, 20, 58, 0.25);
+}
+
+.bd-option-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #5B3FE0, #8a6ef5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.bd-option h4 {
+    font-size: 19px;
+    color: #180F5A;
+    font-family: var(--font-montserrat-bold), sans-serif;
+    margin: 0 0 10px;
+}
+
+.bd-option-desc {
+    font-size: 13.5px;
+    color: #6B6B80;
+    line-height: 1.6;
+    margin: 0 0 14px;
+    flex-grow: 1;
+}
+
+.bd-option-best {
+    font-size: 12.5px;
+    color: #6B6B80;
+    line-height: 1.5;
+    margin: 0 0 18px;
+}
+
+.bd-option-best strong {
+    color: #180F5A;
+}
+
+.bd-option-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #5B3FE0;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 20px;
+    border-radius: 30px;
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.bd-option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(91, 63, 224, 0.6);
+}
+
+@media screen and (max-width:900px) {
+    .bd-panel {
+        padding: 36px 24px;
+    }
+
+    .bd-options {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .bd-panel {
+        padding: 28px 18px;
+    }
+
+    .bd-head h3 {
+        font-size: 22px;
+    }
+}
 @media screen and (max-width:1660px) {
     .Book_Demoslogo{
         height: 650px;
