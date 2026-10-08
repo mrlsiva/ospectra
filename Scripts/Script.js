@@ -89,3 +89,21 @@ function openDemo() {
 function closeDemo() {
     document.getElementById('book-demo').style.display = 'none';
 }
+
+function playInlineVideo(el) {
+    if (!el || el.classList.contains('is-playing')) return;
+    var videoId = el.getAttribute('data-video-id');
+    if (!videoId) return;
+
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+    iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('title', 'Product demo video');
+
+    el.classList.add('is-playing');
+    el.style.backgroundImage = 'none';
+    el.removeAttribute('onclick');
+    el.appendChild(iframe);
+}

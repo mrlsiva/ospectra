@@ -268,5 +268,124 @@
         width: 70px;
     }
 
-    
+
+}
+
+/* Demo video section wrapper (used standalone on pages without the shared .section/.wrap system) */
+.demo-video-section {
+    width: 100%;
+    padding: 100px 20px;
+    box-sizing: border-box;
+}
+
+.demo-video-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.demo-video-eyebrow {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #5B3FE0;
+    margin-bottom: 14px;
+}
+
+.demo-video-head h2 {
+    font-size: 2.375rem;
+    line-height: 1.25;
+    color: #180F5A;
+    font-family: var(--font-montserrat-bold), sans-serif;
+    margin: 0;
+}
+
+.demo-video-head h2 span {
+    background: linear-gradient(135deg, #5B3FE0, #FB2CFE);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@media screen and (max-width:768px) {
+    .demo-video-section {
+        padding: 60px 16px;
+    }
+
+    .demo-video-head h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Inline on-page video embed (poster + play button, swaps to iframe on click) */
+.inline-video-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.inline-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #0d0a24;
+    background-size: cover;
+    background-position: center;
+}
+
+.inline-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.inline-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.inline-video-play svg {
+    margin-left: 4px;
+}
+
+.inline-video:hover .inline-video-play {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: #fff;
+}
+
+.inline-video.is-playing .inline-video-play {
+    display: none;
+}
+
+@media screen and (max-width:600px) {
+    .inline-video {
+        border-radius: 14px;
+    }
+
+    .inline-video-play {
+        width: 60px;
+        height: 60px;
+    }
+
+    .inline-video-play svg {
+        width: 20px;
+        height: 20px;
+    }
 }
